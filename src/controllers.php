@@ -8,7 +8,7 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 
-//Request::setTrustedProxies(array('127.0.0.1'));
+Request::setTrustedProxies(array('127.0.0.1'));
 
 $app['dolibarr'] = new Dolibarr($app);
 $app['etupay.decrypt']= $app->protect(function (string $payload) use ($app)
