@@ -6,6 +6,11 @@ $app['debug'] = false;
 $app['twig.path'] = array(__DIR__.'/../templates');
 $app['twig.options'] = array('cache' => __DIR__.'/../var/cache/twig');
 
+$app->register(new \Silex\Provider\MonologServiceProvider(), array(
+    'monolog.logfile' => 'php://stderr',
+    'monolog.level' => \Monolog\Logger::WARNING,
+));
+
 $app['etuutt.id'] = getenv('ETUUTT_ID');
 $app['etuutt.secret'] = getenv('ETUUTT_SECRET');
 $app['dolikey'] = getenv('DOLIKEY');
