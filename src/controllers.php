@@ -37,8 +37,10 @@ $refresh_profil = function (Request $request, \Silex\Application $app) {
     if($app['session']->has('dolibarr'))
     {
         $temp = $dolibarr = $app['dolibarr']->getMemberByLogin($app['session']->get('dolibarr')['login']);
-        if($temp)
+        if($temp) {
             $app['session']->set('dolibarr', $temp);
+            $app['session']->set('subscription_active', $temp['subscription_active']);
+        }
     }
 };
 
