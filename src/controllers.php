@@ -59,10 +59,15 @@ $app->get('/dashboard', function () use ($app) {
  * EtuPay Callback
  */
 $app->post('etupay/callback', function (Request $request) use ($app) {
-    if(!$request->request->has('payload'))
+    if($request->request->has('payload'))
+        $payload = $request->request->get('payload');
+    else if($request->query->has('payload'))
+        $payload = $request->query->get('payload');
+
+    if(!isset($payload))
         return new Response('Unexpected query', 402);
 
-    $data = $app['etupay.decrypt']($request->request->get('payload'));
+    $data = $app['etupay.decrypt']($payload);
     if(!$data)
         return new Response('Incorrect payload', 402);
 
