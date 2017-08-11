@@ -1,0 +1,90 @@
+{% extends "dashboard.html.twig" %}
+
+{% block content %}
+    <div class="starter-template">
+
+        <h1>{{ 'dashboard.title'|trans }}</h1>
+        <p class="lead">{{ 'dashboard.text'|trans }}</p>
+        <p class="lead"><a href="{{ url('cotiser') }}" class="btn btn-lg btn-danger">{{ 'dashboard.membership'|trans }}</a></p>
+    </div>
+
+    {% if app.session.get('subscription_active') %}
+        <div class="panel panel-success">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ app.session.get('dolibarr')['firstname'] }} {{ app.session.get('dolibarr')['lastname'] }}</h3>
+            <small>{{ 'state.member'|trans }}</small>
+        </div>
+    {% else %}
+        <div class="panel panel-danger">
+        <div class="panel-heading">
+            <h3 class="panel-title">{{ app.session.get('dolibarr')['firstname'] }} {{ app.session.get('dolibarr')['lastname'] }}</h3>
+            <small>{{ 'state.no_member'|trans }}</small>
+        </div>
+    {% endif %}
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://etu.utt.fr/uploads/photos/{{ app.session.get('user')['login'] }}_official.jpg" class="img-circle img-responsive"> </div>
+            <div class=" col-md-9 col-lg-9 ">
+                <table class="table table-user-information">
+                    <tbody>
+                    {% if app.session.get('dolibarr')['array_options']['options_semester'] is defined %}
+                    <tr>
+                        <td>{{ 'user.level'|trans }} :</td>
+                        <td>{{ app.session.get('dolibarr')['array_options']['options_semester'] }}</td>
+                    </tr>
+                    {% endif %}
+                    {% if app.session.get('dolibarr')['array_options']['options_student'] is defined %}
+                        <tr>
+                            <td>{{ 'user.student_id'|trans }} :</td>
+                            <td>{{ app.session.get('dolibarr')['array_options']['options_student'] }}</td>
+                        </tr>
+                    {% endif %}
+                    <tr>
+                        <td>{{ 'user.email'|trans }} :</td>
+                        <td>{{ app.session.get('dolibarr')['email'] }}</td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Historiques de cotisations -->
+    <div class="panel panel-default">
+        <div class="panel-heading">{{ 'dashboard.my_membership'|trans }}</div>
+        <div class="panel-body">
+            {{ 'dashboard.panel.text'|trans }}
+        </div>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>{{ 'state.start'|trans }}</th>
+                <th>{{ 'state.end'|trans }}</th>
+                <th>{{ 'word.price'|trans }}</th>
+            </tr>
+            <tbody>
+            {% for id, subscription  in app.dolibarr.getSubscriptionsById(app.session.get('dolibarr')['id']) %}
+                {% if ((date().timestamp >= subscription['dateh']|date('U'))  and (date().timestamp <= subscription['datef'])) %}
+                    <tr class="bg-success">
+                {% else %}
+                    <tr>
+                {% endif %}
+                <th class="row">{{ subscription['id'] }}</th>
+                <td>{{ subscription['dateh']|date("d/m/Y") }}</td>
+                <td>{{ subscription['datef']|date("d/m/Y") }}</td>
+                <td>{{ subscription['amount']|round(2, 'floor') }} €</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            </thead>
+        </table>
+        <div class="panel-footer">
+            <a href="{{ url('cotiser') }}" class="btn btn-sm btn-danger pull-right">{{ 'dashboard.membership'|trans }}</a>
+            <div class="clearfix"></div>
+        </div>
+
+    </div>
+{% endblock %}

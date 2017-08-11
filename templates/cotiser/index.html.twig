@@ -1,0 +1,49 @@
+{% extends "dashboard.html.twig" %}
+
+{% block content %}
+        <h1>{{ 'membership.title'|trans }}</h1>
+        <p class="lead">{% if date().timestamp < app['cotisations']['automne']['start']|date('U') %} {{ 'membership.semester_statement'|trans({'%semester': 'Printemps'}) }} {% else %} {{ 'membership.semester_statement'|trans({'%semester': 'Automne'}) }} {% endif %}</p>
+
+
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <h5><span class="glyphicon glyphicon-shopping-cart"></span> {{ 'membership.price_choice'|trans }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form action="" method="post">
+                    <div class="panel-body">
+                        <div class="form-group"> <!-- Radio group !-->
+                            <label class="control-label">{{ 'membership.choice_label'|trans }}</label>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio" name="cotisations" value="year" checked>
+                                    {{ 'membership.price.year_label'|trans }} <strong>{{ 'word.year'|trans }}</strong> <small>({{ app['cotisations']['year']['start']|date('d/m/Y') }} - {{ app['cotisations']['year']['end']|date('d/m/Y') }})</small> <strong>{{ app['cotisations']['year']['price'] }} €</strong>.
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio"  name="cotisations" value="automne">
+                                    {{ 'membership.price.semester_label'|trans }} <strong>{{ 'word.autumn'|trans }}</strong> <small>({{ app['cotisations']['automne']['start']|date('d/m/Y') }} - {{ app['cotisations']['automne']['end']|date('d/m/Y') }})</small> <strong>{{ app['cotisations']['automne']['price'] }} €</strong>.
+                                </label>
+                            </div>
+                            <div class="radio">
+                                <label>
+                                    <input type="radio"  name="cotisations" value="printemp">
+                                    {{ 'membership.price.semester_label'|trans }} <strong>{{ 'word.spring'|trans }}</strong> <small>({{ app['cotisations']['printemp']['start']|date('d/m/Y') }} - {{ app['cotisations']['printemp']['end']|date('d/m/Y') }})</small> <strong>{{ app['cotisations']['printemp']['price'] }} €</strong>.
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <input type="submit" class="btn btn-lg btn-success pull-right" value="{{ 'membership.submit'|trans }}">
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+        </div>
+    </div>
+{% endblock %}
