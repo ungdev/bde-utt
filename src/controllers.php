@@ -48,9 +48,14 @@ $refresh_profil = function (Request $request, \Silex\Application $app) {
  * Controllers
  */
 
+$app->get('/', function () use ($app) {
+    return new RedirectResponse($app['url_generator']->generate('home'));
+})->bind('default');
+
 $app->get('/{_locale}', function () use ($app) {
     return $app['twig']->render('cover.html.twig', array());
-})->bind('home')->value('_locale', 'fr');
+})->bind('home')
+->assert('_locale', '[a-zA-Z]{2}');
 
 // changement de langue
 $app->get('/langue/{locale}', function ($locale) use ($app) {
