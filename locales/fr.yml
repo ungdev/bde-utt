@@ -1,0 +1,37 @@
+app.name: Gestionnaire de cotisations
+cover.welcome_text: 'Pour te connecter à l’espace cotisation, clique juste en dessous, et connecte toi ! '
+dashboard.membership: 'Je (re)deviens cotisant !'
+dashboard.my_membership: Mes cotisations
+dashboard.panel.text: "Retrouve ici l’ensemble de tes cotisations au BDE UTT."
+dashboard.text: "C'est ici qu'il est possible de suivre l'évolution des cotisations au BDE UTT, ainsi que pouvoir cotiser à tout moment, en cliquant sur ce gros bouton rouge juste en dessous : facile non ?"
+dashboard.title: Mon Espace Cotisation
+error.happening: Une erreur est survenue durant le traitement de la demande.
+error.no_connected: Vous devez être connecté(e) pour accéder à cette page.
+membership.choice_label: "Je cotise pour :"
+membership.price.semester_label: le 
+membership.price.year_label: "l’"
+membership.price_choice: Tarifs
+membership.semester_statement: "Nous sommes actuellement en semestre: %semester"
+membership.submit: Valider
+membership.title: Je renouvelle ma cotisation
+menu.dashboard: Mes Informations
+menu.home: Accueil
+menu.logout: Déconnexion
+menu.login: Connexion
+menu.membership: Cotiser
+membership.letter: Télécharger mon justificatif
+state.end: Date de fin
+state.member: Cotisant
+state.no_member: Non cotisant
+state.start: Date de début
+success.login: Vous êtes connecté !
+success.logout: A bientôt !
+title.my_account: Cotisation BDE UTT
+transaction.willbeproceded: La transaction va être traitée.
+user.email: E-mail
+user.level: Niveau d’étude
+user.student_id: "Numéro d'étudiant "
+word.autumn: semestre d’automne
+word.price: Prix
+word.spring: semestre de printemps
+word.year: année

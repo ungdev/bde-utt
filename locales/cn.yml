@@ -1,0 +1,37 @@
+app.name: 捐助金管理中心
+cover.welcome_text: 您只需要点击下方就可以登录您的捐助金空间了
+dashboard.membership: 我成为捐款者
+dashboard.my_membership: 我捐的钱
+dashboard.panel.text: 在 BDE UTT 找到您所有的捐款记录
+dashboard.text: 在 BDE UTT 您可以跟进您捐款的进化，还可以随时捐钱，只需按下方红键：简单吧！
+dashboard.title: 我的捐助金空间
+error.happening: 处理需求时出错误了
+error.no_connected: 您应该连接网才能获得这一页
+membership.choice_label: 我捐钱是为了：
+membership.price.semester_label: ' '
+membership.price.year_label: ' '
+membership.price_choice: 价格
+membership.semester_statement: "我们正在学期: %semester"
+membership.submit: 确认
+membership.title: 我重申我的捐款
+menu.dashboard: 我的信息
+menu.home: 首页
+menu.logout: 退出
+menu.login: 登录
+menu.membership: 捐款
+membership.letter: 下载我的证明
+state.end: 结束日期
+state.member: 捐款者
+state.no_member: 非捐款者
+state.start: 开始日期
+success.login: 登录成功
+success.logout: 回头见
+title.my_account: BDE UTT 捐助金
+transaction.willbeproceded: 即将处理交易
+user.email: 电子邮件
+user.level: 学历
+user.student_id: 学生编号
+word.autumn: 秋季学期
+word.price: 价格
+word.spring: 春季学期
+word.year: 年

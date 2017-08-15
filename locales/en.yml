@@ -1,36 +1,37 @@
-app.name:
-cover.welcome_text:
-dashboard.membership:
-dashboard.my_membership:
-dashboard.panel.text:
-dashboard.text:
-dashboard.title:
-error.happening:
-error.no_connected:
-membership.choice_label:
-membership.price.semester_label:
-membership.price.year_label:
-membership.price_choice:
-membership.semester_statement: %semester
-membership.submit:
-membership.title:
-menu.dashboard:
-menu.home:
-menu.logout:
-menu.membership:
-state.end:
-state.member:
-state.no_member:
-state.start:
-success.login:
-success.logout:
-title.my_account:
-title.my_account:
-transaction.willbeproceded:
-user.email:
-user.level:
-user.student_id:
-word.autumn:
-word.price:
-word.spring:
-word.year:
+app.name: Membership manager
+cover.welcome_text: To access your membership manager, click right below and log in !
+dashboard.membership: I am becoming a member (again) !
+dashboard.my_membership: My memberships
+dashboard.panel.text: Here, you will be able to manage your membership (subscribing and tracking) by clicking on the big red button. As easy as that !
+dashboard.text: Here, you will be able to find out about all your BDE UTT memberships.
+dashboard.title: My Membership Dashboard
+error.happening: An error has occurred while processing  your request.
+error.no_connected: You need to be logged in to access this page.
+membership.choice_label: I subscribe for
+membership.price.semester_label: ' '
+membership.price.year_label: ' '
+membership.price_choice: Fees
+membership.semester_statement: We currently are in %semester semester
+membership.submit: Submit
+membership.title: I want to renew my membership
+menu.dashboard: My informations
+menu.home: Home
+menu.logout: Log out
+menu.login : Log in
+menu.membership: Subscribe
+membership.letter: Download my membership proof
+state.end: End date
+state.member: Member
+state.no_member: No member
+state.start: Starting date
+success.login: You successfully logged in !
+success.logout: See you soon !
+title.my_account: Membership BDE UTT
+transaction.willbeproceded: Your transaction will be proceded.
+user.email: email
+user.level: level of study
+user.student_id: Student number
+word.autumn: autumn semester
+word.price: Price
+word.spring: spring semester
+word.year: year

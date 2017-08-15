@@ -17,6 +17,7 @@
 
     <!-- Custom styles for this template -->
     <link href="{{ asset('css/cover.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/flags.min.css') }}" rel="stylesheet">
     <![endif]-->
 </head>
 
@@ -31,15 +32,24 @@
             <div class="masthead clearfix">
                 <div class="inner">
                     <h3 class="masthead-brand">{{ 'app.name'|trans }}</h3>
-                    {% if app.session.has('user') %}
                     <nav>
                         <ul class="nav masthead-nav">
                             <li><a href="{{ app.url_generator.generate('home') }}">{{ 'menu.home'|trans }}</a></li>
-                            <li><a href="{{ app.url_generator.generate('dashboard') }}">{{ 'menu.dashboard'|trans }}</a></li>
-                            <li><a href="{{ app.url_generator.generate('logout') }}">{{ 'menu.logout'|trans }}</a></li>
+                            {% if app.session.has('user') %}
+                                <li><a href="{{ app.url_generator.generate('dashboard') }}">{{ 'menu.dashboard'|trans }}</a></li>
+                                <li><a href="{{ url('cotiser') }}">{{ 'menu.membership'|trans }}</a></li>
+                                <li><a href="{{ app.url_generator.generate('logout') }}">{{ 'menu.logout'|trans }}</a></li>
+                            {% endif %}
+                            <li class="dropdown navbar-right lang">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="flag flag-{{ app['lang.flags'][app.translator.getLocale()] }}"></i> <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    {% for  locale, flag in app['lang.flags'] if locale != app.translator.getLocale() %}
+                                    <li><a href="{{ url(global.request.get('_route'), {'_locale': locale}) }}"><i class="flag flag-{{ flag }}"></i></a></li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
                         </ul>
                     </nav>
-                    {% endif %}
                 </div>
             </div>
             {% for flashMessage in app.session.flashbag.get('error') %}

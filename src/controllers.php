@@ -28,7 +28,7 @@ $app['etupay.decrypt']= $app->protect(function (string $payload) use ($app)
 $login_required = function (Request $request, \Silex\Application $app) {
     if(!$app['session']->has('user'))
     {
-        $app['session']->getFlashBag()->add('error', $app->trans('error.no_connected'));
+        $app['session']->getFlashBag()->add('error', $app['translator']->trans('error.no_connected'));
         return new RedirectResponse($app['url_generator']->generate('home'));
     }
 };
@@ -48,11 +48,17 @@ $refresh_profil = function (Request $request, \Silex\Application $app) {
  * Controllers
  */
 
-$app->get('/', function () use ($app) {
+$app->get('/{_locale}', function () use ($app) {
     return $app['twig']->render('cover.html.twig', array());
-})->bind('home');
+})->bind('home')->value('_locale', 'fr');
 
-$app->get('/dashboard', function () use ($app) {
+// changement de langue
+$app->get('/langue/{locale}', function ($locale) use ($app) {
+    $app['translator']->setLocale($locale);
+    return $app['twig']->render('cover.html.twig', array());
+})->bind('lang');
+
+$app->get('/{_locale}/dashboard', function () use ($app) {
     return $app['twig']->render('dashboard/home.html.twig', array());
 })->bind('dashboard')
     ->before($login_required)
@@ -94,10 +100,38 @@ $app->get('/etupay/return', function () use ($app) {
     return new RedirectResponse($app['url_generator']->generate('home'));
 });
 /**
+ * Membership Letter
+ */
+$app->get('dashboard/lettre/{id}', function ($id, Request $request) use ($app) {
+    $subscription = $app['dolibarr']->getSubscriptionById($id);
+    if($subscription && $subscription['fk_adherent']==$app['session']->get('dolibarr')['id']) {
+        $user = $app['dolibarr']->getMemberById($subscription['fk_adherent']);
+        $options = new \Dompdf\Options();
+        $options->set('defaultFont', 'Courier');
+        $options->set('isRemoteEnabled', TRUE);
+
+        $pdf = new \Dompdf\Dompdf($options);
+        $template = $app['twig']->loadTemplate('letter/membership.html.twig');
+        $html = $template->renderBlock('letter', [
+            'request' => $request,
+            'app'   =>  $app,
+            'subscription'  =>  $subscription,
+            'user'  => $user]);
+        $pdf->loadHtml($html);
+        $pdf->setPaper('A4');
+        $pdf->render();
+        return new Response($pdf->stream('justificatif_adhesion_'.intval($subscription['id'].'.pdf')));
+    } else {
+        $app['session']->getFlashBag()->add('error', $app['translator']->trans('error.happening'));
+        return new RedirectResponse($app['url_generator']->generate('home'));
+    }
+})->bind('lettre')->before($login_required);
+
+/**
  * Cotisations
  */
 
-$app->get('dashboard/cotiser', function () use ($app) {
+$app->get('/{_locale}/dashboard/cotiser', function () use ($app) {
     return $app['twig']->render('cotiser/index.html.twig', array());
 })->bind('cotiser')->before($login_required);
 
@@ -135,10 +169,10 @@ $app->post('dashboard/cotiser', function (Request $request) use ($app) {
  * Login with EtuUTT
  */
 $app->get('/login', function () use ($app) {
-    return $app->redirect('https://etu.utt.fr/api/oauth/authorize?client_id='.$app['etuutt.id'].'&scopes=private_user_account&response_type=code&state=xyz');
+    return $app->redirect('https://etu.utt.fr/api/oauth/authorize?client_id='.$app['etuutt.id'].'&scopes=private_user_account private_user_organizations&response_type=code&state=xyz');
 })->bind('login');
 
-$app->get('/logout', function () use ($app) {
+$app->get('/{_locale}/logout', function () use ($app) {
     $app['session']->clear();
     $app['session']->getFlashBag()->add('success', $app['translator']->trans('success.logout'));
     return new RedirectResponse($app['url_generator']->generate('home'));
@@ -179,12 +213,34 @@ $app->get('/etuutt/callback', function (Request $request) use ($app) {
     } catch (GuzzleException $e) {
         return new Response('Unable to login', 402);
     }
+
     $json = json_decode($response->getBody()->getContents(), true)['data'];
+
+    //Refresh
+    $response = $client->post('/api/oauth/token', [ 'form_params' => [
+        'grant_type' => 'refresh_token',
+        'refresh_token' => $refresh_token
+    ]]);
+
+    try {
+        $response = $client->get('/api/private/user/organizations?access_token=' . json_decode($response->getBody()->getContents(), true)['response']['access_token']);
+    } catch (GuzzleException $e) {
+        die($e->getMessage());
+        return new Response('Unable to login', 402);
+    }
+    $organizations = json_decode($response->getBody()->getContents(), true)['data'];
+    $user_organizations = [];
+    foreach ($organizations as $orga)
+    {
+        $name = $orga['_embed']['organization'];
+        $user_organizations[$name] = $orga['role'];
+    }
 
     $dolibarr = $app['dolibarr']->getMemberByLogin($json['login']);
     if($dolibarr) {
         $app['session']->set('dolibarr', $dolibarr);
         $app['session']->set('user', $json);
+        $app['session']->set('organizations', $user_organizations);
         $app['session']->set('subscription_active', $dolibarr['subscription_active']);
     } else {
         $app['session']->getFlashBag()->add('error', $app['translator']->trans('error.happening'));

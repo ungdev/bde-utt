@@ -64,6 +64,7 @@
                 <th>{{ 'state.start'|trans }}</th>
                 <th>{{ 'state.end'|trans }}</th>
                 <th>{{ 'word.price'|trans }}</th>
+                <th></th>
             </tr>
             <tbody>
             {% for id, subscription  in app.dolibarr.getSubscriptionsById(app.session.get('dolibarr')['id']) %}
@@ -76,6 +77,7 @@
                 <td>{{ subscription['dateh']|date("d/m/Y") }}</td>
                 <td>{{ subscription['datef']|date("d/m/Y") }}</td>
                 <td>{{ subscription['amount']|round(2, 'floor') }} €</td>
+                <td><a href="{{ url('lettre', {'id':subscription['id']}) }}" class="btn btn-xs btn-info"><i class="glyphicon glyphicon-download"></i> {{ 'membership.letter'|trans }}</a></td>
                 </tr>
             {% endfor %}
             </tbody>

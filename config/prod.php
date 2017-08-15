@@ -2,6 +2,7 @@
 
 // configure your app for the production environment
 $app['debug'] = false;
+define('DOMPDF_ENABLE_AUTOLOAD', false);
 
 $app['twig.path'] = array(__DIR__.'/../templates');
 $app['twig.options'] = array('cache' => __DIR__.'/../var/cache/twig');
@@ -60,3 +61,8 @@ $app['cotisations'] = $temp['cotisations'];
 
 $app['etupay.id'] = getenv('ETUPAY_ID');
 $app['etupay.key'] = getenv('ETUPAY_KEY');
+$app['lang.flags'] = [
+    'fr'    => 'fr',
+    'en'    => 'gb',
+    'cn'    =>  'cn'
+];

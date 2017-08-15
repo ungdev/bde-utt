@@ -25,7 +25,8 @@
         "illuminate/encryption": "^5.4",
         "guzzlehttp/guzzle": "6.*",
         "swiftmailer/swiftmailer": "^6.0",
-        "symfony/yaml": "^3.3"
+        "symfony/yaml": "^3.3",
+        "dompdf/dompdf": "^0.8.0"
     },
     "autoload": {
         "psr-0": { "": "src/" }

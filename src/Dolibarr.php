@@ -26,9 +26,26 @@ class Dolibarr
                 ]
             ]);
         } catch (GuzzleException $e) {
-            return $e->getMessage();
+            return null;
         }
         $json = json_decode($response->getBody()->getContents(), true)[0];
+
+        // Test subscription
+        $json['subscription_active'] = ($json['last_subscription_date'] && $json['datefin'] && (time() >= strtotime($json['last_subscription_date']) ) && (time() <= $json['datefin']));
+
+        if(isset($json['error']))
+            return null;
+        else return $json;
+    }
+
+    public function getMemberById($id)
+    {
+        try {
+            $response = $this->client->get('api/index.php/members/'.intval($id));
+        } catch (GuzzleException $e) {
+            return null;
+        }
+        $json = json_decode($response->getBody()->getContents(), true);
 
         // Test subscription
         $json['subscription_active'] = ($json['last_subscription_date'] && $json['datefin'] && (time() >= strtotime($json['last_subscription_date']) ) && (time() <= $json['datefin']));
@@ -43,7 +60,21 @@ class Dolibarr
         try {
             $response = $this->client->get('api/index.php/members/'.intval($id).'/subscriptions');
         } catch (GuzzleException $e) {
-            return $e->getMessage();
+            return null;
+        }
+        $json = json_decode($response->getBody()->getContents(), true);
+
+        if(isset($json['error']))
+            return null;
+        else return $json;
+    }
+
+    public function getSubscriptionById($id)
+    {
+        try {
+            $response = $this->client->get('api/index.php/subscriptions/'.intval($id));
+        } catch (GuzzleException $e) {
+            return null;
         }
         $json = json_decode($response->getBody()->getContents(), true);
 
@@ -64,7 +95,7 @@ class Dolibarr
                 ]
             ]);
         } catch (GuzzleException $e) {
-            return $e->getMessage();
+            return null;
         }
         $json = json_decode($response->getBody()->getContents(), true);
 

@@ -17,7 +17,7 @@ $app->register(new \Silex\Provider\SessionServiceProvider());
 $app->register(new Silex\Provider\SwiftmailerServiceProvider());
 $app->register(new Silex\Provider\LocaleServiceProvider());
 $app->register(new Silex\Provider\TranslationServiceProvider(), array(
-    'locale_fallbacks' => array('en'),
+    'locale_fallbacks' => array('fr'),
 ));
 $app->register(new Silex\Provider\ValidatorServiceProvider());
 
@@ -34,6 +34,7 @@ $app->extend('translator', function($translator, $app) {
     $translator->addLoader('yaml', new YamlFileLoader());
     $translator->addResource('yaml', __DIR__.'/../locales/en.yml', 'en');
     $translator->addResource('yaml', __DIR__.'/../locales/fr.yml', 'fr');
+    $translator->addResource('yaml', __DIR__.'/../locales/cn.yml', 'cn');
 
     return $translator;
 });

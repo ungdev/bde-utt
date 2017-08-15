@@ -1,0 +1,94 @@
+{% block letter %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400' rel='stylesheet' type='text/css'>
+    <title>Reçu de cotisation</title>
+    <style>
+        @page {
+            size: 21cm 29.7cm;
+            margin: 50px 0 0 0;
+        }
+        *, *:before, *:after {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans';
+            text-align: justify;
+        }
+        .page {
+            page-break-after: auto;
+        }
+        .page-content {
+            position: relative;
+            width: 7in;
+            height: 10in;
+            left: 0.75in;
+            top: 0.1875in;
+        }
+        #logo {
+            position: absolute;
+            right: 0;
+        }
+        .address {
+            position: absolute;
+            left: 0;
+            line-height:5px;
+            top: 0.1in;
+        }
+        #date {
+            position: absolute;
+            right: 0;
+            top: 1.7in;
+        }
+        .wrapper {
+            position: absolute;
+            top: 2.2in;
+        }
+        .footer {
+            position: absolute;
+            width: 7in;
+            left: 0in;
+            bottom: 20px;
+            text-align: center;
+            font-size: 50%;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="page-content">
+        <!-- Your logo here! -->
+        <img id="logo" src="{{ request.getSchemeAndHttpHost() ~ asset('img/bde-utt.jpeg') }}" width="200px" />
+        <div class="address">
+            <strong>Bureau des Etudiants de l'Université de Troyes</strong>
+            <p>12 rue Marie Curie</p>
+            <p>10000 TROYES</p>
+            <p>Tél : 03 25 71 76 74</p>
+            <p>Mail: bde@utt.fr</p>
+        </div>
+        <p id="date">Troyes, le {{ subscription['datec']|date('d-m-Y') }}</p>
+        <div class='wrapper'>
+            <p><strong>Objet :</strong> reçu de cotisation n°{{ subscription['id'] }}</p>
+            <p>Cher {{ user['firstname'] }} {{ user['lastname'] }},</p>
+
+            <p>Pour les besoins de votre comptabilité, nous attestons par la présente que vous avez dûment acquitté auprès de notre association :</p>
+
+            <ul>
+                <li>un montant de {{ subscription['amount'] }} euros en date du {{ subscription['datec']|date('d-m-Y') }} au titre de la cotisation due à raison de votre adhésion à notre association, pour la période allant du {{ subscription['dateh']|date('d-m-Y') }} jusqu'au {{ subscription['datef']|date('d-m-Y') }}.</li>
+            </ul>
+
+            <p>Nous vous rappelons que la cotisation n’est pas soumise à la TVA et qu’elle ne donne pas lieu à la délivrance d’une facture. Elle n’ouvre pas droit au bénéfice des dispositions des articles 200, 238 bis et 885-0 V bis A du code général des impôts.</p>
+
+            <p>Nous vous prions d’agréer, cher membre adhérent, nos sincères salutations.</p>
+        </div>
+        <div class="footer">BDE UTT - Association loi 1901 ou assimilé - SIRET: 44838667200019 {% if user['array_options']['options_student'] is defined %}- n° étudiant: {{ user['array_options']['options_student'] }}{% endif %}</div>
+    </div>
+</div>
+</body>
+</html>
+{% endblock %}
