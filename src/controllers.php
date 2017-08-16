@@ -140,7 +140,7 @@ $app->get('/{_locale}/dashboard/cotiser', function () use ($app) {
     return $app['twig']->render('cotiser/index.html.twig', array());
 })->bind('cotiser')->before($login_required);
 
-$app->post('dashboard/cotiser', function (Request $request) use ($app) {
+$app->post('/{_locale}/dashboard/cotiser', function (Request $request) use ($app) {
     if(!in_array($request->request->get('cotisations'), ['year', 'automne', 'printemp']))
     {
         $app['session']->getFlashBag()->add('error', $app['translator']->trans('error.happening'));

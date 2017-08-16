@@ -66,3 +66,5 @@ $app['lang.flags'] = [
     'en'    => 'gb',
     'cn'    =>  'cn'
 ];
+
+$app['locale'] = 'fr';

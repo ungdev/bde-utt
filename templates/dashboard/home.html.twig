@@ -77,7 +77,8 @@
                 <td>{{ subscription['dateh']|date("d/m/Y") }}</td>
                 <td>{{ subscription['datef']|date("d/m/Y") }}</td>
                 <td>{{ subscription['amount']|round(2, 'floor') }} €</td>
-                <td><a href="{{ url('lettre', {'id':subscription['id']}) }}" class="btn btn-xs btn-info"><i class="glyphicon glyphicon-download"></i> {{ 'membership.letter'|trans }}</a></td>
+                <td><a href="{{ url('lettre', {'id':subscription['id']}) }}" class="btn btn-xs btn-info hidden-xs"><i class="glyphicon glyphicon-download"></i> {{ 'membership.letter'|trans }}</a>
+                    <a href="{{ url('lettre', {'id':subscription['id']}) }}" class="btn btn-xs btn-info visible-xs-* hidden-sm hidden-md hidden-lg"><i class="glyphicon glyphicon-download"></i></a></td>
                 </tr>
             {% endfor %}
             </tbody>
