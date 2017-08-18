@@ -1,0 +1,36 @@
+app.name: Gestionnaire de cotisations des gogoles
+cover.welcome_text: "Pour te connecter à l’espace cotisation, bah tu fais un effort, tu cliques sans réfléchir sur le gros bouton !"
+dashboard.membership: Je (re)deviens prisonnier de ce système capitaliste
+dashboard.my_membership: Mes cock-tisations
+dashboard.panel.text: "Retrouve ici l’ensemble de tes cotisations au BDE UTT."
+dashboard.text: "C'est ici qu'il est possible de suivre l'évolution dans ta capitalisation au sein de l’UTT, ainsi que pouvoir cotiser (te capitaliser encore plus) à tout moment, en cliquant sur ce gros bouton rouge juste en dessous : ca va on a bien expliqué pour ton petit cerveau ?"
+dashboard.title: Mon Ass-pace Cock-tisation
+error.happening: Une erreur (toi) est survenue durant le traitement de la demande.
+error.no_connected: Vous devez être (con)necté(e) pour accéder à cette page.
+membership.choice_label: "Je subventionne le BDE pour :"
+membership.price.semester_label: le
+membership.price.year_label: "l’"
+membership.price_choice: Tarifs
+membership.semester_statement: "Nous sommes actuellement en semestre: %semester"
+membership.submit: Valideyyyyy
+membership.title: "Je continue à dépendre d’une association sans savoir ce qu’il se passe à l’intérieur."
+menu.dashboard: Mes Informations
+menu.home: A(bruti)ccueil
+menu.logout: Dé(con)nexion
+menu.login: (Con)nexion
+menu.membership: Cotiser
+state.end: Date de fin
+state.member: "C’est bien tu as été un bon mouton, tu es cotisant."
+state.no_member: "QUOI !?? T’es pas cotisant !?"
+state.start: Date de début
+success.login: "Vous êtes (con)necté !"
+success.logout: "C’est ça, dégage !"
+title.my_account: Cotisation BDE UTT
+transaction.willbeproceded:  La transaction va être traitée (si t’es pas trop moche)
+user.email: E-mail
+user.level:  "Niveau d’étude"
+user.student_id: "Numéro d'étudiant"
+word.autumn: semestre d’automne
+word.price: Prix
+word.spring: semestre de printemps
+word.year: année

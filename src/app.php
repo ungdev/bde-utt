@@ -35,6 +35,7 @@ $app->extend('translator', function($translator, $app) {
     $translator->addResource('yaml', __DIR__.'/../locales/en.yml', 'en');
     $translator->addResource('yaml', __DIR__.'/../locales/fr.yml', 'fr');
     $translator->addResource('yaml', __DIR__.'/../locales/cn.yml', 'cn');
+    $translator->addResource('yaml', __DIR__.'/../locales/tr.yml', 'tr');
 
     return $translator;
 });

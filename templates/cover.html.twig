@@ -41,7 +41,7 @@
                                 <li><a href="{{ app.url_generator.generate('logout') }}">{{ 'menu.logout'|trans }}</a></li>
                             {% endif %}
                             <li class="dropdown navbar-right lang">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="flag flag-{{ app['lang.flags'][app.translator.getLocale()] }}"></i> <span class="caret"></span></a>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{% if app['lang.flags'][app.translator.getLocale()] is defined %}<i class="flag flag-{{ app['lang.flags'][app.translator.getLocale()] }}">{% endif %}</i> <span class="caret"></span></a>
                                 <ul class="dropdown-menu">
                                     {% for  locale, flag in app['lang.flags'] if locale != app.translator.getLocale() %}
                                     <li><a href="{{ url(global.request.get('_route'), {'_locale': locale}) }}"><i class="flag flag-{{ flag }}"></i></a></li>
@@ -72,7 +72,7 @@
             {% endfor %}
 
             <div class="inner cover">
-                <p class="lead"><img src="{{ asset('img/bde-utt.png') }}" width="200px" alt=""></p>
+                <p class="lead"><img onclick="logoClick()" src="{{ asset('img/bde-utt.png') }}" width="200px" alt=""></p>
                 <h1 class="cover-heading">Welcome,</h1>
                 <p class="lead">{{ 'cover.welcome_text'|trans }}</p>
                 {% if not app.session.has('user') %}
@@ -94,5 +94,18 @@
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+<script type="text/javascript">
+    var count=0;
+
+    function logoClick()
+    {
+        count++;
+        if(count>=10)
+            document.location.href="{{ url(global.request.get('_route'), {'_locale': 'tr'}) }}";
+
+        setTimeout(function(){ count=0 }, 15000);
+    }
+
+</script>
 </body>
 </html>

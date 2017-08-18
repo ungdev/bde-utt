@@ -174,7 +174,7 @@ $app->post('/{_locale}/dashboard/cotiser', function (Request $request) use ($app
  * Login with EtuUTT
  */
 $app->get('/login', function () use ($app) {
-    return $app->redirect('https://etu.utt.fr/api/oauth/authorize?client_id='.$app['etuutt.id'].'&scopes=private_user_account private_user_organizations&response_type=code&state=xyz');
+    return $app->redirect('https://etu.utt.fr/api/oauth/authorize?client_id='.$app['etuutt.id'].'&scopes=private_user_account private_user_organizations public_user_account&response_type=code&state=xyz');
 })->bind('login');
 
 $app->get('/{_locale}/logout', function () use ($app) {
