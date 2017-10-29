@@ -32,6 +32,26 @@ class Dolibarr
 
         // Test subscription
         $json['subscription_active'] = ($json['last_subscription_date'] && $json['datefin'] && (time() >= strtotime($json['last_subscription_date']) ) && (time() <= $json['datefin']));
+        if(isset($json['error']))
+            return null;
+        else return $json;
+    }
+
+    public function getMemberByEmail($mail)
+    {
+        try {
+            $response = $this->client->get('api/index.php/members', [
+                'query' => [
+                    'sqlfilters' => "(t.email:=:'" . $mail . "')"
+                ]
+            ]);
+        } catch (GuzzleException $e) {
+            return null;
+        }
+        $json = json_decode($response->getBody()->getContents(), true)[0];
+
+        // Test subscription
+        $json['subscription_active'] = ($json['last_subscription_date'] && $json['datefin'] && (time() >= strtotime($json['last_subscription_date']) ) && (time() <= $json['datefin']));
 
         if(isset($json['error']))
             return null;
@@ -49,6 +69,20 @@ class Dolibarr
 
         // Test subscription
         $json['subscription_active'] = ($json['last_subscription_date'] && $json['datefin'] && (time() >= strtotime($json['last_subscription_date']) ) && (time() <= $json['datefin']));
+
+        if(isset($json['error']))
+            return null;
+        else return $json;
+    }
+
+    public function getMembers()
+    {
+        try {
+            $response = $this->client->get('api/index.php/members/');
+        } catch (GuzzleException $e) {
+            return null;
+        }
+        $json = json_decode($response->getBody()->getContents(), true);
 
         if(isset($json['error']))
             return null;

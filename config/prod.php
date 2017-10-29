@@ -39,6 +39,11 @@ if(date('n') == 1)
 else
     $temp['cotisations']['automne']['start'] .= date('Y');
 
+if(date('n') >= 8)
+    $temp['cotisations']['printemp']['start'] .= (date('Y') + 1);
+else
+    $temp['cotisations']['printemp']['start'] .= date('Y');
+
 $temp['cotisations.actuel']['actuel'] = ((strtotime('now') < strtotime($temp['cotisations']['automne']['start']))? 'printemp':'automne');
 
 $temp['cotisations']['printemp']['end'] = strtotime($temp['cotisations']['printemp']['start'].' +'.$temp['cotisations']['printemp']['last'].' months');

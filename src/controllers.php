@@ -68,6 +68,7 @@ $app->get('/{_locale}/dashboard', function () use ($app) {
 })->bind('dashboard')
     ->before($login_required)
     ->before($refresh_profil);
+
 /**
  * EtuPay Callback
  */
@@ -242,6 +243,7 @@ $app->get('/etuutt/callback', function (Request $request) use ($app) {
     }
 
     $dolibarr = $app['dolibarr']->getMemberByLogin($json['login']);
+
     if($dolibarr) {
         $app['session']->set('dolibarr', $dolibarr);
         $app['session']->set('user', $json);
