@@ -8,17 +8,20 @@ dashboard.title: Mon Espace Cotisation
 error.happening: Une erreur est survenue durant le traitement de la demande.
 error.no_connected: Vous devez être connecté(e) pour accéder à cette page.
 membership.choice_label: "Je cotise pour :"
-membership.price.semester_label: le 
+membership.price.semester_label: le
 membership.price.year_label: "l’"
 membership.price_choice: Tarifs
 membership.semester_statement: "Nous sommes actuellement en semestre: %semester"
 membership.submit: Valider
 membership.title: Je renouvelle ma cotisation
+benefits.title: Pourquoi cotiser ?
+benefits.subtitle: Les offres des partenaires du BDE
 menu.dashboard: Mes Informations
 menu.home: Accueil
 menu.logout: Déconnexion
 menu.login: Connexion
 menu.membership: Cotiser
+menu.benefits: Avantages
 membership.letter: Télécharger mon justificatif
 state.end: Date de fin
 state.member: Cotisant

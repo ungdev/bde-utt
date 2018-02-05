@@ -42,6 +42,7 @@
                 <li><a href="{{ url('home') }}">{{ 'menu.home'|trans }}</a></li>
                 <li><a href="{{ url('dashboard') }}">{{ 'menu.dashboard'|trans }}</a></li>
                 <li><a href="{{ url('cotiser') }}">{{ 'menu.membership'|trans }}</a></li>
+                <li><a href="{{ url('benefits') }}">{{ 'menu.benefits'|trans }}</a></li>
                 {% if app.session.get('dolibarr')['fk_soc'] is defined %}
                 <li><a href="#">{{ 'menu.refund'|trans }}</a></li>
                 {% endif %}
