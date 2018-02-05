@@ -273,3 +273,10 @@ $app->error(function (\Exception $e, Request $request, $code) use ($app) {
 
     return new Response($app['twig']->resolveTemplate($templates)->render(array('code' => $code)), $code);
 });
+
+/**
+ * Benefits page
+ */
+$app->get('/{_locale}/dashboard/benefits', function () use ($app) {
+    return $app['twig']->render('dashboard/benefits.html.twig', array());
+})->bind('benefits')->before($login_required);
