@@ -60,7 +60,7 @@ $console
                             $app['dolibarr']->createSubscriptionById($dolibarr_link[$student_id], '1 September 2017', strtotime('30 september 2018'), $ligne[2], 'Adhésion annuel (via UTT)');
                             break;
                         case 'Printemps':
-                            $app['dolibarr']->createSubscriptionById($dolibarr_link[$student_id], '1 February 2017', strtotime('30 september 2018'), $ligne[2], 'Adhésion semestre de printemps (via UTT)');
+                            $app['dolibarr']->createSubscriptionById($dolibarr_link[$student_id], '1 February 2018', strtotime('30 september 2018'), $ligne[2], 'Adhésion semestre de printemps (via UTT)');
                             break;
                         case 'Automne':
                             $app['dolibarr']->createSubscriptionById($dolibarr_link[$student_id], '1 September 2017', strtotime('01 february 2018'), $ligne[2], 'Adhésion semestre automne (via UTT)');
