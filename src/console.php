@@ -38,7 +38,7 @@ $console
         }
         $output->writeln(count($dolibarr_link)." chargés");
 
-        $import = "";
+        $import = file_get_contents($input->getOption('file'));
 
         $lignes = explode("\n", $import);
         $inconnu_user = [];
