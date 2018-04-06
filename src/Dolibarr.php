@@ -120,11 +120,12 @@ class Dolibarr
     public function createSubscriptionById($id, $start, $end, $amount, $payment=null)
     {
         try {
-            $response = $this->client->post('api/index.php/members/'.$id.'/subscriptions', [
+            $response = $this->client->post('api/index.php/subscriptions', [
                 'form_params' => [
-                    'start_date' => strtotime($start),
-                    'end_date'  =>  $end,
-                    'label' =>  'Adhésion en ligne ('.$payment.')',
+                    'dateh' => strtotime($start),
+                    'fk_adherent' => $id,
+                    'datef'  =>  $end,
+                    'note' =>  'Adhésion en ligne ('.$payment.')',
                     'amount'    =>  $amount
                 ]
             ]);

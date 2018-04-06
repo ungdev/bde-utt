@@ -19,11 +19,7 @@ $console
     ))
     ->setDescription('Import fichier de cotisant. Le fichier doit suivre le schéma suiviant: numéro étu, type de cotisation, montant')
     ->setCode(function (InputInterface $input, OutputInterface $output) use ($app) {
-        if($input->getOption('file') == null)
-        {
-            $output->writeln("Le fichier n'est pas renseigné !");
-            die(0);
-        }
+
         $output->write("Chargement des membres depuis picsou ... ");
         $members = $app['dolibarr']->getMembers();
         $dolibarr_link = [];
@@ -60,7 +56,12 @@ $console
                             $app['dolibarr']->createSubscriptionById($dolibarr_link[$student_id], '1 September 2017', strtotime('30 september 2018'), $ligne[2], 'Adhésion annuel (via UTT)');
                             break;
                         case 'Printemps':
-                            $app['dolibarr']->createSubscriptionById($dolibarr_link[$student_id], '1 February 2017', strtotime('30 september 2018'), $ligne[2], 'Adhésion semestre de printemps (via UTT)');
+                            $req = $app['dolibarr']->createSubscriptionById($dolibarr_link[$student_id], '1 February 2018', strtotime('30 september 2018'), $ligne[2], 'Adhésion semestre de printemps (via UTT)');
+                            if (!$req)
+                            {
+                            $output->write('<error>Suscription error '.$student_id.'</error> ');
+                            }
+                            else $output->write($req);
                             break;
                         case 'Automne':
                             $app['dolibarr']->createSubscriptionById($dolibarr_link[$student_id], '1 September 2017', strtotime('01 february 2018'), $ligne[2], 'Adhésion semestre automne (via UTT)');
