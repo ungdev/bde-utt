@@ -35,6 +35,8 @@
                     <nav>
                         <ul class="nav masthead-nav">
                             <li><a href="{{ app.url_generator.generate('home') }}">{{ 'menu.home'|trans }}</a></li>
+                            <li><a href="{{ app.url_generator.generate('insurances') }}">{{ 'menu.insurance'|trans }}</a></li>
+                            <li><a href="{{ url('benefits') }}">{{ 'menu.benefits'|trans }}</a></li>
                             {% if app.session.has('user') %}
                                 <li><a href="{{ app.url_generator.generate('dashboard') }}">{{ 'menu.dashboard'|trans }}</a></li>
                                 <li><a href="{{ url('cotiser') }}">{{ 'menu.membership'|trans }}</a></li>

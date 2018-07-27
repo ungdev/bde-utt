@@ -279,4 +279,14 @@ $app->error(function (\Exception $e, Request $request, $code) use ($app) {
  */
 $app->get('/{_locale}/dashboard/benefits', function () use ($app) {
     return $app['twig']->render('dashboard/benefits.html.twig', array());
-})->bind('benefits')->before($login_required);
+})->bind('benefits');
+
+/**
+ * Sponsorship shortlinks
+ */
+$app->get('/assurances', function () use ($app) {
+    return new RedirectResponse('https://etablissements.mgel.fr/partenaires/bde-utt#carousel-example-generic102');
+})->bind('insurances');
+$app->get('/assurances-integration', function () use ($app) {
+   return new RedirectResponse('https://etablissements.mgel.fr/partenaires/bde-utt-admissions#carousel-example-generic102');
+});

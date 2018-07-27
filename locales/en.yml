@@ -20,6 +20,7 @@ menu.logout: Log out
 menu.login : Log in
 menu.membership: Subscribe
 menu.benefits: Benefits
+menu.insurance: Insurances
 membership.letter: Download my membership proof
 state.end: End date
 state.member: Member
