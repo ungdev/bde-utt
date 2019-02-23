@@ -10,3 +10,12 @@ body {
 {
     min-width: 0;
 }
+
+/* benefits page */
+.benefits-thumbnail {
+    margin-top: 10px;
+    max-height: 150px;
+    max-width: 150px;
+    clear: both;
+    float: right;
+}

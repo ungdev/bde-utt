@@ -19,6 +19,7 @@ menu.home: A(bruti)ccueil
 menu.logout: Dé(con)nexion
 menu.login: (Con)nexion
 menu.membership: Cotiser
+menu.benefits: Avantages
 state.end: Date de fin
 state.member: "C’est bien tu as été un bon mouton, tu es cotisant."
 state.no_member: "QUOI !?? T’es pas cotisant !?"

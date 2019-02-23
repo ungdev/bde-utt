@@ -78,7 +78,7 @@ class Dolibarr
     public function getMembers()
     {
         try {
-            $response = $this->client->get('api/index.php/members/');
+            $response = $this->client->get('api/index.php/members/?limit=99999999999999999');
         } catch (GuzzleException $e) {
             return null;
         }

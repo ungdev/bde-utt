@@ -21,15 +21,6 @@ $app->register(new Silex\Provider\TranslationServiceProvider(), array(
 ));
 $app->register(new Silex\Provider\ValidatorServiceProvider());
 
-$app['swiftmailer.options'] = array(
-    'host' => 'host',
-    'port' => '25',
-    'username' => 'username',
-    'password' => 'password',
-    'encryption' => null,
-    'auth_mode' => null
-);
-
 $app->extend('translator', function($translator, $app) {
     $translator->addLoader('yaml', new YamlFileLoader());
     $translator->addResource('yaml', __DIR__.'/../locales/en.yml', 'en');

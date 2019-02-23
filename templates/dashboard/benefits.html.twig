@@ -1,0 +1,111 @@
+{% extends "dashboard.html.twig" %}
+
+{% block content %}
+        <h1>{{ 'benefits.title'|trans }}</h1>
+        <p class="lead">{{ 'benefits.subtitle'|trans }}</p>
+        <div class="box-body">
+            <ul>
+                <li><a href="#damonte">Damonte</a></li>
+                <li><a href="#pulp">Le Pulp</a></li>
+                <li><a href="#sari">Chez Sari</a></li>
+                <li><a href="#cgr">Cinéma CGR de Troyes</a></li>
+                <li><a href="#ada">ADA</a></li>
+                <li><a href="#lcl">LCL</a></li>
+                <li><a href="#popeye">Auto-école Popeye</a></li>
+            </ul>
+
+            <hr/>
+
+            <a href="http://www.yves-damonte.fr" target="_blank"><img src="{{ asset('img/benefits/damonte.jpg') }}" class="benefits-thumbnail img-thumbnail" /></a>
+            <h3 id="damonte">Damonte</h3>
+            <p>C’est LE spécialiste de la location étudiante qui saura être
+            à ton écoute pour trouver l’appartement qu’il te faut ! Tu cherches un
+            appartement en résidence étudiante, ou plutôt en centre ville ? Ils ont
+            forcément ce que tu cherches !</p>
+            <p>120 rue du Général de Gaulle, 10000 Troyes</p>
+            <p>295 rue du Faubourg Croncels, 10000 Troyes</p>
+            <p><a href="http://www.yves-damonte.fr" target="_blank">yves-damonte.fr</a></p>
+
+
+            <a href="https://www.facebook.com/pulp.sandwiches" target="_blank"><img src="{{ asset('img/benefits/pulp.jpg') }}" class="benefits-thumbnail img-thumbnail" /></a>
+            <h3 id="pulp">Pulp Sandwiches</h3>
+            <p>
+                Une envie de burger digne de ce nom, ne cherche plus, rends-toi au Pulp Sandwiches ! Tu pourras combler n'importe quelle faim dans un décor à l'honneur de Pulp Fiction et de son réalisateur Quentin Tarantino.
+                Avec ta carte étudiante et l'autocollant cotisant BDE, tu bénéficieras de 10% sur les burgers classiques (donc pas les spéciaux comme le <em>Butch</em>).
+            </p>
+            <p>74 rue Urbain IV, 10000 Troyes</p>
+            <p><a href="https://www.facebook.com/pulp.sandwiches" target="_blank">Page facebook</a></p>
+
+
+            <a href="https://www.facebook.com/chezsari3" target="_blank"><img src="{{ asset('img/benefits/sari.jpg') }}" class="benefits-thumbnail img-thumbnail" /></a>
+            <h3 id="sari">Chez Sari</h3>
+            <p>
+                Une petite envie de bon et de gras ? Chez Sari est là pour te proposer ses kebabs, sandwiches chauds, hamburgers et pitas.
+                Avec ta carte étudiante et l'autocollant cotisant BDE, tu auras droit à -10% de réduction.
+                Et si tu ne viens pas au Sari, le Sari viendra à toi grâce à leur livraison à domicile gratuite à partir de 12€ !
+            </p>
+            <p>72 rue Urbain IV, 10000 Troyes</p>
+            <p><a href="https://www.facebook.com/chezsari3" target="_blank">Page facebook</a></p>
+
+
+            <a href="http://www.cgrcinemas.fr/troyes/" target="_blank"><img src="{{ asset('img/benefits/cgr.png') }}" class="benefits-thumbnail img-thumbnail" /></a>
+            <h3 id="cgr">Cinéma CGR de Troyes</h3>
+            <p>
+                Parce que voir le dernier Marvel au cinéma, c'est plus stylé que sur ton écran de PC,
+                le cinéma CGR de Troyes te propose des places à 6,50€ sur présentation de ta carte étu avec l'autocollant cotisant BDE.
+            </p>
+            <p>13 rue des Bas Trevois, 10000 Troyes</p>
+            <p><a href="http://www.cgrcinemas.fr/troyes/" target="_blank">cgrcinemas.fr</a></p>
+
+
+            <a href="http://www.ada.fr/location-voiture-troyes.html" target="_blank"><img src="{{ asset('img/benefits/ada.png') }}" class="benefits-thumbnail img-thumbnail" /></a>
+            <h3 id="ada">ADA</h3>
+            <p>Si tu as besoin d'un camion pour ton déménagement, tu pourras en louer un chez ADA et bénéficier de 15% de réduction sur ta location.
+            Tu viens d’avoir ton permis ?
+            Pas de soucis, avec ADA, dès 18 ans, tu peux louer tous les véhicules sans frais supplémentaires !</p>
+            <p>32 rue de la Fontaine Saint Martin, 10120 Saint-André-les-Vergers </p>
+            <p><a href="http://www.ada.fr/location-voiture-troyes.html" target="_blank">ada.fr</a></p>
+
+
+            <a href="http://www.lcl.fr" target="_blank"><img src="{{ asset('img/benefits/lcl.jpg') }}" class="benefits-thumbnail img-thumbnail" /></a>
+            <h3 id="lcl">LCL</h3>
+            <p>LCL t’offrira 55€ à l’ouverture d’un compte chez eux. Tu pourras aussi bénéficier d’une carte
+    bancaire pour seulement 1€ par mois. En cas d’imprévu, un découvert de
+    400€ te sera autorisé. Enfin, tu pourras bénéficier d’un emprunt au taux
+    exceptionnel de 1%.</p>
+            <p>12 place Audiffard, 10000 Troyes </p>
+            <p>22 rue de la République, 10000 Troyes </p>
+            <p>18 route d’Auxerre, 10120 Saint-André-les-Vergers</p>
+            <p><a href="http://www.lcl.fr" target="_blank">lcl.fr</a></p>
+
+
+            <a href="http://www.auto-ecole-popeye.fr" target="_blank"><img src="{{ asset('img/benefits/popeye.png') }}" class="benefits-thumbnail img-thumbnail" /></a>
+            <h3 id="popeye">Auto-école Popeye</h3>
+            <p>
+                Tu veux passer ton permis de conduire ? Rejoins une des quatre agences
+                de l’auto-école la mieux implantée sur Troyes. Tu pourras alors obtenir
+                50€ de réduction lors de ton inscription à l’auto-école Popeye sur
+                présentation d’une attestation de cotisation (à obtenir sur ce site).
+            </p>
+            <p>C’est le permis moto qui t’intéresse ? Popeye te le fait passer pour
+                650 euros, tous frais compris ! </p>
+            <p>Pour t’inscrire à l’auto-école, il te suffit de te munir de :</p>
+            <ul type="circle">
+                <li>8 timbres poste tarif préférentiel ;</li>
+                <li>5 photos d’identité aux normes de la Préfecture ;</li>
+                <li>la photocopie de carte d’identité recto/verso élève +
+    responsable légal ;</li>
+                <li>la photocopie de l’attestation de recensement ;</li>
+                <li>la photocopie de l’ ASSR 2 ;</li>
+                <li>2 justificatifs de domicile moins de 3 mois (+
+    attestation d'hébergement pour les mineurs) ;</li>
+                <li>2 lettres max 50 g format 16X23 sans adresse.</li>
+            </ul>
+            <p>27 bis avenue des Lombards (proche de l’UTT), 10000 Troyes</p>
+            <p>69 avenue Anatole France, 10000 Troyes</p>
+            <p>Place de la Libération (Centre Ville), 10000 Troyes</p>
+            <p>4 boulevard de l’Ouest, 10600 La Chapelle-Saint-Luc</p>
+            <p><a href="http://www.auto-ecole-popeye.fr" target="_blank">auto-ecole-popeye.fr</a></p>
+        </div>
+    </div>
+{% endblock %}

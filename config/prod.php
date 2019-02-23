@@ -73,3 +73,12 @@ $app['lang.flags'] = [
 ];
 
 $app['locale'] = 'fr';
+
+$app['swiftmailer.options'] = array(
+    'host' => 'smtp.utt.fr',
+    'port' => '25',
+    'username' => null,
+    'password' => null,
+    'encryption' => null,
+    'auth_mode' => null
+);

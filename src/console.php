@@ -20,9 +20,16 @@ $console
     ->setDescription('Import fichier de cotisant. Le fichier doit suivre le schéma suiviant: numéro étu, type de cotisation, montant')
     ->setCode(function (InputInterface $input, OutputInterface $output) use ($app) {
 
+        $output->write("Chargement des mails ...");
+        $renewHtml = $app['twig']->render('mails/renew.html.twig', array());
+        $newHtml = $app['twig']->render('mails/new.html.twig', array());
+
         $output->write("Chargement des membres depuis picsou ... ");
         $members = $app['dolibarr']->getMembers();
         $dolibarr_link = [];
+        $had_suscription = [];
+        $mails = [];
+
         foreach ($members as $member)
         {
             if(isset($member['array_options']['options_student']))
@@ -30,10 +37,15 @@ $console
                 $member_id = $member['id'];
                 $member_student_id = $member['array_options']['options_student'];
                 $dolibarr_link[$member_student_id] = $member_id;
+
+                if($member['last_subscription_date'] != null)
+                    $had_suscription[]= $member_student_id;
+
+                if($member['email'] != null)
+                    $mails[$member_student_id] = $member['email'];
             }
         }
         $output->writeln(count($dolibarr_link)." chargés");
-
         $import = "";
 
         $lignes = explode("\n", $import);
@@ -53,22 +65,39 @@ $console
                     switch ($ligne[1])
                     {
                         case 'Année':
-                            $app['dolibarr']->createSubscriptionById($dolibarr_link[$student_id], '1 September 2017', strtotime('30 september 2018'), $ligne[2], 'Adhésion annuel (via UTT)');
+                            $req = $app['dolibarr']->createSubscriptionById($dolibarr_link[$student_id], '1 September 2018', strtotime('30 september 2019'), $ligne[2], 'Adhésion annuel (via UTT)');
                             break;
                         case 'Printemps':
-                            $req = $app['dolibarr']->createSubscriptionById($dolibarr_link[$student_id], '1 February 2018', strtotime('30 september 2018'), $ligne[2], 'Adhésion semestre de printemps (via UTT)');
-                            if (!$req)
-                            {
-                            $output->write('<error>Suscription error '.$student_id.'</error> ');
-                            }
-                            else $output->write($req);
+                            $req = $app['dolibarr']->createSubscriptionById($dolibarr_link[$student_id], '1 February 2019', strtotime('30 september 2019'), $ligne[2], 'Adhésion semestre de printemps (via UTT)');
                             break;
                         case 'Automne':
-                            $app['dolibarr']->createSubscriptionById($dolibarr_link[$student_id], '1 September 2017', strtotime('01 february 2018'), $ligne[2], 'Adhésion semestre automne (via UTT)');
+                            $req = $app['dolibarr']->createSubscriptionById($dolibarr_link[$student_id], '1 September 2018', strtotime('01 february 2019'), $ligne[2], 'Adhésion semestre automne (via UTT)');
                             break;
+                    }
+                    if (!$req)
+                    {
+                        $output->write('<error>Suscription error '.$student_id.'</error> ');
+                    } else {
+                        // On envoi un mail
+                        if (in_array($student_id, $had_suscription)) {
+                            $message = (new Swift_Message())
+                                ->setSubject('Bon retour au BDE !')
+                                ->setFrom(array('bde@utt.fr'=> 'BDE UTT'))
+                                ->setTo(array($mails[$student_id]))
+                                ->addPart($renewHtml, 'text/html');
+                        } else {
+                            $message = (new Swift_Message())
+                                ->setSubject('Bienvenue au BDE !')
+                                ->setFrom(array('bde@utt.fr'=> 'BDE UTT'))
+                                ->setTo(array($mails[$student_id]))
+                                ->addPart($newHtml, 'text/html');
+                        }
+                        $app['mailer']->send($message);
+
                     }
 
                     $updated_user[] = $student_id;
+
                 } else {
                     //$output->write('<error>Inconnu</error> ');
                     $inconnu_user[] = $student_id;
@@ -77,6 +106,11 @@ $console
                 $progress->advance();
             }
         }
+
+        $app['swiftmailer.spooltransport']
+            ->getSpool()
+            ->flushQueue($app['swiftmailer.transport'])
+        ;
 
         $progress->finish();
         $output->writeln('<info>'.count($updated_user).' importés</info> <error>'.count($inconnu_user).' inconnu</error>');

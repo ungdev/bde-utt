@@ -78,7 +78,7 @@
             <p>Pour les besoins de votre comptabilité, nous attestons par la présente que vous avez dûment acquitté auprès de notre association :</p>
 
             <ul>
-                <li>un montant de {{ subscription['amount'] }} euros en date du {{ subscription['datec']|date('d-m-Y') }} au titre de la cotisation due à raison de votre adhésion à notre association, pour la période allant du {{ subscription['dateh']|date('d-m-Y') }} jusqu'au {{ subscription['datef']|date('d-m-Y') }}.</li>
+                <li>un montant de {{ subscription['amount'] |round(2, 'floor') }} euros en date du {{ subscription['datec']|date('d-m-Y') }} au titre de la cotisation due à raison de votre adhésion à notre association, pour la période allant du {{ subscription['dateh']|date('d-m-Y') }} jusqu'au {{ subscription['datef']|date('d-m-Y') }}.</li>
             </ul>
 
             <p>Nous vous rappelons que la cotisation n’est pas soumise à la TVA et qu’elle ne donne pas lieu à la délivrance d’une facture. Elle n’ouvre pas droit au bénéfice des dispositions des articles 200, 238 bis et 885-0 V bis A du code général des impôts.</p>

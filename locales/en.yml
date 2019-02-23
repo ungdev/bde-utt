@@ -19,6 +19,7 @@ menu.home: Home
 menu.logout: Log out
 menu.login : Log in
 menu.membership: Subscribe
+menu.benefits: Benefits
 membership.letter: Download my membership proof
 state.end: End date
 state.member: Member
