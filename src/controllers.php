@@ -33,6 +33,22 @@ $login_required = function (Request $request, \Silex\Application $app) {
     }
 };
 
+$api_hmac = function (Request $request, \Silex\Application $app) {
+    $query_param = $request->query->all();
+    unset($query_param['key']);
+    unset($query_param['expiration']);
+    asort($query_param);
+    $payload = json_encode([$request->getPathInfo(),$query_param]);
+    $hmac = hash_hmac('sha256', $payload, $app['app_key']);
+
+    if($request->query->get('key', '') !=  $hmac)
+        return $app->json(['error' => 'You must be authentificated.'], 401);
+
+    if($request->query->get('expiration', time()) <  time())
+        return $app->json(['error' => 'Token expired.'], 403);
+
+};
+
 $refresh_profil = function (Request $request, \Silex\Application $app) {
     if($app['session']->has('dolibarr'))
     {
@@ -43,7 +59,27 @@ $refresh_profil = function (Request $request, \Silex\Application $app) {
         }
     }
 };
+/**
+ * API
+ */
 
+$app->get('/api/v1/members/', function (Request $request) use ($app) {
+    $members = $app['dolibarr']->getMemberAtDate($request->query->get('dateend', null));
+
+    $return = [];
+    foreach ($members as $member)
+    {
+        switch ($request->query->get('algo', 'md5')) {
+            case 'md5':
+                $return[] = md5($member['email']);
+                break;
+            case 'sha1':
+                $return[] = sha1($member['email']);
+                break;
+        }
+    }
+    return $app->json($return, 200);
+})->bind('api_members')->before($api_hmac);
 /**
  * Controllers
  */

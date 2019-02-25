@@ -75,6 +75,23 @@ class Dolibarr
         else return $json;
     }
 
+    public function getMemberAtDate($date = null)
+    {
+        if(!$date)
+            $date = time();
+        $sqlfilters = '(t.datefin:>:'.$date.')';
+        try {
+            $response = $this->client->get('api/index.php/members/?sortfield=t.rowid&sortorder=ASC&limit=99999999999999999&sqlfilters='.urlencode($sqlfilters));
+        } catch (GuzzleException $e) {
+            return null;
+        }
+        $json = json_decode($response->getBody()->getContents(), true);
+
+        if(isset($json['error']))
+            return null;
+        else return $json;
+
+    }
     public function getMembers()
     {
         try {

@@ -64,6 +64,8 @@ foreach ($temp['cotisations'] as $month=>$value)
 
 $app['cotisations'] = $temp['cotisations'];
 
+$app['app_key'] = getenv('APP_KEY');
+
 $app['etupay.id'] = getenv('ETUPAY_ID');
 $app['etupay.key'] = getenv('ETUPAY_KEY');
 $app['lang.flags'] = [
