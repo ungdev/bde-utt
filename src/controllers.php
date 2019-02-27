@@ -65,17 +65,18 @@ $refresh_profil = function (Request $request, \Silex\Application $app) {
 
 $app->get('/api/v1/members/', function (Request $request) use ($app) {
     $members = $app['dolibarr']->getMemberAtDate($request->query->get('dateend', null));
-
     $return = [];
     foreach ($members as $member)
     {
-        switch ($request->query->get('algo', 'md5')) {
-            case 'md5':
-                $return[] = md5($member['email']);
-                break;
-            case 'sha1':
-                $return[] = sha1($member['email']);
-                break;
+        if($member['datefin'] > $request->query->get('dateend', time())) {
+            switch ($request->query->get('algo', 'md5')) {
+                case 'md5':
+                    $return[] = md5($member['email']);
+                    break;
+                case 'sha1':
+                    $return[] = sha1($member['email']);
+                    break;
+            }
         }
     }
     return $app->json($return, 200);

@@ -81,7 +81,7 @@ class Dolibarr
             $date = time();
         $sqlfilters = '(t.datefin:>:'.$date.')';
         try {
-            $response = $this->client->get('api/index.php/members/?sortfield=t.rowid&sortorder=ASC&limit=99999999999999999&sqlfilters='.urlencode($sqlfilters));
+            $response = $this->client->get('api/index.php/members?sortfield=t.rowid&sortorder=ASC&limit=99999999999999999&sqlfilters=t.datefin%20%3E%20'.$date);
         } catch (GuzzleException $e) {
             return null;
         }
@@ -95,7 +95,7 @@ class Dolibarr
     public function getMembers()
     {
         try {
-            $response = $this->client->get('api/index.php/members/?limit=99999999999999999');
+            $response = $this->client->get('api/index.php/members?limit=99999999999999999');
         } catch (GuzzleException $e) {
             return null;
         }
