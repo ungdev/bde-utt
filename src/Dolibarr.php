@@ -94,16 +94,17 @@ class Dolibarr
     }
     public function getMembers()
     {
-        try {
-            $response = $this->client->get('api/index.php/members?limit=99999999999999999');
-        } catch (GuzzleException $e) {
-            return null;
-        }
-        $json = json_decode($response->getBody()->getContents(), true);
+        $url = 'https://picsou.uttnetgroup.fr/api/index.php/members?limit=500&DOLAPIKEY='.$this->app['dolikey'].'&page=';
+        $page = 0;
 
-        if(isset($json['error']))
-            return null;
-        else return $json;
+        $resp = [];
+        while($data_temp = @file_get_contents($url.$page))
+        {
+            $resp = array_merge($resp, json_decode($data_temp, true));
+            $page++;
+        }
+
+        return $resp;
     }
 
     public function getSubscriptionsById($id)
