@@ -18,7 +18,7 @@
         "symfony/form": "~2.8|^3.0",
         "symfony/monolog-bridge": "~2.8|^3.0",
         "symfony/process": "~2.8|^3.0",
-        "symfony/security": "~2.8|^3.0",
+        "symfony/security": "^4.2.8",
         "symfony/translation": "^3.3",
         "symfony/twig-bridge": "~2.8|^3.0",
         "symfony/validator": "^3.3",
