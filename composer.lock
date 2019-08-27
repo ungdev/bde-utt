@@ -2917,24 +2917,24 @@
         },
         {
             "name": "symfony/intl",
-            "version": "v3.3.6",
+            "version": "v3.4.31",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/intl.git",
-                "reference": "a310b29a794578f544305f4f48e3f6c7981b606c"
+                "reference": "f6ebf850bb1a28c9120a5ca0da3f44e410dff44a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/intl/zipball/a310b29a794578f544305f4f48e3f6c7981b606c",
-                "reference": "a310b29a794578f544305f4f48e3f6c7981b606c",
+                "url": "https://api.github.com/repos/symfony/intl/zipball/f6ebf850bb1a28c9120a5ca0da3f44e410dff44a",
+                "reference": "f6ebf850bb1a28c9120a5ca0da3f44e410dff44a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9",
+                "php": "^5.5.9|>=7.0.8",
                 "symfony/polyfill-intl-icu": "~1.0"
             },
             "require-dev": {
-                "symfony/filesystem": "~2.8|~3.0"
+                "symfony/filesystem": "~2.8|~3.0|~4.0"
             },
             "suggest": {
                 "ext-intl": "to use the component with locales other than \"en\""
@@ -2942,7 +2942,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.3-dev"
+                    "dev-master": "3.4-dev"
                 }
             },
             "autoload": {
@@ -2988,7 +2988,7 @@
                 "l10n",
                 "localization"
             ],
-            "time": "2017-06-01T21:01:25+00:00"
+            "time": "2019-08-26T07:52:58+00:00"
         },
         {
             "name": "symfony/monolog-bridge",
@@ -3110,21 +3110,21 @@
         },
         {
             "name": "symfony/polyfill-intl-icu",
-            "version": "v1.4.0",
+            "version": "v1.12.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/polyfill-intl-icu.git",
-                "reference": "3191cbe0ce64987bd382daf6724af31c53daae01"
+                "reference": "66810b9d6eb4af54d543867909d65ab9af654d7e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/polyfill-intl-icu/zipball/3191cbe0ce64987bd382daf6724af31c53daae01",
-                "reference": "3191cbe0ce64987bd382daf6724af31c53daae01",
+                "url": "https://api.github.com/repos/symfony/polyfill-intl-icu/zipball/66810b9d6eb4af54d543867909d65ab9af654d7e",
+                "reference": "66810b9d6eb4af54d543867909d65ab9af654d7e",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
-                "symfony/intl": "~2.3|~3.0|~4.0"
+                "symfony/intl": "~2.3|~3.0|~4.0|~5.0"
             },
             "suggest": {
                 "ext-intl": "For best performance"
@@ -3132,7 +3132,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4-dev"
+                    "dev-master": "1.12-dev"
                 }
             },
             "autoload": {
@@ -3164,7 +3164,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2017-06-09T08:25:21+00:00"
+            "time": "2019-08-06T08:03:45+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -4178,19 +4178,19 @@
             "authors": [
                 {
                     "name": "Fabien Potencier",
+                    "role": "Lead Developer",
                     "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
-                    "role": "Lead Developer"
+                    "homepage": "http://fabien.potencier.org"
                 },
                 {
                     "name": "Armin Ronacher",
-                    "email": "armin.ronacher@active-4.com",
-                    "role": "Project Founder"
+                    "role": "Project Founder",
+                    "email": "armin.ronacher@active-4.com"
                 },
                 {
                     "name": "Twig Team",
-                    "homepage": "http://twig.sensiolabs.org/contributors",
-                    "role": "Contributors"
+                    "role": "Contributors",
+                    "homepage": "http://twig.sensiolabs.org/contributors"
                 }
             ],
             "description": "Twig, the flexible, fast, and secure template language for PHP",
