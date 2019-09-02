@@ -50,7 +50,6 @@
                     <li><a href="{{ url('login') }}">{{ 'menu.login'|trans }}</a></li>
                 {% endif %}
                 <li><a href="{{ url('benefits') }}">{{ 'menu.benefits'|trans }}</a></li>
-                <li><a href="{{ app.url_generator.generate('insurances') }}">{{ 'menu.insurance'|trans }}</a></li>
                 {% if app.session.has('user') %}
                     <li><a href="{{ url('logout') }}">{{ 'menu.logout'|trans }}</a></li>
                 {% endif %}
