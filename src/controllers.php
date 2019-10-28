@@ -322,8 +322,8 @@ $app->get('/{_locale}/dashboard/benefits', function () use ($app) {
  * Sponsorship shortlinks
  */
 $app->get('/assurances', function () use ($app) {
-    return new RedirectResponse('https://etablissements.mgel.fr/partenaires/bde-utt#carousel-example-generic102');
+    return new RedirectResponse('https://www.heyme.care/fr/');
 })->bind('insurances');
 $app->get('/assurances-integration', function () use ($app) {
-   return new RedirectResponse('https://etablissements.mgel.fr/partenaires/bde-utt-admissions#carousel-example-generic102');
+   return new RedirectResponse('https://www.heyme.care/fr/');
 });
