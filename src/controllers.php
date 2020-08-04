@@ -312,6 +312,13 @@ $app->error(function (\Exception $e, Request $request, $code) use ($app) {
 });
 
 /**
+ * Gear lend
+ */
+$app->get('/gear-lend', function () use ($app) {
+    return new RedirectResponse('https://tickets.uttnetgroup.fr/');
+})->bind('lends');
+
+/**
  * Benefits page
  */
 $app->get('/{_locale}/dashboard/benefits', function () use ($app) {
