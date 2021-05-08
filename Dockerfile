@@ -2,7 +2,7 @@ FROM larueli/php-base-image:7.1
 
 USER 0
 
-ENV APACHE_ROOT_DIRECTORY="/var/www/html/web"
+ENV APACHE_DOCUMENT_ROOT="/var/www/html/web"
 
 COPY . /var/www/html/
 RUN composer install --no-interaction --no-dev --no-ansi && composer dump-autoload --no-dev --classmap-authoritative && \
