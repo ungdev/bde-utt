@@ -310,27 +310,3 @@ $app->error(function (\Exception $e, Request $request, $code) use ($app) {
 
     return new Response($app['twig']->resolveTemplate($templates)->render(array('code' => $code)), $code);
 });
-
-/**
- * Gear lend
- */
-$app->get('/gear-lend', function () use ($app) {
-    return new RedirectResponse('https://tickets.uttnetgroup.fr/');
-})->bind('lends');
-
-/**
- * Benefits page
- */
-$app->get('/{_locale}/dashboard/benefits', function () use ($app) {
-    return $app['twig']->render('dashboard/benefits.html.twig', array());
-})->bind('benefits');
-
-/**
- * Sponsorship shortlinks
- */
-$app->get('/assurances', function () use ($app) {
-    return new RedirectResponse('https://www.heyme.care/fr/');
-})->bind('insurances');
-$app->get('/assurances-integration', function () use ($app) {
-   return new RedirectResponse('https://www.heyme.care/fr/');
-});

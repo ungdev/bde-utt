@@ -16,12 +16,9 @@ membership.submit: Valideyyyyy
 membership.title: "Je continue à dépendre d’une association sans savoir ce qu’il se passe à l’intérieur."
 menu.dashboard: Mes Informations
 menu.home: A(bruti)ccueil
-menu.lends: Prêts
 menu.logout: Dé(con)nexion
 menu.login: (Con)nexion
 menu.membership: Cotiser
-menu.benefits: Avantages
-menu.insurance: Assurances
 state.end: Date de fin
 state.member: "C’est bien tu as été un bon mouton, tu es cotisant."
 state.no_member: "QUOI !?? T’es pas cotisant !?"

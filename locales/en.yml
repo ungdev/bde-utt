@@ -16,12 +16,9 @@ membership.submit: Submit
 membership.title: I want to renew my membership
 menu.dashboard: My informations
 menu.home: Home
-menu.lends: Lends
 menu.logout: Log out
 menu.login : Log in
 menu.membership: Subscribe
-menu.benefits: Benefits
-menu.insurance: Insurances
 membership.letter: Download my membership proof
 state.end: End date
 state.member: Member
