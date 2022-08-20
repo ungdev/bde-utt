@@ -22,8 +22,6 @@ menu.lends: Prêts
 menu.logout: Déconnexion
 menu.login: Connexion
 menu.membership: Cotiser
-menu.insurance: Assurances
-menu.benefits: Avantages
 membership.letter: Télécharger mon justificatif
 state.end: Date de fin
 state.member: Cotisant
