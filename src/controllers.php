@@ -81,6 +81,26 @@ $app->get('/api/v1/members/', function (Request $request) use ($app) {
     }
     return $app->json($return, 200);
 })->bind('api_members')->before($api_hmac);
+
+$app->get('/api/v1/user/profile', function (Request $request) use ($app) {
+    $client = new Client([
+        'base_uri' => 'https://etu.utt.fr',
+        'auth' => [
+            $app['etuutt.id'],
+            $app['etuutt.secret']
+        ]
+    ]);
+    $url = '/api/public/users/image/' . $app['session']->get('user')['login'] . '_official.jpg';
+    try {
+        $avatar = $client->get($url);
+    } catch (GuzzleException $e) {
+        return new Response('Unable to access profile picture', 403);
+    }
+    $response = new Response($avatar->getBody(), 200);
+    $response->headers->set('Content-Type', 'image/jpeg');
+    return $response;
+})->before($login_required);
+
 /**
  * Controllers
  */
