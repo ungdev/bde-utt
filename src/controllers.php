@@ -90,8 +90,15 @@ $app->get('/api/v1/user/profile', function (Request $request) use ($app) {
             $app['etuutt.secret']
         ]
     ]);
-    $url = '/api/public/users/image/' . $app['session']->get('user')['login'] . '_official.jpg';
     try {
+        $refresh = $client->post('/api/oauth/token', [ 'form_params' => [
+            'grant_type' => 'refresh_token',
+            'refresh_token' => $app['session']->get('user.etuRefreshToken')
+        ]]);
+        $json = json_decode($refresh->getBody()->getContents(), true)['response'];
+        $app['session']->set('user.etuRefreshToken', $json['refresh_token']);
+    
+        $url = '/api/public/users/image/' . $app['session']->get('user')['login'] . '_official.jpg?access_token=' . $json['access_token'];
         $avatar = $client->get($url);
     } catch (GuzzleException $e) {
         return new Response('Unable to access profile picture', 403);
@@ -284,9 +291,10 @@ $app->get('/etuutt/callback', function (Request $request) use ($app) {
         'grant_type' => 'refresh_token',
         'refresh_token' => $refresh_token
     ]]);
+    $json = json_decode($response->getBody()->getContents(), true)['response'];
 
     try {
-        $response = $client->get('/api/private/user/organizations?access_token=' . json_decode($response->getBody()->getContents(), true)['response']['access_token']);
+        $response = $client->get('/api/private/user/organizations?access_token=' . $json['access_token']);
     } catch (GuzzleException $e) {
         die($e->getMessage());
         return new Response('Unable to login', 402);
@@ -300,7 +308,8 @@ $app->get('/etuutt/callback', function (Request $request) use ($app) {
     }
 
     $dolibarr = $app['dolibarr']->getMemberByLogin($json['login']);
-
+    
+    $app['session']->set('user.etuRefreshToken', $json['refresh_token']);
     if($dolibarr) {
         $app['session']->set('dolibarr', $dolibarr);
         $app['session']->set('user', $json);
