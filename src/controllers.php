@@ -294,7 +294,7 @@ $app->get('/etuutt/callback', function (Request $request) use ($app) {
     $jsonRefreshToken = json_decode($response->getBody()->getContents(), true)['response'];
 
     try {
-        $response = $client->get('/api/private/user/organizations?access_token=' . json_decode($response->getBody()->getContents(), true)['response']['access_token']);
+        $response = $client->get('/api/private/user/organizations?access_token=' . $jsonRefreshToken['access_token']);
     } catch (GuzzleException $e) {
         die($e->getMessage());
         return new Response('Unable to login', 402);
