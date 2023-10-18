@@ -20,12 +20,12 @@ $temp['cotisations'] = [
         'automne' => [
             'start' => '01 september ',
             'last'   =>  5,
-            'price' =>  20
+            'price' =>  15
         ],
         'printemp' => [
             'start' => '01 february ',
             'last'   =>  8,
-            'price' =>  20
+            'price' =>  15
         ],
         'year' => [
             'last'   =>  13,
