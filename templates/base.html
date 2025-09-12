@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}BDE UTT{% endblock %}</title>
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+</head>
+
+<body>
+
+    {% include "partials/nav.html" %}
+
+    {% block content %}{% endblock %}
+
+    {% include "partials/partners.html" %}
+
+    {% include "partials/footer.html" %}
+
+    <script src="/static/js/bootstrap.js"></script>
+</body>

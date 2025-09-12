@@ -1,0 +1,26 @@
+<section class="py-5" style="background-color: #f8f9fa;">
+    <h2 class="text-center mb-4">Actualités</h2>
+    <div class="container">
+        <div class="row justify-content-center">
+            {% for item in news %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow">
+                    <img src="{{item.picture_url}}" class="card-img-top" alt="Image News 1"
+                        style="height:180px;object-fit:cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{item.title}}</h5>
+                        <p class="card-text">{{item.description}}</p>
+                        <p class="mb-1"><strong>Date:</strong> {{item.period_string}}</p>
+                        <p class="mb-0"><strong>Commissions : </strong>{{item.teams_names}}</p>
+                        {% if item.url %}
+                        <div class="d-flex justify-content-center">
+                            <a href="{{item.url}}" class="btn btn-primary mt-2" target="_blank">En savoir plus</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

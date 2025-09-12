@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}BDE UTT{% endblock %}
+
+{% block content %}
+
+{% with title="Bienvenue au BDE" %}
+{% with subtitle="Bureau Des Etudiants de l'Université de Technologie de Troyes" %}
+{% with imgsrc="/static/img/membres.jpg" %}
+{% include "partials/pictureTitle.html" %}
+{% endwith %}{% endwith %}{% endwith %}
+
+{% endblock %}

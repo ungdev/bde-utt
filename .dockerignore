@@ -1,0 +1,7 @@
+.mypy_cache
+.venv
+uploads
+
+__pycache__
+
+.env
