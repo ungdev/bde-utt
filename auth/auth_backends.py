@@ -1,4 +1,6 @@
-from mozilla_django_oidc.auth import OIDCAuthenticationBackend
+from mozilla_django_oidc.auth import (  # type: ignore[import-untyped]
+    OIDCAuthenticationBackend,
+)
 
 
 class CustomOIDCBackend(OIDCAuthenticationBackend):
