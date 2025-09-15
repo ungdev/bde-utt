@@ -1,5 +1,7 @@
 <section class="py-5" style="background-color: #314069;">
-    <h2 class="text-center mb-4 text-light">Nos partenaires</h2>
+    <a href="/partners" class="h2-link">
+        <h2 class="text-center mb-4 text-light">Nos partenaires</h2>
+    </a>
     <div class="d-flex justify-content-center align-items-center flex-wrap row-gap-3">
         {% for item in partners_qs %}
         <div id="partner_{{item.id}}" class="partner-card d-inline-block mx-2 cursor-pointer"
@@ -39,5 +41,6 @@
     <script type="text/javascript">
         window.partners = JSON.parse('{{ partners_json| escapejs}}');
     </script>
+    <link href="/static/css/partners.css" rel="stylesheet">
 
 </section>
