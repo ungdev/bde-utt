@@ -14,6 +14,28 @@ def home(request):
     )
 
 
+def contacts(request):
+    return render(
+        request,
+        "contacts.html",
+        {**common_data()},
+    )
+
+
+def events(request, param: str | None = None):
+    if param is None:
+        return render(
+            request,
+            "events/main.html",
+            {**common_data()},
+        )
+    return render(
+        request,
+        f"events/{param}.html",
+        {**common_data()},
+    )
+
+
 def membership(request):
     return render(
         request,
@@ -40,13 +62,5 @@ def services(request, param: str | None = None):
     return render(
         request,
         f"services/{param}.html",
-        {**common_data()},
-    )
-
-
-def contacts(request):
-    return render(
-        request,
-        "contacts.html",
         {**common_data()},
     )
