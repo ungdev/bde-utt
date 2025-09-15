@@ -1,7 +1,8 @@
 .mypy_cache
 .venv
-uploads
-
 __pycache__
+
+uploads
+staticfiles
 
 .env
