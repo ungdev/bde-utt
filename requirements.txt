@@ -38,3 +38,4 @@ tomlkit==0.13.3
 types-PyYAML==6.0.12.20250822
 typing_extensions==4.15.0
 urllib3==2.5.0
+whitenoise==6.10.0

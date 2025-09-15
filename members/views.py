@@ -52,8 +52,6 @@ def members(request):
         for team in teams
     ]
 
-    print(teams_with_members)
-
     return render(
         request,
         "members.html",
