@@ -33,10 +33,7 @@ class EnvConfig:
 
     @property
     def ALLOWED_HOSTS(self) -> list:
-        allowed_hosts = self.get("ALLOWED_HOSTS", "").split(",")
-        if not any(host.strip() for host in allowed_hosts):
-            raise EnvVarNotSetError("ALLOWED_HOSTS")
-        return allowed_hosts
+        return self.get("ALLOWED_HOSTS", "").split(",")
 
     @property
     def ADMIN_URL(self) -> str:
@@ -47,10 +44,7 @@ class EnvConfig:
 
     @property
     def SECRET_KEY(self) -> str:
-        secret_key = self.get("SECRET_KEY", "")
-        if not secret_key:
-            raise EnvVarNotSetError("SECRET_KEY")
-        return secret_key
+        return self.get("SECRET_KEY", "")
 
     @property
     def SESSION_COOKIE_SECURE(self) -> bool:
@@ -82,56 +76,32 @@ class EnvConfig:
 
     @property
     def OIDC_OP_AUTHORIZATION_ENDPOINT(self) -> str:
-        endpoint = self.get("OIDC_OP_AUTHORIZATION_ENDPOINT", "")
-        if not endpoint:
-            raise EnvVarNotSetError("OIDC_OP_AUTHORIZATION_ENDPOINT")
-        return endpoint
+        return self.get("OIDC_OP_AUTHORIZATION_ENDPOINT", "")
 
     @property
     def OIDC_OP_TOKEN_ENDPOINT(self) -> str:
-        endpoint = self.get("OIDC_OP_TOKEN_ENDPOINT", "")
-        if not endpoint:
-            raise EnvVarNotSetError("OIDC_OP_TOKEN_ENDPOINT")
-        return endpoint
+        return self.get("OIDC_OP_TOKEN_ENDPOINT", "")
 
     @property
     def OIDC_OP_USER_ENDPOINT(self) -> str:
-        endpoint = self.get("OIDC_OP_USER_ENDPOINT", "")
-        if not endpoint:
-            raise EnvVarNotSetError("OIDC_OP_USER_ENDPOINT")
-        return endpoint
+        return self.get("OIDC_OP_USER_ENDPOINT", "")
 
     @property
     def OIDC_OP_JWKS_ENDPOINT(self) -> str:
-        endpoint = self.get("OIDC_OP_JWKS_ENDPOINT", "")
-        if not endpoint:
-            raise EnvVarNotSetError("OIDC_OP_JWKS_ENDPOINT")
-        return endpoint
+        return self.get("OIDC_OP_JWKS_ENDPOINT", "")
 
     @property
     def OIDC_RP_CLIENT_ID(self) -> str:
-        id = self.get("OIDC_RP_CLIENT_ID", "")
-        if not id:
-            raise EnvVarNotSetError("OIDC_RP_CLIENT_ID")
-        return id
+        return self.get("OIDC_RP_CLIENT_ID", "")
 
     @property
     def OIDC_RP_CLIENT_SECRET(self) -> str:
-        secret = self.get("OIDC_RP_CLIENT_SECRET", "")
-        if not secret:
-            raise EnvVarNotSetError("OIDC_RP_CLIENT_SECRET")
-        return secret
+        return self.get("OIDC_RP_CLIENT_SECRET", "")
 
     @property
     def OIDC_RP_SIGN_ALGO(self) -> str:
-        algo = self.get("OIDC_RP_SIGN_ALGO", "")
-        if not algo:
-            raise EnvVarNotSetError("OIDC_RP_SIGN_ALGO")
-        return algo
+        return self.get("OIDC_RP_SIGN_ALGO", "")
 
     @property
     def OIDC_RP_SCOPES(self) -> str:
-        scopes = self.get("OIDC_RP_SCOPES", "")
-        if not scopes:
-            raise EnvVarNotSetError("OIDC_RP_SCOPES")
-        return scopes
+        return self.get("OIDC_RP_SCOPES", "")

@@ -10,6 +10,7 @@ Django==5.2.6
 django-allauth==65.11.2
 django-stubs==5.2.2
 django-stubs-ext==5.2.2
+gunicorn==23.0.0
 idna==3.10
 isort==6.0.1
 josepy==2.1.0
@@ -19,6 +20,7 @@ mypy==1.17.1
 mypy_extensions==1.1.0
 mysqlclient==2.2.7
 oauthlib==3.3.1
+packaging==25.0
 pathspec==0.12.1
 pillow==11.3.0
 platformdirs==4.4.0
