@@ -10,6 +10,11 @@ SECRET_KEY = env.SECRET_KEY
 DEBUG = env.DEBUG
 ALLOWED_HOSTS = env.ALLOWED_HOSTS
 
+SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+CSRF_TRUSTED_ORIGINS = ["https://bde.dev.uttnetgroup.fr"]
+
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
