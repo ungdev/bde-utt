@@ -1,17 +1,51 @@
 {% extends "base.html" %}
 
-{% block title %}BDE UTT - Bureau{% endblock %}
+{% block title %}BDE UTT{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <div class="card text-center">
-        <div class="card-header">
-            Information
+
+{% with title="Le Bureau" %}
+{% with subtitle="Elus en assemblée générale" %}
+{% with imgsrc="/static/img/membres.jpg" %}
+{% include "partials/pictureTitle.html" %}
+{% endwith %}{% endwith %}{% endwith %}
+
+<div class="text-center my-4">
+    <h3>Le bureau d'Automne 2025</h3>
+</div>
+
+<div class="d-flex justify-content-center flex-wrap my-4 px-5 gap-3">
+    {% for member in members %}
+    <div class="card shadow flex-row p-3 bg-light board-member-card" style="min-width: 40vw; max-width: 700px">
+        <div>
+            <img src="{{member.profile.picture_url}}" class="card-img-left rounded" alt="Nom de la personne"
+                style="width: 200px; height: 200px; object-fit: cover;">
+            <h5 class="card-title text-center mt-2">{{member.first_name}} {{member.last_name}}</h5>
+            <h6 class="card-subtitle text-center text-secondary">{{member.role_display}}</h6>
         </div>
-        <div class="card-body">
-            <h5 class="card-title">Page en construction</h5>
-            <p class="card-text">Cette page du bureau est en cours de développement. Revenez bientôt !</p>
+        <div class="card-body p-0 ms-3">
+            <p class="text-justify" style="text-align: justify;">{{member.profile.description}}</p>
+            <div>
+                {% for user_team in member.other_teams %}
+                <span class="badge bg-primary me-1">{{ user_team.team.name }}</span>
+                {% endfor %}
+            </div>
         </div>
     </div>
+    <style>
+        @media (max-width: 600px) {
+            .board-member-card {
+                flex-direction: column !important;
+                align-items: center;
+            }
+
+            .board-member-card .card-body {
+                margin-left: 0 !important;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+    {% endfor %}
 </div>
+
 {% endblock %}
