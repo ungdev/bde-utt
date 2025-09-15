@@ -36,6 +36,19 @@ class EnvConfig:
         return self.get("ALLOWED_HOSTS", "").split(",")
 
     @property
+    def CSRF_TRUSTED_ORIGINS(self) -> list:
+        origins = self.get("CSRF_TRUSTED_ORIGINS", "").split(",")
+        return origins if origins[0] != "" else []
+
+    @property
+    def CSRF_COOKIE_SECURE(self) -> bool:
+        return self.get("CSRF_COOKIE_SECURE", "True") == "True"
+
+    @property
+    def SESSION_COOKIE_SECURE(self) -> bool:
+        return self.get("SESSION_COOKIE_SECURE", "True") == "True"
+
+    @property
     def ADMIN_URL(self) -> str:
         url = self.get("ADMIN_URL", "admin/")
         if not url.endswith("/"):
