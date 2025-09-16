@@ -11,11 +11,12 @@ ADMIN_URL = env.ADMIN_URL
 
 urlpatterns = [
     path("", include("showcase.urls")),
-    path("sso/", include("mozilla_django_oidc.urls")),
-    path("redirect/admin/", __import__("bde.views").views.admin_redirect_view),
     path("legal", __import__("bde.views").views.legal),
-    path(ADMIN_URL, admin.site.urls),
+    path("logout", __import__("bde.views").views.admin_logout),
     path("members/", include("members.urls")),
+    path("redirect/admin/", __import__("bde.views").views.admin_redirect_view),
+    path("sso/", include("mozilla_django_oidc.urls")),
+    path(ADMIN_URL, admin.site.urls),
 ]
 
 # Expose uploads folder in development

@@ -1,46 +1,85 @@
-{% if form.non_field_errors %}
-{% for error in form.non_field_errors %}
-<p class="errornote">
-    {{ error }}
-</p>
-{% endfor %}
-{% endif %}
+{% extends "base.html" %}
 
-<div id="content-main">
+{% block title %}BDE UTT - Admin{% endblock %}
 
-    {% if user.is_authenticated %}
-    <p class="errornote">
-        You are authenticated as {{ username }}, but are not authorized to
-        access this page. Would you like to login to a different account?
-    </p>
-    {% endif %}
+{% block script %}
+<script src="/static/js/login.js"></script>
+{% endblock %}
 
-    <a href="/sso/authenticate"><button>Connexion SIA</button></a>
-    <a href="">compte local</a>
+{% block content %}
 
-    <section>
-        <h3>Connexion locale</h3>
+<div>
+    <a href="/" class="btn btn-dark mt-3 m-3">Retour</a>
 
-        <form action="{{ app_path }}" method="post" id="login-form">{% csrf_token %}
-            <div class="form-row">
-                {{ form.username.errors }}
-                {{ form.username.label_tag }} {{ form.username }}
+    <div class="d-flex flex-column align-items-center row-gap-4 p-4 m-auto width-limited-sm">
+
+        <h3>Interface d'administration</h3>
+
+        {% if user.is_authenticated %}
+        <div class="card shadow-lg border-danger p-4 align-items-center row-gap-1 w-100">
+            <p class="errornote text-justify text-danger small">
+                Vous êtes authentifié en tant que {{ username }}, mais vous n'êtes pas autorisé
+                à accéder à cette page.
+                <br>
+                Voulez-vous vous connecter avec un autre compte ?
+            </p>
+            <a href="/logout?next={% url 'admin:login' %}" class="btn btn-danger">Se déconnecter</a>
+        </div>
+        {% endif %}
+
+        <div class="card shadow-lg border-0 p-4 align-items-center row-gap-1 w-100">
+            <p class="text-justify">L'accès à cette interface se fait via le service de connexion centralisée du
+                Système d'Information des Associations (SIA).
+            </p>
+            <a href="/sso/authenticate" class="btn btn-dark">Connexion centralisée SIA</a>
+            <a href="#" id="local-account-link" class="text-secondary small">Utiliser un compte local</a>
+        </div>
+
+        <div id="local-account-card"
+            class="card shadow-lg border-2 border-warning p-4 align-items-center row-gap-1 w-100{% if not form.non_field_errors %} d-none{% endif %}">
+            <h5>Connexion locale</h5>
+
+            {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+            <div class="card border-danger p-2">
+                <p class="errornote text-justify text-danger m-0 small">
+                    {{ error }}
+                </p>
             </div>
-            <div class="form-row">
-                {{ form.password.errors }}
-                {{ form.password.label_tag }} {{ form.password }}
-                <input type="hidden" name="next" value="{{ next }}">
-            </div>
-            {% url 'admin_password_reset' as password_reset_url %}
-            {% if password_reset_url %}
-            <div class="password-reset-link">
-                <a href="{{ password_reset_url }}">Oubli de mot de passe ?</a>
-            </div>
+            {% endfor %}
             {% endif %}
-            <div class="submit-row">
-                <input type="submit" value="Connexion">
-            </div>
-        </form>
-    </section>
+            <form action="{{ app_path }}" method="post" id="login-form" class="d-flex flex-column row-gap-3">
+                {% csrf_token %}
+                <div class="form-row">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="text" class="form-control" name="username" autofocus="" autocapitalize="none"
+                        autocomplete="username" maxlength="150" required="" id="id_username" placeholder="Enter email">
+                </div>
+                <div class="form-row">
+                    <label for="exampleInputPassword1">Password</label>
+                    <input type="password" class="form-control" name="password" autocomplete="current-password"
+                        required="" id="id_password">
+                    <input type="hidden" name="next" value="{{ next }}">
+                </div>
+                {% url 'admin_password_reset' as password_reset_url %}
+                {% if password_reset_url %}
+                <div class="password-reset-link">
+                    <a href="{{ password_reset_url }}">Oubli de mot de passe ?</a>
+                </div>
+                {% endif %}
+                <input type="submit" value="Connexion" class="btn btn-dark w-100 mt-1">
+            </form>
+        </div>
 
+        <div class="card shadow-lg border-0 p-4 align-items-start row-gap-2 w-100">
+            <h6>Vous n'avez pas de compte SIA ?</h6>
+            <p class="m-0 text-secondary">
+                Vous pouvez vous créer un compte en appuyant <a href="https://links.uttnetgroup.fr/register"
+                    target="_blank">ici</a>, avec votre adresse
+                email @utt.fr
+            </p>
+        </div>
+    </div>
 </div>
+
+{% endblock %}
