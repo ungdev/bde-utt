@@ -1,0 +1,38 @@
+a {
+    text-decoration: none;
+}
+
+.width-limited-sm {
+    min-width: 300px;
+    max-width: 500px;
+}
+
+.width-limited-lg {
+    width: max-content;
+    max-width: 100%;
+}
+
+.width-limited-lg p,
+.width-limited-lg .text-container {
+    max-width: 800px;
+    text-align: justify;
+}
+
+.partner-details-card {
+    border-color: #314069;
+}
+
+@media (max-width: 600px) {
+
+    .board-member-card,
+    .partner-details-card {
+        flex-direction: column !important;
+        align-items: center;
+    }
+
+    .board-member-card .card-body,
+    .partner-details-card .card-body {
+        margin-left: 0 !important;
+        margin-top: 1rem;
+    }
+}

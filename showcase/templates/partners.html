@@ -1,17 +1,48 @@
 {% extends "base.html" %}
 
-{% block title %}BDE UTT - Partenaires{% endblock %}
+{% block title %}BDE UTT - Prêt{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <div class="card text-center">
-        <div class="card-header">
-            Information
+
+<div class="mt-5 pt-3">
+    <div class="text-center mt-5 my-4">
+        <h3>Les partenaires du BDE</h3>
+    </div>
+
+    <div class="d-flex flex-column p-4 align-items-center row-gap-4 m-auto width-limited-lg">
+        <div class="card shadow-lg border-0 p-4 align-items-start row-gap-2 w-100">
+            <h4>Pourquoi des partenariats ?</h4>
+            <p class="m-0" style="max-width: 800px;text-align: justify;">
+                Le Bureau Des Etudiants met en place de nombreux partenaires dans deux objectifs principaux.
+            </p>
+            <ul>
+                <li>Obtenir des avantages et réductions pour les cotisants du BDE</li>
+                <li>Supporter financièrement les actions et évènements du BDE</li>
+            </ul>
         </div>
-        <div class="card-body">
-            <h5 class="card-title">Page en construction</h5>
-            <p class="card-text">Cette page de partenaires est en cours de développement. Revenez bientôt !</p>
+
+        <div class="card shadow-lg border-0 p-4 align-items-center row-gap-3 w-100">
+            <h4>Les partenaires</h4>
+            <div class="d-flex flex-column gap-3 justify-content-evenly">
+                {% for item in partners_qs %}
+                <div class="card shadow flex-row p-3 bg-light partner-details-card h-100"
+                    style="min-width: 40vw; max-width: 700px">
+                    <div>
+                        <img src="{{item.icon_url}}" class="card-img-left rounded" alt="{{item.name}}"
+                            style="width: 200px; height: 200px; object-fit: cover;">
+                        <h5 class="card-title text-center mt-2">{{item.name}}</h5>
+                    </div>
+                    <div class="d-flex flex-column card-body p-0 ms-3 row-gap-4 justify-content-between">
+                        <p class="text-justify" style="text-align: justify;">{{item.description}}</p>
+                        {% if item.url %}
+                        <a href="{{item.url}}" class="btn btn-primary" target="_blank">En savoir plus</a>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 </div>
+
 {% endblock %}

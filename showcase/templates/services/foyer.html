@@ -1,17 +1,13 @@
-{% extends "base.html" %}
+{% extends "base_with_partners.html" %}
 
 {% block title %}BDE UTT - Foyer{% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <div class="card text-center">
-        <div class="card-header">
-            Information
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">Page en construction</h5>
-            <p class="card-text">Cette page de service est en cours de développement. Revenez bientôt !</p>
-        </div>
-    </div>
-</div>
+
+{% with title="Le Foyer" %}
+{% with subtitle="Lieu de vie, pour prendre un café et profiter pendant les pauses" %}
+{% with imgsrc="/static/img/foyer.png" %}
+{% include "partials/pictureTitle.html" %}
+{% endwith %}{% endwith %}{% endwith %}
+
 {% endblock %}

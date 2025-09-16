@@ -7,6 +7,7 @@
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
     <title>{% block title %}BDE UTT{% endblock %}</title>
     <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/css/main.css" rel="stylesheet">
     {% block head %}{% endblock %}
 </head>
 
@@ -16,7 +17,7 @@
 
     {% block content %}{% endblock %}
 
-    {% include "partials/partners.html" %}
+    {% block partials %}{% endblock %}
 
     {% include "partials/footer.html" %}
 

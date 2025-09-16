@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "base_with_partners.html" %}
 
 {% block title %}BDE UTT{% endblock %}
 
@@ -18,7 +18,8 @@
     {% for member in members %}
     <div class="card shadow flex-row p-3 bg-light board-member-card" style="min-width: 40vw; max-width: 700px">
         <div>
-            <img src="{{member.profile.picture_url}}" class="card-img-left rounded" alt="Nom de la personne"
+            <img src="{{member.profile.picture_url}}" class="card-img-left rounded"
+                alt="{{member.first_name}}_{{member.last_name}}"
                 style="width: 200px; height: 200px; object-fit: cover;">
             <h5 class="card-title text-center mt-2">{{member.first_name}} {{member.last_name}}</h5>
             <h6 class="card-subtitle text-center text-secondary">{{member.role_display}}</h6>
@@ -32,20 +33,10 @@
             </div>
         </div>
     </div>
-    <style>
-        @media (max-width: 600px) {
-            .board-member-card {
-                flex-direction: column !important;
-                align-items: center;
-            }
-
-            .board-member-card .card-body {
-                margin-left: 0 !important;
-                margin-top: 1rem;
-            }
-        }
-    </style>
     {% endfor %}
+    <style>
+
+    </style>
 </div>
 
 {% endblock %}
