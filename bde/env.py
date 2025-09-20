@@ -45,6 +45,10 @@ class EnvConfig:
         return self.get("CSRF_COOKIE_SECURE", "True") == "True"
 
     @property
+    def DEV_MODE(self) -> bool:
+        return self.get("DEV_MODE", "False") == "True"
+
+    @property
     def SESSION_COOKIE_SECURE(self) -> bool:
         return self.get("SESSION_COOKIE_SECURE", "True") == "True"
 
