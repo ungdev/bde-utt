@@ -44,19 +44,19 @@ def members(request):
     teams = Team.objects.exclude(name="Bureau")
     users_team = UserTeam.objects.exclude(team__name="Bureau").only("user", "role")
 
-    teams_with_members = [
-        {
-            **team.to_template(),
-            "members": [ut.to_template() for ut in users_team if ut.team.pk == team.pk],
-        }
-        for team in teams
-    ]
-
     return render(
         request,
         "members.html",
         {
             **common_data(),
-            "teams": teams_with_members,
+            "teams": [
+                {
+                    **team.to_template(),
+                    "members": [
+                        ut.to_template() for ut in users_team if ut.team.pk == team.pk
+                    ],
+                }
+                for team in teams
+            ],
         },
     )
