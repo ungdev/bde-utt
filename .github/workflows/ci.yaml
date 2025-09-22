@@ -18,12 +18,12 @@ jobs:
           MYSQL_RANDOM_ROOT_PASSWORD: yes
         ports:
           - 3306:3306
-        options: >-
-          --name mariadb
-          --health-cmd="mysqladmin ping -h 127.0.0.1 -u testuser -ptestpass"
-          --health-interval=10s
-          --health-timeout=5s
-          --health-retries=10
+        # options: >-
+        #   --name mariadb
+        #   --health-cmd="mysqladmin ping -h 127.0.0.1 -u testuser -ptestpass"
+        #   --health-interval=10s
+        #   --health-timeout=5s
+        #   --health-retries=10
     steps:
       - uses: actions/checkout@v4
 
