@@ -6,18 +6,40 @@ on:
     branches: [master, dev]
 
 jobs:
+  lint:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install lint dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install flake8 mypy
+
+      - name: Run flake8
+        run: flake8 .
+
+      - name: Run mypy
+        run: mypy --config-file mypy.ini .
+
   tests:
     runs-on: self-hosted
     services:
       mariadb:
         image: mariadb:11
         env:
-          MARIADB_DATABASE: "test_db"
-          MARIADB_USER: "testuser"
-          MARIADB_PASSWORD: testpass
+          MARIADB_DATABASE: "dev"
+          MARIADB_USER: "dev"
+          MARIADB_PASSWORD: bdeutt_test
           MYSQL_RANDOM_ROOT_PASSWORD: yes
         ports:
           - 3306:3306
+        # options: --name mariadb --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=30s --health-retries=5
     steps:
       - uses: actions/checkout@v4
 
@@ -31,39 +53,22 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Check for missing migrations
-        run: python manage.py makemigrations --check --dry-run
-
-      - name: Wait for MariaDB
-        run: |
-          for i in {1..30}; do
-            if mysqladmin ping -h127.0.0.1 -utestuser -ptestpass --silent; then
-              echo "MariaDB is up!"
-              exit 0
-            fi
-            echo "Waiting for MariaDB..."
-            sleep 2
-          done
-          echo "MariaDB did not become available in time."
-          exit 1
-
       - name: Set Django DB env
         run: |
-          echo "DB_NAME=db" >> $GITHUB_ENV
-          echo "DB_USER=testuser" >> $GITHUB_ENV
-          echo "DB_PASSWORD=testpass" >> $GITHUB_ENV
-          echo "DB_HOST=127.0.0.1" >> $GITHUB_ENV
-          echo "DB_PORT=3306" >> $GITHUB_ENV
-          echo "SECRET_KEY=testsecrret" >> $GITHUB_ENV
+          echo "DJANGO_DB_NAME=testdb" >> $GITHUB_ENV
+          echo "DJANGO_DB_USER=testuser" >> $GITHUB_ENV
+          echo "DJANGO_DB_PASSWORD=testpass" >> $GITHUB_ENV
+          echo "DJANGO_DB_HOST=localhost" >> $GITHUB_ENV
+          echo "DJANGO_DB_PORT=3306" >> $GITHUB_ENV
 
       - name: Run Django tests
         env:
-          DJANGO_DB_NAME: ${{ env.DB_NAME }}
-          DJANGO_DB_USER: ${{ env.DB_USER }}
-          DJANGO_DB_PASSWORD: ${{ env.DB_PASSWORD }}
-          DJANGO_DB_HOST: ${{ env.DB_HOST }}
-          DJANGO_DB_PORT: ${{ env.DB_PORT }}
-        run: python manage.py test --no-input
+          DJANGO_DB_NAME: ${{ env.DJANGO_DB_NAME }}
+          DJANGO_DB_USER: ${{ env.DJANGO_DB_USER }}
+          DJANGO_DB_PASSWORD: ${{ env.DJANGO_DB_PASSWORD }}
+          DJANGO_DB_HOST: ${{ env.DJANGO_DB_HOST }}
+          DJANGO_DB_PORT: ${{ env.DJANGO_DB_PORT }}
+        run: python manage.py test
 
   build:
     runs-on: self-hosted
