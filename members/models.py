@@ -52,9 +52,7 @@ class UserTeam(models.Model):
         max_length=20, choices=ROLES, default="MEMBER"
     )
 
-    team: models.ForeignKey[Team] = models.ForeignKey(
-        Team, on_delete=models.SET_NULL, null=True, blank=True
-    )
+    team: models.ForeignKey[Team] = models.ForeignKey(Team, on_delete=models.CASCADE)
 
     @property
     def role_display(self):
@@ -69,12 +67,18 @@ class UserTeam(models.Model):
         }
 
     def __str__(self) -> str:
-        return f"{self.user.first_name} {self.user.last_name} ({self.team.name} - {self.role_display})"
+        first_name = getattr(self.user, "first_name", "")
+        last_name = getattr(self.user, "last_name", "")
+        team_name = getattr(self.team, "name", "")
+        return f"{first_name} {last_name} ({team_name} - {self.role_display})"
 
 
-def get_userProfile_from_userTeam(member: UserTeam) -> UserProfile:
+def get_userProfile_from_userTeam(member: UserTeam) -> UserProfile | None:
     try:
-        user_profile = UserProfile.objects.get(user__id=member.user.pk)
+        user = getattr(member, "user", None)
+        if user is None:
+            return None
+        user_profile = UserProfile.objects.get(user__id=user.id)
 
         user_profile.description = mark_safe(
             user_profile.description.replace("\n", "<br>")

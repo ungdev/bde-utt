@@ -65,14 +65,6 @@ class EnvConfig:
         return self.get("SECRET_KEY", secrets.token_urlsafe(42))
 
     @property
-    def SESSION_COOKIE_SECURE(self) -> bool:
-        return self.get("SESSION_COOKIE_SECURE", "True") == "True"
-
-    @property
-    def CSRF_COOKIE_SECURE(self) -> bool:
-        return self.get("CSRF_COOKIE_SECURE", "True") == "True"
-
-    @property
     def DB_NAME(self) -> str:
         return self.get("DB_NAME", "bde")
 

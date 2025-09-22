@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Team, UserTeam, get_userProfile_from_userTeam
+from .models import Team, UserTeam
 from utils.views import common_data
 
 
