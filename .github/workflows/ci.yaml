@@ -63,7 +63,7 @@ jobs:
           DJANGO_DB_PASSWORD: ${{ env.DB_PASSWORD }}
           DJANGO_DB_HOST: ${{ env.DB_HOST }}
           DJANGO_DB_PORT: ${{ env.DB_PORT }}
-        run: python manage.py test
+        run: python manage.py test --no-input
 
   build:
     runs-on: self-hosted
