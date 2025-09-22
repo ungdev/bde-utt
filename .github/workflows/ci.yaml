@@ -42,7 +42,7 @@ jobs:
           echo "DB_NAME=testdb" >> $GITHUB_ENV
           echo "DB_USER=testuser" >> $GITHUB_ENV
           echo "DB_PASSWORD=testpass" >> $GITHUB_ENV
-          echo "DB_HOST=localhost" >> $GITHUB_ENV
+          echo "DB_HOST=mariadb" >> $GITHUB_ENV
           echo "DB_PORT=3306" >> $GITHUB_ENV
 
       - name: Run Django tests
