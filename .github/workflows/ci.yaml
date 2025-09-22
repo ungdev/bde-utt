@@ -108,6 +108,7 @@ jobs:
     if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev'
     runs-on: self-hosted
     needs:
+      - lint
       - tests
       - build
     steps:
