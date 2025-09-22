@@ -34,19 +34,19 @@ jobs:
 
       - name: Set Django DB env
         run: |
-          echo "DJANGO_DB_NAME=testdb" >> $GITHUB_ENV
-          echo "DJANGO_DB_USER=testuser" >> $GITHUB_ENV
-          echo "DJANGO_DB_PASSWORD=testpass" >> $GITHUB_ENV
-          echo "DJANGO_DB_HOST=localhost" >> $GITHUB_ENV
-          echo "DJANGO_DB_PORT=3306" >> $GITHUB_ENV
+          echo "DB_NAME=testdb" >> $GITHUB_ENV
+          echo "DB_USER=testuser" >> $GITHUB_ENV
+          echo "DB_PASSWORD=testpass" >> $GITHUB_ENV
+          echo "DB_HOST=localhost" >> $GITHUB_ENV
+          echo "DB_PORT=3306" >> $GITHUB_ENV
 
       - name: Run Django tests
         env:
-          DJANGO_DB_NAME: ${{ env.DJANGO_DB_NAME }}
-          DJANGO_DB_USER: ${{ env.DJANGO_DB_USER }}
-          DJANGO_DB_PASSWORD: ${{ env.DJANGO_DB_PASSWORD }}
-          DJANGO_DB_HOST: ${{ env.DJANGO_DB_HOST }}
-          DJANGO_DB_PORT: ${{ env.DJANGO_DB_PORT }}
+          DJANGO_DB_NAME: ${{ env.DB_NAME }}
+          DJANGO_DB_USER: ${{ env.DB_USER }}
+          DJANGO_DB_PASSWORD: ${{ env.DB_PASSWORD }}
+          DJANGO_DB_HOST: ${{ env.DB_HOST }}
+          DJANGO_DB_PORT: ${{ env.DB_PORT }}
         run: python manage.py test
 
   build:
