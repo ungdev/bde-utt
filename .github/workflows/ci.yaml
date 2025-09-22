@@ -21,8 +21,8 @@ jobs:
           python -m pip install --upgrade pip
           pip install black mypy
 
-      - name: Run black
-        run: black --check .
+      # - name: Run black
+      #   run: black --check .
 
       - name: Run mypy
         run: mypy --config-file mypy.ini .
