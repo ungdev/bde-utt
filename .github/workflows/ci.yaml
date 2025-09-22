@@ -23,7 +23,7 @@ jobs:
           --health-cmd="mysqladmin ping -h 127.0.0.1 -u testuser -ptestpass"
           --health-interval=10s
           --health-timeout=5s
-          --health-retries=5
+          --health-retries=10
     steps:
       - uses: actions/checkout@v4
 
