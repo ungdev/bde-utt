@@ -1,5 +1,5 @@
 from pathlib import Path
-from env import EnvConfig
+from bde.env import EnvConfig
 
 env = EnvConfig()
 
