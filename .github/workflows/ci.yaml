@@ -45,6 +45,17 @@ jobs:
           echo "DB_HOST=127.0.0.1" >> $GITHUB_ENV
           echo "DB_PORT=3306" >> $GITHUB_ENV
 
+      - name: Wait for MariaDB
+        run: |
+          for i in {1..30}; do
+            if mysqladmin ping -h127.0.0.1 -utestuser -ptestpass > /dev/null 2>&1; then
+              echo "MariaDB is up!"
+              break
+            fi
+            echo "Waiting for MariaDB..."
+            sleep 2
+          done
+
       - name: Run Django tests
         env:
           DJANGO_DB_NAME: ${{ env.DB_NAME }}
