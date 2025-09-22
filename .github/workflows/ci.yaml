@@ -85,6 +85,9 @@ jobs:
 
   build:
     runs-on: self-hosted
+    needs:
+      - lint
+      - tests
     steps:
       - uses: actions/checkout@v4
 
@@ -105,8 +108,6 @@ jobs:
     if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev'
     runs-on: self-hosted
     needs:
-      - lint
-      - tests
       - build
     steps:
       - uses: actions/checkout@v4
