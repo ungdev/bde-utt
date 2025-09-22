@@ -12,7 +12,7 @@ jobs:
       mariadb:
         image: mariadb:11
         env:
-          MARIADB_DATABASE: "testdb"
+          MARIADB_DATABASE: "test_db"
           MARIADB_USER: "testuser"
           MARIADB_PASSWORD: testpass
           MYSQL_RANDOM_ROOT_PASSWORD: yes
@@ -39,7 +39,7 @@ jobs:
 
       - name: Set Django DB env
         run: |
-          echo "DB_NAME=testdb" >> $GITHUB_ENV
+          echo "DB_NAME=db" >> $GITHUB_ENV
           echo "DB_USER=testuser" >> $GITHUB_ENV
           echo "DB_PASSWORD=testpass" >> $GITHUB_ENV
           echo "DB_HOST=127.0.0.1" >> $GITHUB_ENV
