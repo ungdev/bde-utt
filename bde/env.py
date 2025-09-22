@@ -1,5 +1,6 @@
 import os
 from dotenv import load_dotenv
+import secrets
 
 load_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), ".env"))
 
@@ -61,7 +62,7 @@ class EnvConfig:
 
     @property
     def SECRET_KEY(self) -> str:
-        return self.get("SECRET_KEY", "")
+        return self.get("SECRET_KEY", secrets.token_urlsafe(42))
 
     @property
     def SESSION_COOKIE_SECURE(self) -> bool:
