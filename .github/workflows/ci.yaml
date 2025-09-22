@@ -12,9 +12,9 @@ jobs:
       mariadb:
         image: mariadb:11
         env:
-          MARIADB_DATABASE: "dev"
-          MARIADB_USER: "dev"
-          MARIADB_PASSWORD: bdeutt_test
+          MARIADB_DATABASE: "testdb"
+          MARIADB_USER: "testuser"
+          MARIADB_PASSWORD: testpass
           MYSQL_RANDOM_ROOT_PASSWORD: yes
         ports:
           - 3306:3306
