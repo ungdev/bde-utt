@@ -1,0 +1,22 @@
+{% extends "base_with_partners.html" %}
+
+{% block title %}BDE UTT - Trésorerie{% endblock %}
+
+{% block content %}
+
+<div class="mt-5 pt-3">
+    <div class="text-center mt-5 my-4">
+        <h3>Trésorerie</h3>
+    </div>
+
+    <!-- TODO: Trésorerie informations -->
+
+    <div class="d-flex flex-column align-items-center row-gap-4 p-4 m-auto width-limited-lg">
+        {% with title="Plateforme de contact Trésorerie" %}
+        {% with subject="relatives à la trésorerie" %}
+        {% include "partials/ticketsCard.html" %}
+        {% endwith %}{% endwith %}
+    </div>
+</div>
+
+{% endblock %}

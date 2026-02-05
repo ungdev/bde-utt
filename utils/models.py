@@ -2,7 +2,7 @@ import uuid
 import os
 
 
-def picture_upload_to(folder):
+def picture_upload_to(folder: str) -> str:
     while True:
         unique_name = f"{folder}/{uuid.uuid4().hex}.jpg"
         full_path = os.path.join("uploads", unique_name)
