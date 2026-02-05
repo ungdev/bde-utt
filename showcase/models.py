@@ -11,10 +11,11 @@ class News(models.Model):
     description: models.TextField = models.TextField()
     start_date: models.DateTimeField = models.DateTimeField()
     end_date: models.DateTimeField = models.DateTimeField()
-    picture: models.ImageField = models.ImageField(
+    picture = models.ImageField(
         upload_to=_news_picture_upload_to, blank=True, null=True
     )
     url: models.URLField = models.URLField(blank=True, null=True)
+
     teams: models.ManyToManyField = models.ManyToManyField(
         Team,
         blank=True,
@@ -25,7 +26,7 @@ class News(models.Model):
     )
 
     def __str__(self):
-        return self.title
+        return str(self.title)
 
     @property
     def teams_names(self):
@@ -34,9 +35,12 @@ class News(models.Model):
     @property
     def period_string(self):
         if self.start_date.date() == self.end_date.date():
-            return f"{self.start_date.strftime('%d/%m/%Y %H:%M')} - {self.end_date.strftime('%H:%M')}"
-        else:
-            return f"{self.start_date.strftime('%d/%m/%Y %H:%M')} - {self.end_date.strftime('%d/%m/%Y %H:%M')}"
+            start_fmt = self.start_date.strftime("%d/%m/%Y %H:%M")
+            end_fmt = self.end_date.strftime("%H:%M")
+            return f"{start_fmt} - {end_fmt}"
+        start_fmt = self.start_date.strftime("%d/%m/%Y %H:%M")
+        end_fmt = self.end_date.strftime("%d/%m/%Y %H:%M")
+        return f"{start_fmt} - {end_fmt}"
 
     @property
     def picture_url(self):
@@ -48,19 +52,17 @@ class Partner(models.Model):
     def _partner_picture_upload_to(instance, filename):
         return picture_upload_to("partners")
 
-    name: models.CharField = models.CharField(max_length=200)
-    description: models.TextField = models.TextField(blank=True)
-    icon: models.ImageField = models.ImageField(upload_to=_partner_picture_upload_to)
-    url: models.URLField = models.URLField(blank=True, null=True)
-    enable: models.BooleanField = models.BooleanField(
+    name = models.CharField(max_length=200)
+    description = models.TextField(blank=True)
+    icon = models.ImageField(upload_to=_partner_picture_upload_to)
+    url = models.URLField(blank=True, null=True)
+    enable = models.BooleanField(
         default=False, help_text="Afficher/Cacher le partenaire"
     )
-    order: models.PositiveIntegerField = models.PositiveIntegerField(
-        default=0, help_text="Ordre d'affichage"
-    )
+    order = models.PositiveIntegerField(default=0, help_text="Ordre d'affichage")
 
     def __str__(self):
-        return self.name
+        return str(self.name)
 
     @property
     def icon_url(self):
