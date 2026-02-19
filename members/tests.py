@@ -39,7 +39,7 @@ class MembersBoardViewsTest(TestCase):
     def test_status_and_template(self):
         response = self.client.get("/members/board/")
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "board.html")
+        self.assertTemplateUsed(response, "board/main.html")
 
     def test_common_data(self):
         response = self.client.get("/members/board/")
@@ -111,7 +111,7 @@ class MembersMembersViewTest(TestCase):
     def test_status_and_template(self):
         response = self.client.get("/members/")
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "members.html")
+        self.assertTemplateUsed(response, "members/main.html")
 
     def test_common_data(self):
         response = self.client.get("/members/")
