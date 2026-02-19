@@ -31,7 +31,7 @@ def events(request, param: str | None = None):
         )
     return render(
         request,
-        f"events/{param}.html",
+        f"events/{param}/main.html",
         {**common_data()},
     )
 
@@ -61,6 +61,6 @@ def services(request, param: str | None = None):
         )
     return render(
         request,
-        f"services/{param}.html",
+        f"services/{param}/main.html",
         {**common_data()},
     )

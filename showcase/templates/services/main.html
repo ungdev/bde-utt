@@ -2,150 +2,70 @@
 
 {% block title %}BDE UTT - Services{% endblock %}
 
-{% block head %}
-<link href="/static/css/showcase/main.css" rel="stylesheet">
-{% endblock %}
-
 {% block content %}
 
-<div class="mt-5 p-3">
+<div class="container py-5">
 
-    <div class="text-center mt-5 my-4">
-        <h3>Les services du BDE</h3>
-        <p>
-            Le Bureau Des Etudiants a à coeur de proposer divers services pour le confort et l'accompagnement des
-            étudiants de l'Université de Technologie de Troyes.
-        </p>
-    </div>
+    <!-- Hero Section -->
+    {% with title="Les Services du BDE" %}
+    {% with subtitle="Le Bureau Des Étudiants a à cœur de proposer divers services pour le confort et l'accompagnement des étudiants de l'Université de Technologie de Troyes." %}
+    {% include "partials/hero.html" %}
+    {% endwith %}{% endwith %}
 
-    <div class="d-flex flex-column align-items-center row-gap-4 m-auto">
-        <div class="card shadow-lg p-4 border-0 align-items-center row-gap-3 w-100">
-            <h4>Les services principaux</h4>
-            <div class="d-flex flex-wrap gap-3 justify-content-evenly">
-                <div class="card width-limited-sm shadow p-3 align-items-center row-gap-2">
-                    <h5 class="m-0">Foyer</h5>
-                    <p class="m-0" style="text-align: justify;">
-                        <!-- TODO: Foyer infos -->
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, voluptatem eligendi eius
-                        incidunt impedit, aliquam pariatur asperiores quidem non nostrum voluptas? Suscipit impedit nemo
-                        quaerat est magni nesciunt sequi quia?
-                    </p>
-                    <a href="/services/foyer/" class="align-self-end">
-                        <button type="button" class="btn btn-primary">
-                            Voir plus
-                        </button>
-                    </a>
-                </div>
-                <div class="card width-limited-sm shadow p-3 align-items-center row-gap-2">
-                    <h5 class="m-0">Prêt de matériel</h5>
-                    <p class="m-0" style="text-align: justify;">
-                        <!-- TODO: Lend infos -->
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, voluptatem eligendi eius
-                        incidunt impedit, aliquam pariatur asperiores quidem non nostrum voluptas? Suscipit impedit nemo
-                        quaerat est magni nesciunt sequi quia?
-                    </p>
-                    <a href="/services/lend/" class="align-self-end">
-                        <button type="button" class="btn btn-primary">
-                            Voir plus
-                        </button>
-                    </a>
-                </div>
-                <div class="card width-limited-sm shadow p-3 align-items-center row-gap-2">
-                    <h5 class="m-0">Zeshop</h5>
-                    <p class="m-0" style="text-align: justify;">
-                        <!-- TODO: Zeshop infos -->
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, voluptatem eligendi eius
-                        incidunt impedit, aliquam pariatur asperiores quidem non nostrum voluptas? Suscipit impedit nemo
-                        quaerat est magni nesciunt sequi quia?
-                    </p>
-                    <a href="/services/zeshop/" class="align-self-end">
-                        <button type="button" class="btn btn-primary">
-                            Voir plus
-                        </button>
-                    </a>
-                </div>
-                <div class="card width-limited-sm shadow p-3 align-items-center row-gap-2">
-                    <h5 class="m-0">Vie de Campus</h5>
-                    <p class="m-0" style="text-align: justify;">
-                        <!-- TODO: Campus infos -->
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, voluptatem eligendi eius
-                        incidunt impedit, aliquam pariatur asperiores quidem non nostrum voluptas? Suscipit impedit nemo
-                        quaerat est magni nesciunt sequi quia?
-                    </p>
-                    <a href="/services/campus" class="align-self-end">
-                        <button type="button" class="btn btn-primary">
-                            Voir plus
-                        </button>
-                    </a>
-                </div>
-                <div class="card width-limited-sm shadow p-3 align-items-center row-gap-2">
-                    <h5 class="m-0">Accompagnement des clubs & associations</h5>
-                    <p class="m-0" style="text-align: justify;">
-                        <!-- TODO: Club&Assos infos -->
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, voluptatem eligendi eius
-                        incidunt impedit, aliquam pariatur asperiores quidem non nostrum voluptas? Suscipit impedit nemo
-                        quaerat est magni nesciunt sequi quia?
-                    </p>
-                    <a href="/services/clubs" class="align-self-end">
-                        <button type="button" class="btn btn-primary">
-                            Voir plus
-                        </button>
-                    </a>
-                </div>
-                <div class="card width-limited-sm shadow p-3 align-items-center row-gap-2">
-                    <h5 class="m-0">Partenariats</h5>
-                    <p class="m-0" style="text-align: justify;">
-                        <!-- TODO: Parts infos -->
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, voluptatem eligendi eius
-                        incidunt impedit, aliquam pariatur asperiores quidem non nostrum voluptas? Suscipit impedit nemo
-                        quaerat est magni nesciunt sequi quia?
-                    </p>
-                    <a href="/partners" class="align-self-end">
-                        <button type="button" class="btn btn-primary">
-                            Voir plus
-                        </button>
-                    </a>
-                </div>
-                <div class="card width-limited-sm shadow p-3 align-items-center row-gap-2">
-                    <h5 class="m-0">Trésorerie</h5>
-                    <p class="m-0" style="text-align: justify;">
-                        <!-- TODO: Trésorerie infos -->
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, voluptatem eligendi eius
-                        incidunt impedit, aliquam pariatur asperiores quidem non nostrum voluptas? Suscipit impedit nemo
-                        quaerat est magni nesciunt sequi quia?
-                    </p>
-                    <a href="/services/treasury" class="align-self-end">
-                        <button type="button" class="btn btn-primary">
-                            Voir plus
-                        </button>
-                    </a>
-                </div>
-                <div class="card width-limited-sm shadow p-3 align-items-center row-gap-2">
-                    <h5 class="m-0">Communication</h5>
-                    <p class="m-0" style="text-align: justify;">
-                        <!-- TODO: Communication infos -->
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, voluptatem eligendi eius
-                        incidunt impedit, aliquam pariatur asperiores quidem non nostrum voluptas? Suscipit impedit nemo
-                        quaerat est magni nesciunt sequi quia?
-                    </p>
-                    <a href="/services/communication" class="align-self-end">
-                        <button type="button" class="btn btn-primary">
-                            Voir plus
-                        </button>
-                    </a>
-                </div>
+    <!-- Main Services Section -->
+    <div class="mb-5">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold">Nos Services Principaux</h2>
+            <div class="mx-auto mt-2"
+                style="width: 60px; height: 4px; background: linear-gradient(to right, #667eea, #764ba2);"></div>
+        </div>
+
+        <div class="row g-4">
+            <!-- Foyer Card -->
+            <div class="col-md-6 col-lg-4">
+                {% include "partials/cards/modern.html" with title="Le Foyer" description="Géré par des étudiants bénévoles, un lieu de détente où les cotisants BDE peuvent acheter des collations à prix coûtant, profiter d'animations quotidiennes et participer à des événements organisés en soirée." url="/services/foyer/" %}
+            </div>
+
+            <!-- Prêt de Matériel Card -->
+            <div class="col-md-6 col-lg-4">
+                {% include "partials/cards/modern.html" with title="Prêt de Matériel" description="Prêt de matériel aux cotisants sur simple demande de ticket, que ce soit pour un week-end en tente, une raclette entre amis ou un besoin en cours." url="/services/loan/" %}
+            </div>
+
+            <!-- Zeshop Card -->
+            <div class="col-md-6 col-lg-4">
+                {% include "partials/cards/modern.html" with title="ZeShop" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident hic exercitationem, nemo sunt, explicabo distinctio vero magni delectus necessitatibus alias laudantium cupiditate ipsum voluptatibus dignissimos atque, eos dicta? Quibusdam, sed?" url="/services/zeshop/" %}
+            </div>
+
+            <!-- Vie de Campus Card -->
+            <div class="col-md-6 col-lg-4">
+                {% include "partials/cards/modern.html" with title="Vie de Campus" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident hic exercitationem, nemo sunt, explicabo distinctio vero magni delectus necessitatibus alias laudantium cupiditate ipsum voluptatibus dignissimos atque, eos dicta? Quibusdam, sed?" url="/services/campus/" %}
+            </div>
+
+            <!-- Clubs & Associations Card -->
+            <div class="col-md-6 col-lg-4">
+                {% include "partials/cards/modern.html" with title="Clubs & Associations" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident hic exercitationem, nemo sunt, explicabo distinctio vero magni delectus necessitatibus alias laudantium cupiditate ipsum voluptatibus dignissimos atque, eos dicta? Quibusdam, sed?" url="/services/clubs/" %}
+            </div>
+
+            <!-- Partenariats Card -->
+            <div class="col-md-6 col-lg-4">
+                {% include "partials/cards/modern.html" with title="Partenariats" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident hic exercitationem, nemo sunt, explicabo distinctio vero magni delectus necessitatibus alias laudantium cupiditate ipsum voluptatibus dignissimos atque, eos dicta? Quibusdam, sed?" url="/partners/" %}
+            </div>
+
+            <!-- Trésorerie Card -->
+            <div class="col-md-6 col-lg-4">
+                {% include "partials/cards/modern.html" with title="Trésorerie" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident hic exercitationem, nemo sunt, explicabo distinctio vero magni delectus necessitatibus alias laudantium cupiditate ipsum voluptatibus dignissimos atque, eos dicta? Quibusdam, sed?" url="/services/treasury/" %}
+            </div>
+
+            <!-- Communication Card -->
+            <div class="col-md-6 col-lg-4">
+                {% include "partials/cards/modern.html" with title="Communication" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident hic exercitationem, nemo sunt, explicabo distinctio vero magni delectus necessitatibus alias laudantium cupiditate ipsum voluptatibus dignissimos atque, eos dicta? Quibusdam, sed?" url="/services/communication/" %}
             </div>
         </div>
-
-        <div class="card shadow-lg p-4 border-0 w-100 d-flex flex-row align-items-center justify-content-between gap-3">
-            <p class="m-0 flex-grow-1" style="max-width: 800px; text-align: justify;">
-                Tu as une question ? Besoin d'une information ? On sera heureux d'y répondre !
-            </p>
-            <a href="/contacts" class="btn btn-primary">
-                Contacter le BDE
-            </a>
-        </div>
     </div>
+
+    <!-- CTA Section -->
+    {% include "partials/cta.html" %}
+
 </div>
 
 {% endblock %}

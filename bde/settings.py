@@ -129,3 +129,13 @@ MEDIA_URL = "/uploads/"
 MEDIA_ROOT = BASE_DIR / "uploads"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Django Browser Reload (for development only)
+if DEBUG:
+    INSTALLED_APPS += [
+        "django_browser_reload",
+    ]
+
+    MIDDLEWARE += [
+        "django_browser_reload.middleware.BrowserReloadMiddleware",
+    ]

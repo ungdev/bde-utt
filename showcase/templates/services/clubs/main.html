@@ -1,19 +1,24 @@
 {% extends "base_with_partners.html" %}
 
-{% block title %}BDE UTT - Adhésion{% endblock %}
+{% block title %}BDE UTT - Club & Assos{% endblock %}
 
 {% block content %}
 
 <div class="container py-5">
 
     <!-- Hero Section -->
-    {% with title="Adhésion au BDE UTT" %}
+    {% with title="Club & Associations" %}
     {% with subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nam, quo facere tempore" %}
     {% include "partials/hero.html" %}
     {% endwith %}{% endwith %}
 
     <!-- Construction Card -->
     {% include "partials/cards/construction.html" %}
+
+    {% with title="Plateforme de dépôt d'évènements" %}
+    {% with subject="d'évènement" %}
+    {% include "partials/cards/tickets.html" %}
+    {% endwith %}{% endwith %}
 
     <!-- CTA Section -->
     {% include "partials/cta.html" %}

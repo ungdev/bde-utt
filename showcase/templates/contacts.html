@@ -4,62 +4,141 @@
 
 {% block content %}
 
-<div class="mt-5 pt-3">
-    <div class="text-center mt-5 my-4">
-        <h3>Nous contacter</h3>
-    </div>
+<div class="container py-5">
 
-    <div class="d-flex flex-column align-items-center row-gap-4 p-4 m-auto width-limited-lg">
-        <div class="card shadow-lg border-0 p-4 align-items-center row-gap-1 w-100">
-            <h4>Venez nous rencontrer !</h4>
-            <p class="m-0">Au Rideau, dans le grand Hall du bâtiment N</p>
-            <iframe class="rounded"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2983.319895026726!2d4.066955487864745!3d48.26943873017526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47ee99a107035de9%3A0xac79d3a36ed3df6a!2sBDE%20UTT!5e1!3m2!1sfr!2sfr!4v1757938758126!5m2!1sfr!2sfr"
-                style="border:0; max-width: 100%; width: 600px; height: 350px;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <!-- Hero Section -->
+    {% with title="Nous Contacter" %}
+    {% with subtitle="Une question ? Besoin de nous rencontrer ? Nous sommes là pour vous !" %}
+    {% include "partials/hero.html" %}
+    {% endwith %}{% endwith %}
+
+    <!-- Main Contact Section -->
+    <div class="mb-5">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold">Nos Coordonnées</h2>
+            <div class="mx-auto mt-2"
+                style="width: 60px; height: 4px; background: linear-gradient(to right, #667eea, #764ba2);"></div>
         </div>
 
-        <div class="card shadow-lg border-0 p-4 align-items-start row-gap-2 w-100">
-            <h4 class="align-self-center">Mails / Appels</h4>
-            <p class="m-0">
-                <strong>Téléphone:</strong> <a href="tel:+33325717674">+33325717674</a>
-            </p>
-            <div>
-                <p class="m-0"><strong>Mails:</strong></p>
-                <table style="border-collapse: separate; border-spacing: 2em 0.2em; column-gap: 2em;">
-                    <tbody>
-                        <tr>
-                            <td>Général:</td>
-                            <td><a href="mailto:bde@utt.fr">bde@utt.fr</a></td>
-                        </tr>
-                        <tr>
-                            <td>Trésorerie:</td>
-                            <td><a href="mailto:bde-treso@utt.fr">bde-treso@utt.fr</a></td>
-                        </tr>
-                        <tr>
-                            <td>Club & Asso:</td>
-                            <td><a href="mailto:bde-clubasso@utt.fr">bde-clubasso@utt.fr</a></td>
-                        </tr>
-                        <tr>
-                            <td>R2D:</td>
-                            <td><a href="mailto:bde-r2d@utt.fr">bde-r2d@utt.fr</a></td>
-                        </tr>
-                    </tbody>
-                </table>
+        <div class="row g-4">
+            <!-- Visit Us Card -->
+            <div class="col-lg-6">
+                <div class="card modern-card h-100 border-0 shadow">
+                    <div class="card-body d-flex flex-column p-4">
+                        <h5 class="card-title fw-bold mb-3">Venez nous rencontrer !</h5>
+                        <p class="text-muted mb-3">
+                            <strong>Au Rideau</strong>, dans le grand Hall du bâtiment N
+                        </p>
+                        <div class="rounded overflow-hidden shadow-sm mb-3" style="height: 300px;">
+                            <iframe class="w-100 h-100"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2983.319895026726!2d4.066955487864745!3d48.26943873017526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47ee99a107035de9%3A0xac79d3a36ed3df6a!2sBDE%20UTT!5e1!3m2!1sfr!2sfr!4v1757938758126!5m2!1sfr!2sfr"
+                                style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+                        </div>
+                        <a href="https://maps.google.com/?q=BDE+UTT" class="btn btn-outline-info" target="_blank">
+                            Ouvrir dans Google Maps
+                        </a>
+                    </div>
+                </div>
             </div>
-            <p>
-                <strong>Courier:</strong> 12 Rue Marie Curie, 10000 Troyes, France, adressé au BDE UTT
-            </p>
-        </div>
 
-        <div class="card shadow-lg border-0 p-4 align-items-start row-gap-2 w-100">
-            <h4>Information livraisons</h4>
-            <p class="m-0" style="max-width: 800px;text-align: justify;">
-                Les livraisons sont à déposer au Service Livraison de l'Université de Technologie de Troyes au 12 Av.
-                Louis François Armand, 10430 Rosières-près-Troyes
-            </p>
+            <!-- Contact Info Card -->
+            <div class="col-lg-6">
+                <div class="card modern-card h-100 border-0 shadow">
+                    <div class="card-body d-flex flex-column p-4">
+                        <h5 class="card-title fw-bold mb-4">Téléphone & Emails</h5>
+
+                        <!-- Phone -->
+                        <div class="mb-4">
+                            <h6 class="fw-bold text-muted text-uppercase small mb-2">
+                                Téléphone
+                            </h6>
+                            <p class="mb-0">
+                                <a href="tel:+33325717674" class="text-decoration-none fw-bold">
+                                    +33 3 25 71 76 74
+                                </a>
+                            </p>
+                        </div>
+
+                        <!-- Emails -->
+                        <div class="mb-4">
+                            <h6 class="fw-bold text-muted text-uppercase small mb-3">
+                                Emails
+                            </h6>
+                            <div class="d-flex flex-column gap-2">
+                                <div>
+                                    <small class="text-muted">Général</small>
+                                    <div>
+                                        <a href="mailto:bde@utt.fr" class="text-decoration-none fw-bold">
+                                            bde@utt.fr
+                                        </a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <small class="text-muted">Trésorerie</small>
+                                    <div>
+                                        <a href="mailto:bde-treso@utt.fr" class="text-decoration-none fw-bold">
+                                            bde-treso@utt.fr
+                                        </a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <small class="text-muted">Clubs & Associations</small>
+                                    <div>
+                                        <a href="mailto:bde-clubasso@utt.fr" class="text-decoration-none fw-bold">
+                                            bde-clubasso@utt.fr
+                                        </a>
+                                    </div>
+                                </div>
+                                <div>
+                                    <small class="text-muted">R2D</small>
+                                    <div>
+                                        <a href="mailto:bde-r2d@utt.fr" class="text-decoration-none fw-bold">
+                                            bde-r2d@utt.fr
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Address -->
+                        <div>
+                            <h6 class="fw-bold text-muted text-uppercase small mb-2">
+                                Adresse Postale
+                            </h6>
+                            <p class="mb-0 text-muted small">
+                                12 Rue Marie Curie<br>
+                                10000 Troyes, France<br>
+                                <em>À l'attention du BDE UTT</em>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <!-- Delivery Info Section -->
+    <div class="mb-5">
+        <div class="card modern-card border-0 shadow-lg p-5">
+            <div class="d-flex gap-3">
+                <div class="flex-shrink-0">
+                </div>
+                <div class="flex-grow-1">
+                    <h5 class="fw-bold mb-2">
+                        Informations Livraisons
+                    </h5>
+                    <p class="text-muted mb-0">
+                        Les livraisons sont à déposer au <strong>Service Livraison</strong> de l'Université de
+                        Technologie de Troyes au <strong>12 Av. Louis François Armand, 10430
+                            Rosières-près-Troyes</strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
 
 {% endblock %}

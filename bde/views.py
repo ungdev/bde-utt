@@ -17,9 +17,17 @@ def admin_logout(request):
     return redirect(next_url)
 
 
-def legal(request):
+def legals(request):
     return render(
         request,
-        "legal.html",
+        "legals.html",
+        {**common_data()},
+    )
+
+
+def privacy(request):
+    return render(
+        request,
+        "privacy.html",
         {**common_data()},
     )

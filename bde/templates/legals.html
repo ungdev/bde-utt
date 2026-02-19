@@ -1,0 +1,124 @@
+{% extends "base_with_partners.html" %}
+
+{% block title %}BDE UTT - Mentions légales{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- Hero Section -->
+    {% with title="Mentions Légales" %}
+    {% with subtitle="Informations légales et conformité RGPD" %}
+    {% include "partials/hero.html" %}
+    {% endwith %}{% endwith %}
+
+    <!-- Main Content -->
+    <div class="mb-5">
+        <!-- Editor Section -->
+        <div class="card modern-card border-0 shadow mb-4">
+            <div class="card-body p-4">
+                <h4 class="fw-bold mb-3">
+                    Éditeur du Site
+                </h4>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <!-- TODO infos BDE -->
+                        <p class="mb-2"><strong>BDE UTT</strong></p>
+                        <p class="text-muted small mb-2">Association loi 1901</p>
+                        <p class="text-muted small mb-1">N° RNA : </p>
+                        <p class="text-muted small">N° RCS : </p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="text-muted small mb-2">
+                            12 rue Marie Curie<br>
+                            10000 TROYES
+                        </p>
+                        <p class="text-muted small mb-1">
+                            <a href="tel:0325717600" class="text-decoration-none">03 25 71 76 00</a>
+                        </p>
+                        <p class="text-muted small">
+                            <a href="mailto:bde@utt.fr" class="text-decoration-none">bde@utt.fr</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Owner Section -->
+        <div class="card modern-card border-0 shadow mb-4">
+            <div class="card-body p-4">
+                <h4 class="fw-bold mb-3">
+                    Propriétaire et Hébergeur
+                </h4>
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <p class="mb-2"><strong>UTT Net Group</strong></p>
+                        <p class="text-muted small mb-2">Association loi 1901</p>
+                        <p class="text-muted small mb-1">N° RNA : W103000699</p>
+                        <p class="text-muted small">N° RCS : 500164249</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p class="text-muted small mb-2">
+                            12 rue Marie Curie<br>
+                            10000 TROYES
+                        </p>
+                        <p class="text-muted small mb-1">
+                            <a href="tel:0325718550" class="text-decoration-none">03 25 71 85 50</a>
+                        </p>
+                        <p class="text-muted small">
+                            <a href="mailto:ung@utt.fr" class="text-decoration-none">ung@utt.fr</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Data Protection Section -->
+        <div class="card modern-card border-0 shadow mb-4">
+            <div class="card-body p-4">
+                <h4 class="fw-bold mb-3">
+                    Protection des Données Personnelles
+                </h4>
+                <p class="text-muted mb-2">
+                    Le site collecte et traite des données personnelles conformément à la
+                    <strong>loi Informatique et Libertés du 6 janvier 1978</strong> modifiée
+                    et au <strong>RGPD EU-2016/679</strong>.
+                </p>
+                <p class="text-muted small">
+                    Pour plus d'informations, consultez notre
+                    <a href="/privacy" class="text-decoration-none fw-bold">Politique de confidentialité</a>.
+                </p>
+            </div>
+        </div>
+
+        <!-- Intellectual Property Section -->
+        <div class="card modern-card border-0 shadow mb-4">
+            <div class="card-body p-4">
+                <h4 class="fw-bold mb-3">
+                    Droits d'Auteur
+                </h4>
+                <p class="text-muted mb-0">
+                    L'ensemble du contenu de ce site est la propriété exclusive de
+                    <strong>UTT Net Group</strong>. Toute reproduction, distribution ou modification
+                    est strictement interdite sans accord écrit.
+                </p>
+            </div>
+        </div>
+
+        <!-- Credits Section -->
+        <div class="card modern-card border-0 shadow">
+            <div class="card-body p-4">
+                <h4 class="fw-bold mb-3">
+                    Crédits
+                </h4>
+                <p class="text-muted mb-0">
+                    Ce site a été développé et est maintenu par l'association
+                    <strong>UTT Net Group</strong>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

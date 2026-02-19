@@ -12,9 +12,10 @@ ADMIN_URL = env.ADMIN_URL
 
 urlpatterns = [
     path("", include("showcase.urls")),
-    path("legal", __import__("bde.views").views.legal),
+    path("legals", __import__("bde.views").views.legals),
     path("logout", __import__("bde.views").views.admin_logout),
     path("members/", include("members.urls")),
+    path("privacy", __import__("bde.views").views.privacy),
     path("redirect/admin/", __import__("bde.views").views.admin_redirect_view),
     path(
         "robots.txt",
@@ -28,3 +29,6 @@ urlpatterns = [
 # Expose uploads folder in development
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += [
+        path("__reload__/", include("django_browser_reload.urls")),
+    ]

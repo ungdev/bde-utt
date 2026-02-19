@@ -1,37 +1,68 @@
-<section class="py-5" style="background-color: #314069;">
-    <a href="/partners" class="h2-link">
-        <h2 class="text-center mb-4 text-light">Nos partenaires</h2>
-    </a>
-    <div class="d-flex justify-content-center align-items-center flex-wrap row-gap-3">
-        {% for item in partners_qs %}
-        <div id="partner_{{item.id}}" class="partner-card d-inline-block mx-2 cursor-pointer"
-            style="vertical-align: top;">
-            <div class="card bg-light text-dark" style="width: 180px;">
-                <img src="{{item.icon_url}}" class="card-img-top rounded shadow" alt="{{item.name}}"
-                    style="height: 120px; object-fit: contain;">
-                <div class="card-body text-center">
-                    <h6 class="card-title mb-0">{{item.name}}</h6>
+<section class="partners-section py-5">
+    <div class="container">
+        <!-- Section Header -->
+        <div class="text-center mb-5">
+            <a href="/partners" class="text-decoration-none">
+                <h2 class="fw-bold text-white mb-3">
+                    Nos Partenaires
+                </h2>
+            </a>
+            <div class="mx-auto"
+                style="width: 60px; height: 4px; background: linear-gradient(to right, #667eea, #764ba2);"></div>
+            <p class="text-white-50 mt-3 lead">
+                Ils nous font confiance et soutiennent nos projets
+            </p>
+        </div>
+
+        <!-- Partners Grid -->
+        <div class="row g-4 justify-content-center">
+            {% for item in partners_qs %}
+            <div class="col-6 col-sm-4 col-md-3 col-lg-2">
+                <div id="partner_{{item.id}}" class="partner-card cursor-pointer">
+                    <div class="card modern-card bg-white border-0 h-100 shadow">
+                        <div class="card-body p-3 text-center">
+                            <div class="partner-logo-container mb-2"
+                                style="height: 80px; display: flex; align-items: center; justify-content: center;">
+                                <img src="{{item.icon_url}}" class="img-fluid" alt="{{item.name}}"
+                                    style="max-height: 80px; max-width: 100%; object-fit: contain;">
+                            </div>
+                            <h6 class="card-title mb-0 small fw-bold text-truncate">{{item.name}}</h6>
+                        </div>
+                    </div>
                 </div>
             </div>
+            {% endfor %}
         </div>
-        {% endfor %}
+
+        <!-- Call to Action -->
+        <div class="text-center mt-5">
+            <a href="/partners" class="btn btn-light btn-lg px-4 py-3 shadow">
+                Découvrir tous nos partenaires
+            </a>
+        </div>
     </div>
 
+    <!-- Partner Modal -->
     <div id="partner-infos-container"
-        class="d-none position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-50 justify-content-center align-items-center"
-        style="z-index: 500">
-        <div id="partner-infos" class="card position-relative"
-            style="max-width: 400px; margin: 20px auto;z-index: 501;">
-            <div class="card-header d-flex justify-content-between align-items-center">
-                <span id="partner-name">Nom du partenaire</span>
+        class="d-none position-fixed top-0 start-0 w-100 h-100 bg-dark bg-opacity-75 justify-content-center align-items-center"
+        style="z-index: 1050;">
+        <div id="partner-infos" class="card modern-card border-0 shadow-lg position-relative"
+            style="max-width: 500px; margin: 20px; z-index: 1051;">
+            <div class="card-header bg-white border-0 d-flex justify-content-between align-items-center p-4">
+                <h5 id="partner-name" class="mb-0 fw-bold">Nom du partenaire</h5>
                 <button id="partner-infos-close-btn" type="button" class="btn-close" aria-label="Fermer"></button>
             </div>
-            <img id="partner-logo" src="" class="card-img-top rounded shadow mt-2" alt="Logo partenaire"
-                style="height: 120px; object-fit: contain;">
-            <div class="card-body">
-                <p id="partner-description">Description du partenaire...</p>
-                <div class="d-flex justify-content-center">
-                    <a id="partner-url" href="#" class="btn btn-primary mt-2" target="_blank">En savoir plus</a>
+            <div class="card-body p-4">
+                <div class="partner-modal-logo mb-4 d-flex justify-content-center align-items-center"
+                    style="height: 150px;">
+                    <img id="partner-logo" src="" class="img-fluid shadow-sm rounded" alt="Logo partenaire"
+                        style="max-height: 150px; object-fit: contain;">
+                </div>
+                <p id="partner-description" class="text-muted">Description du partenaire...</p>
+                <div class="d-flex justify-content-center mt-4">
+                    <a id="partner-url" href="#" class="btn btn-primary btn-lg px-4 py-2 shadow" target="_blank">
+                        En savoir plus
+                    </a>
                 </div>
             </div>
         </div>
@@ -41,5 +72,4 @@
     <script type="text/javascript">
         window.partners = JSON.parse('{{ partners_json| escapejs}}');
     </script>
-
 </section>

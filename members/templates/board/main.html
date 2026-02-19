@@ -1,0 +1,38 @@
+{% extends "base_with_partners.html" %}
+
+{% block title %}BDE UTT - bureau{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+{% with title="Le Bureau" %}
+{% with subtitle="Elus en assemblée générale" %}
+{% with src="/static/img/membres.jpg" %}
+{% include "partials/heroWithPicture.html" %}
+{% endwith %}{% endwith %}{% endwith %}
+
+<div class="container py-5">
+
+    <!-- Board Section -->
+    <div class="mb-5">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold">Le bureau</h2>
+            <div class="mx-auto mt-2"
+                style="width: 60px; height: 4px; background: linear-gradient(to right, #667eea, #764ba2);"></div>
+        </div>
+
+        <div class="row g-4">
+            {% for member in members %}
+            <div class="col-12 col-xl-6">
+                {% include "board/memberCard.html" with member=member %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    {% include "partials/cta.html" with title="Une question pour le bureau ?" description="Pour toute demande liée à la vie associative, le bureau est disponible pour vous répondre et vous orienter." %}
+
+</div>
+
+{% endblock %}

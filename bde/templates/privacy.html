@@ -1,0 +1,242 @@
+{% extends "base_with_partners.html" %}
+
+{% block title %}BDE UTT - Politique de confidentialité{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- Hero Section -->
+    {% with title="Politique de Confidentialité" %}
+    {% with subtitle="Vos données personnelles et votre vie privée" %}
+    {% include "partials/hero.html" %}
+    {% endwith %}{% endwith %}
+
+    <!-- Main Content -->
+    <div class="mb-5">
+        <!-- Privacy & Personal Data Section -->
+        <div class="card modern-card border-0 shadow mb-4">
+            <div class="card-body p-4">
+                <h4 class="fw-bold mb-3">
+                    Vie Privée et Données à Caractère Personnel
+                </h4>
+                <p class="text-muted">
+                    A l'Université de Technologie de Troyes et au sein des associations BDE UTT et UTT Net Group, nous
+                    respectons
+                    votre vie privée. Les données collectées et utilisées par cette plateforme sont nécessaires afin
+                    de nous permettre de renseigner la liste des membres du BDE UTT, ainsi que de suivre vos centres
+                    d'intérêt au sein des évènements et services du BDE UTT.
+                </p>
+            </div>
+        </div>
+
+        <!-- Collected Data Section -->
+        <div class="card modern-card border-0 shadow mb-4">
+            <div class="card-body p-4">
+                <h4 class="fw-bold mb-3">
+                    Données Personnelles Collectées
+                </h4>
+                <h5>Membres de l'association</h5>
+                <ul>
+                    <li class="mb-2">
+                        L'identité de l'utilisateur (nom, prénom)
+                    </li>
+                    <li class="mb-2">
+                        La photographie de profil
+                    </li>
+                    <li class="mb-2">
+                        Le ou les commissions auxquelles le membre prend part
+                    </li>
+                </ul>
+                <h5>Editeurs du site</h5>
+                <ul>
+                    <li class="mb-2">
+                        L'identité de l'utilisateur (nom, prénom)
+                    </li>
+                    <li class="mb-2">
+                        L'adresse email de l'utilisateur
+                    </li>
+                    <li class="mb-2">
+                        La photographie de profil
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Data Usage Section -->
+        <div class="card modern-card border-0 shadow mb-4">
+            <div class="card-body p-4">
+                <h4 class="fw-bold mb-3">
+                    Comment Ces Informations Sont-Elles Utilisées ?
+                </h4>
+                <p class="text-muted small mb-3">
+                    Les données à caractère personnel sont des informations qui permettent sous quelque forme que ce
+                    soit,
+                    directement ou indirectement, l'identification des personnes physiques auxquelles elles
+                    s'appliquent.
+                </p>
+                <p class="fw-bold mb-3">Ces informations sont utilisées pour :</p>
+                <ul>
+                    <li class="mb-2">
+                        Permettre l'authentification et l'identification des utilisateurs sur la plateforme
+                    </li>
+                    <li class="mb-0">
+                        Lister les membres de l'association sur le site, avec leur photographie de profil et les
+                        informations qu'ils ont choisi de rendre publiques (nom, prénom) ainsi que le ou les commissions
+                        auxquelles ils appartiennent, afin de favoriser les échanges et la communication au sein de
+                        l'association et auprès du public extérieur.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Data Retention Section -->
+        <div class="card modern-card border-0 shadow mb-4">
+            <div class="card-body p-4">
+                <h4 class="fw-bold mb-3">
+                    Durée de Conservation des Données
+                </h4>
+                <p class="text-muted mb-2">
+                    Les données personnelles transmises par l'utilisateur sont conservées pendant toute la durée de
+                    scolarité de l'utilisateur à l'UTT, et supprimées au maximum 12 mois après la fin de celle-ci.
+                </p>
+                <p class="text-muted">
+                    Les cookies de session sont détruits lors de la déconnexion ou à leur expiration.
+                </p>
+            </div>
+        </div>
+
+        <!-- Your Rights Section -->
+        <div class="card modern-card border-0 shadow mb-4">
+            <div class="card-body p-4">
+                <h4 class="fw-bold mb-3">
+                    Vos Droits sur Vos Données
+                </h4>
+                <p class="text-muted small mb-3">
+                    Conformément à la réglementation sur les données à caractère personnel, vous disposez des droits
+                    suivants :
+                </p>
+                <ul>
+                    <li class="mb-2">
+                        <strong>Droit d'accès :</strong> <span class="text-muted">obtenir une copie de vos données
+                            personnelles</span>
+                    </li>
+                    <li class="mb-2">
+                        <strong>Droit de rectification :</strong> <span class="text-muted">corriger des données
+                            inexactes vous concernant</span>
+                    </li>
+                    <li class="mb-2">
+                        <strong>Droit à l'effacement :</strong> <span class="text-muted">demander la suppression de vos
+                            données</span>
+                    </li>
+                    <li class="mb-2">
+                        <strong>Droit d'opposition :</strong> <span class="text-muted">vous opposer au traitement de vos
+                            données</span>
+                    </li>
+                    <li class="mb-0">
+                        <strong>Droit à la portabilité :</strong> <span class="text-muted">récupérer vos données dans un
+                            format structuré</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Exercise Your Rights Section -->
+        <div class="card modern-card border-0 shadow mb-4">
+            <div class="card-body p-4">
+                <h4 class="fw-bold mb-3">
+                    Comment Exercer Vos Droits ?
+                </h4>
+                <p class="text-muted mb-3">
+                    Si vous avez des questions ou que vous souhaitez exercer vos droits (accès, rectification,
+                    suppression),
+                    vous pouvez :
+                </p>
+                <ul>
+                    <li class="mb-2">
+                        Envoyer un courriel à
+                        <a href="mailto:ung+sia@utt.fr" class="text-decoration-none fw-bold">ung+sia@utt.fr</a>
+                    </li>
+                    <li class="mb-2">
+                        Contacter le délégué à la protection des données :
+                        <a href="mailto:ung+dpo@utt.fr" class="text-decoration-none fw-bold">ung+dpo@utt.fr</a>
+                    </li>
+                    <li class="mb-3">
+                        Envoyer un courrier postal à :
+                        <div class="text-muted small mt-2 ms-4">
+                            UTT Net Group<br>
+                            12, rue Marie Curie, CS 42060<br>
+                            10004 TROYES CEDEX
+                        </div>
+                    </li>
+                </ul>
+                <p class="text-muted small mt-3 mb-0">
+                    Si vous estimez, après nous avoir contacté, que vos droits ne sont pas respectés, vous pouvez
+                    adresser
+                    une réclamation en ligne à la CNIL ou par voie postale.
+                </p>
+            </div>
+        </div>
+
+        <!-- Data Controller Section -->
+        <div class="card modern-card border-0 shadow mb-4">
+            <div class="card-body p-4">
+                <h4 class="fw-bold mb-3">
+                    Responsable du Traitement
+                </h4>
+                <p class="text-muted mb-2">
+                    Le responsable du traitement des données est <strong>Arthur Dodin</strong>, Président de
+                    l'association
+                    UTT Net Group.
+                </p>
+                <p class="text-muted">
+                    L'équipe technique et les administrateurs du site pourront accéder aux données dans le cadre de la
+                    gestion de la plateforme et du support technique.
+                </p>
+            </div>
+        </div>
+
+        <!-- Data Security Section -->
+        <div class="card modern-card border-0 shadow mb-4">
+            <div class="card-body p-4">
+                <h4 class="fw-bold mb-3">
+                    Sécurité des Données
+                </h4>
+                <p class="text-muted mb-2">
+                    Nous mettons en œuvre toutes les mesures techniques et organisationnelles appropriées afin de
+                    garantir
+                    un niveau de sécurité adapté au risque, conformément aux exigences du RGPD.
+                </p>
+                <p class="text-muted">
+                    Ces données ne seront en aucun cas échangées, distribuées ou vendues à un tiers.
+                </p>
+            </div>
+        </div>
+
+        <!-- Cookies Section -->
+        <div class="card modern-card border-0 shadow">
+            <div class="card-body p-4">
+                <h4 class="fw-bold mb-3">
+                    Cookies
+                </h4>
+                <p class="text-muted mb-3">
+                    Nous utilisons des cookies afin d'obtenir des statistiques sur notre site web. Ces informations ne
+                    seront en aucun cas vendues, échangées ou données. Ces cookies sont anonymisés.
+                </p>
+                <p class="text-muted mb-3">
+                    Afin d'assurer le fonctionnement du service à l'utilisateur authentifié, des cookies de session sont
+                    inscrits sur le navigateur lors de l'authentification sur le site. Ceux-ci ont pour seule fonction
+                    d'assurer la persistance de la session authentifiée de l'utilisateur. Ils sont détruits lors de la
+                    déconnexion ou à leur expiration.
+                </p>
+                <p class="text-muted">
+                    Pour plus d'informations, consultez notre
+                    <a href="#" class="text-decoration-none fw-bold">Politique de confidentialité</a>.
+                </p>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

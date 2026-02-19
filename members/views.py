@@ -27,7 +27,7 @@ def board(request):
 
     return render(
         request,
-        "board.html",
+        "board/main.html",
         {
             **common_data(),
             "members": [
@@ -64,7 +64,7 @@ def members(request):
 
     return render(
         request,
-        "members.html",
+        "members/main.html",
         {
             **common_data(),
             "teams": teams_with_members,

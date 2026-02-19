@@ -6,11 +6,20 @@
 
 {% with title="Bienvenue au BDE" %}
 {% with subtitle="Bureau Des Etudiants de l'Université de Technologie de Troyes" %}
-{% with imgsrc="/static/img/membres.jpg" %}
-{% include "partials/pictureTitle.html" %}
+{% with src="/static/img/membres.jpg" %}
+{% include "partials/heroWithPicture.html" %}
 {% endwith %}{% endwith %}{% endwith %}
 
 <!-- TODO: Home page -->
-<!-- TODO: news section implementation -->
+
+<div class="container py-5">
+
+    <!-- Construction Card -->
+    {% include "partials/cards/construction.html" %}
+
+    <!-- CTA Section -->
+    {% include "partials/cta.html" %}
+
+</div>
 
 {% endblock %}

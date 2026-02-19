@@ -1,0 +1,43 @@
+{% extends "partials/cards/base.html" %}
+
+{% block card_classes %}tickets-card border-0 shadow-lg mb-5{% endblock %}
+{% block card_body_classes %}p-5{% endblock %}
+
+{% block card_body %}
+<div class="row align-items-center g-4">
+    <div class="col-lg-8">
+        <h3 class="fw-bold mb-3">
+            {{ title }}
+        </h3>
+        <p class="mb-0 lead">
+            Toutes les demandes {{ subject }} passent par la plateforme de tickets du BDE.
+            Une solution centralisée pour gérer vos demandes efficacement.
+        </p>
+    </div>
+    <div class="col-lg-4 text-lg-end">
+        <a href="https://tickets.uttnetgroup.fr" class="btn btn-primary btn-lg px-5 py-3 shadow" target="_blank">
+            Accéder à la plateforme
+        </a>
+    </div>
+</div>
+
+<!-- Info Box -->
+<div class="alert alert-info border-0 mt-4 mb-0">
+    <div class="d-flex align-items-start">
+        <div>
+            <h6 class="fw-bold mb-2">Mode de connexion SIA</h6>
+            <p class="mb-3 small">
+                Un compte du Système d'Information des Associations (SIA) est nécessaire.
+                Il peut se créer en 2 minutes <strong>avec votre adresse email @utt.fr</strong> via
+                <a href="https://links.uttnetgroup.fr/register" target="_blank" class="fw-bold">ce lien</a>.
+            </p>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<a href="/services/tickets" class="btn btn-sm btn-outline-primary">
+    Comment utiliser la plateforme ?
+</a>
+{% endblock %}
