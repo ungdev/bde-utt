@@ -1,19 +1,5 @@
 from django.contrib import admin
-from .models import News, Partner
-
-
-@admin.register(News)
-class NewsAdmin(admin.ModelAdmin):
-    list_display = ("title", "start_date", "end_date", "url", "enable")
-    actions = ["make_enabled", "make_disabled"]
-
-    @admin.action(description="Montrer")
-    def make_enabled(self, request, queryset):
-        queryset.update(enable=True)
-
-    @admin.action(description="Cacher")
-    def make_disabled(self, request, queryset):
-        queryset.update(enable=False)
+from .models import Partner
 
 
 @admin.register(Partner)

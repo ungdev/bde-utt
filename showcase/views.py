@@ -1,5 +1,4 @@
 from django.shortcuts import render
-from .models import News
 from utils.views import common_data
 
 
@@ -7,10 +6,7 @@ def home(request):
     return render(
         request,
         "home.html",
-        {
-            **common_data(),
-            "news": News.objects.filter(enable=True),
-        },
+        {**common_data()},
     )
 
 
