@@ -5,7 +5,7 @@ from utils.views import common_data
 def home(request):
     return render(
         request,
-        "home.html",
+        "home/main.html",
         {**common_data()},
     )
 
@@ -13,7 +13,7 @@ def home(request):
 def contacts(request):
     return render(
         request,
-        "contacts.html",
+        "contacts/main.html",
         {**common_data()},
     )
 
@@ -35,7 +35,7 @@ def events(request, param: str | None = None):
 def membership(request):
     return render(
         request,
-        "membership.html",
+        "membership/main.html",
         {**common_data()},
     )
 
@@ -43,7 +43,7 @@ def membership(request):
 def partners(request):
     return render(
         request,
-        "partners.html",
+        "partners/main.html",
         {**common_data()},
     )
 

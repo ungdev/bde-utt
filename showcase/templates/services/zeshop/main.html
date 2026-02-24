@@ -4,17 +4,20 @@
 
 {% block content %}
 
-<!-- TODO: Zeshop infos -->
+<div class="container py-5">
 
-<div class="container mt-5">
-    <div class="card text-center">
-        <div class="card-header">
-            Information
-        </div>
-        <div class="card-body">
-            <h5 class="card-title">Page en construction</h5>
-            <p class="card-text">Cette page Zeshop est en cours de développement. Revenez bientôt !</p>
-        </div>
-    </div>
+    <!-- Hero Section -->
+    {% with title="Zeshop" %}
+    {% with subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nam, quo facere tempore" %}
+    {% include "partials/hero.html" %}
+    {% endwith %}{% endwith %}
+
+    <!-- Construction Card -->
+    {% include "partials/cards/construction.html" %}
+
+    <!-- CTA Section -->
+    {% include "partials/cta.html" %}
+
 </div>
+
 {% endblock %}
