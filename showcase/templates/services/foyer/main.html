@@ -6,7 +6,7 @@
 
 <!-- Hero Section -->
 {% with title="Le Foyer" %}
-{% with subtitle="Géré par des étudiants bénévoles, un lieu de détente où les cotisants BDE peuvent acheter des collations à prix coûtant, profiter d'animations quotidiennes et participer à des événements organisés en soirée." %}
+{% with subtitle="Lieu convivial animé par des bénévoles, où les cotisants profitent de snacks et boissons, le tout géré par la commission et le Bureau pour les stocks et le planning." %}
 {% with src="/static/img/foyer.png" %}
 {% include "partials/heroWithPicture.html" %}
 {% endwith %}{% endwith %}{% endwith %}
@@ -14,9 +14,12 @@
 <!-- TODO: Foyer page -->
 <div class="container py-5">
 
+    <!-- Construction Card -->
+    {% include "partials/cards/construction.html" %}
+
     <!-- About -->
     <div class="row mb-5">
-        <h3 class="fw-bold text-center mb-3">Qu'est-ce que le Foyer ?</h3>
+        {% include "partials/title.html" with title="Qu'est-ce que le Foyer ?" %}
         <p class="fs-5 text-justify">
             Le foyer est un espace convivial où les étudiants peuvent se détendre entre les cours, profiter de
             canapés et acheter des collations à prix coûtant s'ils sont cotisants BDE. Tenu par des étudiants
@@ -27,7 +30,7 @@
 
     <div class="row mb-5">
         <div class="col-lg-5 mx-auto">
-            <h3 class="fw-bold text-center mb-3">Horaires d'ouverture</h3>
+            {% include "partials/title.html" with title="Horaires d'ouverture" %}
             <div class="d-flex justify-content-center align-items-center gap-4">
                 <span class="badge bg-primary fs-3 ">9h30</span>
                 <span class="text-muted">—</span>
@@ -41,7 +44,7 @@
             <div style="border-left: 1px solid #dee2e6; height: auto;"></div>
         </div>
         <div class="col-lg-5 mx-auto">
-            <h3 class="fw-bold text-center mb-3">Les viennoiseries</h3>
+            {% include "partials/title.html" with title="Les viennoiseries" %}
             <p class="text-center mt-3 fs-5 text-justify">
                 En plus des immuables croissants et pains au chocolat disponibles chaque jour, le foyer propose des
                 viennoiseries spéciales pour égayer vos pauses café: en fonction des jours, vous pourrez trouver
@@ -51,11 +54,11 @@
     </div>
 
     <!-- About Card -->
-    {% include "services/foyer/pricesCard.html" %}
+    {% include "services/foyer/cards/prices.html" %}
 
     <div class="row mb-5">
         <div class="col-lg-5 mx-auto">
-            <h3 class="fw-bold text-center mb-3">La musique</h3>
+            {% include "partials/title.html" with title="La musique" %}
             <p class="text-center mt-3 fs-5 text-justify">
                 La règle est simple: celui qui tiens la permnanence choisi la musique ! Ambiance conviviale, découvertes
                 musicales. L'occasion d'entendre les albums des groupes de l'UTT !
@@ -65,7 +68,7 @@
             <div style="border-left: 1px solid #dee2e6; height: auto;"></div>
         </div>
         <div class="col-lg-5 mx-auto">
-            <h3 class="fw-bold text-center mb-3">Le bar</h3>
+            {% include "partials/title.html" with title="Le bar" %}
             <p class="text-center mt-3 fs-5 text-justify">
                 Tenu tout au long des journées par des clubs et associations étudiantes, c'est l'endroit rêvé pour
                 échanger avec eux, discuter de leurs passions, tout en commandant un café, une canette ou un snack !

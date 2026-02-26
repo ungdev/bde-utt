@@ -18,7 +18,25 @@
     {% include "partials/cards/construction.html" %}
 
     <!-- Calendar Card -->
-    {% include "home/calendarCard.html" %}
+    {% include "home/cards/calendar.html" %}
+
+    <!-- Focus Service Section -->
+    <div class="row mb-5">
+        <h3 class="fw-bold text-center mb-3">Focus sur des services</h3>
+        <div class="col-lg-4 mx-auto">
+            {% include "services/foyer/preview.html" %}
+        </div>
+        <div class="col-lg-4 mx-auto">
+            {% include "services/loan/preview.html" %}
+        </div>
+        <div class="col-lg-4 mx-auto">
+            {% include "services/clubs/preview.html" %}
+        </div>
+
+        <div class="col-12 text-end mt-4">
+            <a href="/services/" class="btn btn-outline-primary btn-sm">Voir plus de services</a>
+        </div>
+    </div>
 
     <!-- CTA Section -->
     {% include "partials/cta.html" %}

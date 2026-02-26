@@ -2,6 +2,51 @@ a {
     text-decoration: none;
 }
 
+body {
+    position: relative;
+    overflow-x: clip;
+}
+
+body>*:not(.parallax-background) {
+    position: relative;
+    z-index: 1;
+}
+
+nav {
+    z-index: 2 !important;
+}
+
+.parallax-background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.parallax-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.085;
+    filter: grayscale(100%) contrast(1.1);
+    transform: translate3d(-200px, -200px, 0);
+    will-change: transform;
+    user-select: none;
+}
+
+@media (max-width: 768px) {
+    .parallax-logo {
+        opacity: 0.06;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .parallax-background {
+        display: none;
+    }
+}
+
 .text-justify {
     text-align: justify;
 }

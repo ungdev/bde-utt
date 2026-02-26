@@ -4,19 +4,45 @@
 
 {% block content %}
 
-<div class="mt-5 pt-3">
-    <div class="text-center mt-5 my-4">
-        <h3>Prêt de matériel</h3>
-    </div>
+<div class="container py-5">
+    <!-- Hero Section -->
+    {% with title="Prêt de Matériel" %}
+    {% with subtitle="La commission Logistique gère le prêt, l'installation, la maintenance et le renouvellement du matériel événementiel, avec caution selon le statut de l'étudiant." %}
+    {% include "partials/hero.html" %}
+    {% endwith %}{% endwith %}
 
-    <!-- TODO: Lend infos -->
+    <!-- Construction Card -->
+    {% include "partials/cards/construction.html" %}
 
-    <div class="d-flex flex-column align-items-center row-gap-4 p-4 m-auto width-limited-lg">
-        {% with title="Plateforme de demande Logistique" %}
-        {% with subject="de prêt" %}
-        {% include "partials/cards/tickets.html" %}
-        {% endwith %}{% endwith %}
-    </div>
+    <p class="text-justify mb-5">
+        Le BDE UTT possède du matériel utilisé lors d'évènements ponctuels ou prêté à des associations (UTT ou
+        extérieures).
+        Cette commission s'occupe de la gestion des prêts, c'est-à-dire du calendrier, de la mise à disposition et du
+        retour du matériel. Elle a également pour charge l'installation du matériel sur certains évènements ainsi que la
+        maintenance du matériel.
+    </p>
+
+    <p class="text-justify mb-5">
+        La commission Logistique doit être capable d'évaluer les besoins de remplacement de matériel. La décision
+        d'achat de nouveaux matériels se fait en accord avec le Bureau du BDE UTT.
+    </p>
+
+    <p class="text-justify mb-5">
+        Chaque étudiant cotisant au BDE UTT peut louer du matériel de manière gratuite (tentes,appareils à crêpes,
+        raclette, fondue, guirlande...). Néanmoins, une caution peut lui être demandée selon le matériel souhaité.
+        Pour les étudiants non cotisants, du matériel peut être loué mais la caution sera alors systématiquement
+        demandée. Tous les outils de bricolage, eux, ne peuvent pas être prêtés dans la mesure où ils nécessitent des
+        EPI.
+    </p>
+
+    <!-- Tickets Section -->
+    {% with title="Plateforme de demande Logistique" %}
+    {% with subject="de prêt" %}
+    {% include "partials/cards/tickets.html" %}
+    {% endwith %}{% endwith %}
+
+    <!-- CTA Section -->
+    {% include "partials/cta.html" %}
 </div>
 
 {% endblock %}

@@ -8,82 +8,25 @@
 
     <!-- Hero Section -->
     {% with title="Les Partenaires du BDE" %}
-    {% with subtitle="Découvrez nos partenaires qui soutiennent nos projets et offrent des avantages exclusifs" %}
+    {% with subtitle="Découvrez nos partenaires qui soutiennent nos projets et offrent des avantages exclusifs." %}
     {% include "partials/hero.html" %}
     {% endwith %}{% endwith %}
 
     <!-- Why Partnerships Section -->
     <div class="mb-5">
-        <div class="text-center mb-4">
-            <h2 class="fw-bold">Pourquoi des partenariats ?</h2>
-            <div class="mx-auto mt-2"
-                style="width: 60px; height: 4px; background: linear-gradient(to right, #667eea, #764ba2);"></div>
-        </div>
+        {% include "partials/title.html" with title="Pourquoi des partenariats ?" %}
 
-        <div class="card modern-card border-0 shadow-lg p-5">
-            <p class="lead mb-4">
-                Le Bureau Des Étudiants met en place de nombreux partenaires dans deux objectifs principaux :
-            </p>
-            <div class="row g-4">
-                <div class="col-md-6">
-                    <div class="d-flex gap-3">
-                        <div>
-                            <h5 class="fw-bold mb-2">Avantages & Réductions</h5>
-                            <p class="text-muted mb-0">
-                                Obtenir des avantages et réductions exclusives pour les cotisants du BDE
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="d-flex gap-3">
-                        <div>
-                            <h5 class="fw-bold mb-2">Support Financier</h5>
-                            <p class="text-muted mb-0">
-                                Supporter financièrement les actions et événements du BDE
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {% include "partners/cards/why.html" %}
     </div>
 
     <!-- Partners Grid Section -->
     <div class="mb-5">
-        <div class="text-center mb-4">
-            <h2 class="fw-bold">Nos Partenaires</h2>
-            <div class="mx-auto mt-2"
-                style="width: 60px; height: 4px; background: linear-gradient(to right, #667eea, #764ba2);"></div>
-        </div>
+        {% include "partials/title.html" with title="Nos Partenaires" %}
 
         <div class="row g-4">
             {% for item in partners_qs %}
             <div class="col-lg-6">
-                <div class="card modern-card h-100 border-0 shadow">
-                    <div class="row g-0 h-100">
-                        <!-- Image -->
-                        <div class="col-sm-4 d-flex align-items-center justify-content-center p-3"
-                            style="background: #f8f9fa;">
-                            <img src="{{item.icon_url}}" class="img-fluid rounded" alt="{{item.name}}"
-                                style="max-height: 180px; object-fit: contain;">
-                        </div>
-                        <!-- Content -->
-                        <div class="col-sm-8">
-                            <div class="card-body d-flex flex-column h-100 p-4">
-                                <h5 class="card-title fw-bold mb-2">{{item.name}}</h5>
-                                <p class="card-text text-muted flex-grow-1 mb-3">
-                                    {{item.description}}
-                                </p>
-                                {% if item.url %}
-                                <a href="{{item.url}}" class="btn btn-primary btn-sm" target="_blank">
-                                    En savoir plus
-                                </a>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                {% include "partners/cards/item.html" %}
             </div>
             {% endfor %}
         </div>

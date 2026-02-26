@@ -1,0 +1,82 @@
+{% extends "partials/cards/base.html" %}
+
+{% block card_classes %}modern-card h-100 border-0 shadow{% endblock %}
+{% block card_body_classes %}d-flex flex-column p-4{% endblock %}
+
+{% block card_title %}
+<h5 class="card-title fw-bold mb-4">Téléphone & Emails</h5>
+{% endblock %}
+
+{% block card_body %}
+<div class="mb-4">
+    <h6 class="fw-bold text-muted text-uppercase small mb-2">
+        Téléphones
+    </h6>
+    <div class="d-flex flex-column gap-2">
+        <div>
+            <small class="text-muted">Bureau des Etudiants</small>
+            <div>
+                <a href="tel:+33325717674" class="text-decoration-none fw-bold">
+                    +33 3 25 71 76 74
+                </a>
+            </div>
+        </div>
+        <div>
+            <small class="text-muted">Standard Université</small>
+            <div>
+                <a href="tel:+33325717600" class="text-decoration-none fw-bold">
+                    +33 3 25 71 76 00
+                </a>
+            </div>
+        </div>
+        <div>
+            <small class="text-muted">UTT Net Group</small>
+            <div>
+                <a href="tel:+333257178550" class="text-decoration-none fw-bold">
+                    +33 3 25 71 85 50
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mb-4">
+    <h6 class="fw-bold text-muted text-uppercase small mb-3">
+        Emails
+    </h6>
+    <div class="d-flex flex-column gap-2">
+        <div>
+            <small class="text-muted">Général</small>
+            <div>
+                <a href="mailto:bde@utt.fr" class="text-decoration-none fw-bold">
+                    bde@utt.fr
+                </a>
+            </div>
+        </div>
+        <div>
+            <small class="text-muted">Trésorerie</small>
+            <div>
+                <a href="mailto:bde-treso@utt.fr" class="text-decoration-none fw-bold">
+                    bde-treso@utt.fr
+                </a>
+            </div>
+        </div>
+        <div>
+            <small class="text-muted">Clubs & Associations</small>
+            <div>
+                <a href="mailto:bde-clubasso@utt.fr" class="text-decoration-none fw-bold">
+                    bde-clubasso@utt.fr
+                </a>
+            </div>
+        </div>
+        <div>
+            <small class="text-muted">R2D</small>
+            <div>
+                <a href="mailto:bde-r2d@utt.fr" class="text-decoration-none fw-bold">
+                    bde-r2d@utt.fr
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

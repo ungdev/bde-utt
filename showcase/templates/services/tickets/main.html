@@ -42,61 +42,22 @@
         <div class="row g-4">
             <!-- Step 1 -->
             <div class="col-md-6 col-lg-3">
-                <div class="card h-100 border-0 shadow-sm text-center">
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <span class="badge bg-primary rounded-circle p-3" style="font-size: 1.5rem;">1</span>
-                        </div>
-                        <a href="https://tickets.uttnetgroup.fr"
-                            class="btn btn-outline-primary btn-md px-5 py-3 shadow mt-3" target="_blank">Accéder à
-                            la
-                            plateforme</a>
-                    </div>
-                </div>
+                {% include "partials/cards/step.html" with step="1" cta_label="Accéder à la plateforme" cta_url="https://tickets.uttnetgroup.fr" cta_target="_blank" %}
             </div>
 
             <!-- Step 2 -->
             <div class="col-md-6 col-lg-3">
-                <div class="card h-100 border-0 shadow-sm text-center">
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <span class="badge bg-primary rounded-circle p-3" style="font-size: 1.5rem;">2</span>
-                        </div>
-                        <h5 class="card-title fw-bold">Choix du mode de connexion</h5>
-                        <p class="card-text text-muted">
-                            Sélectionner l'option
-                            <br />
-                            <strong>Connexion avec compte SIA</strong>
-                        </p>
-                    </div>
-                </div>
+                {% include "partials/cards/step.html" with step="2" title="Choix du mode de connexion" description="Sélectionner l'option Connexion avec compte SIA" %}
             </div>
 
             <!-- Step 3 -->
             <div class="col-md-6 col-lg-3">
-                <div class="card h-100 border-0 shadow-sm text-center">
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <span class="badge bg-primary rounded-circle p-3" style="font-size: 1.5rem;">3</span>
-                        </div>
-                        <h5 class="card-title fw-bold">Connexion SIA</h5>
-                        <p class="card-text text-muted">Entrer vos identifiants SIA</p>
-                    </div>
-                </div>
+                {% include "partials/cards/step.html" with step="3" title="Connexion SIA" description="Entrer vos identifiants SIA" %}
             </div>
 
             <!-- Step 4 -->
             <div class="col-md-6 col-lg-3">
-                <div class="card h-100 border-0 shadow-sm text-center">
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <span class="badge bg-primary rounded-circle p-3" style="font-size: 1.5rem;">4</span>
-                        </div>
-                        <h5 class="card-title fw-bold">Redirection vers la plateforme</h5>
-                        <p class="card-text text-muted">Vous serez redirigés automatiquement vers la plateforme de
-                            tickets</p>
-                    </div>
-                </div>
+                {% include "partials/cards/step.html" with step="4" title="Redirection vers la plateforme" description="Vous serez redirigés automatiquement vers la plateforme de tickets" %}
             </div>
         </div>
     </div>
@@ -108,46 +69,17 @@
         <div class="row g-4">
             <!-- Step 1 -->
             <div class="col-md-4 col-lg-4">
-                <div class="card h-100 border-0 shadow-sm text-center">
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <span class="badge bg-primary rounded-circle p-3" style="font-size: 1.5rem;">1</span>
-                        </div>
-                        <a href="https://links.uttnetgroup.fr/register"
-                            class="btn btn-outline-primary btn-md px-5 py-3 shadow mt-3" target="_blank">Accéder au
-                            SSO</a>
-                    </div>
-                </div>
+                {% include "partials/cards/step.html" with step="1" cta_label="Accéder au SSO" cta_url="https://links.uttnetgroup.fr/register" cta_target="_blank" %}
             </div>
 
             <!-- Step 2 -->
             <div class="col-md-4 col-lg-4">
-                <div class="card h-100 border-0 shadow-sm text-center">
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <span class="badge bg-primary rounded-circle p-3" style="font-size: 1.5rem;">2</span>
-                        </div>
-                        <h5 class="card-title fw-bold">Créer votre compte SIA</h5>
-                        <p class="card-text text-muted">
-                            Remplir le formulaire d'inscription en utilisant votre
-                            <strong>adresse email @utt.fr</strong>
-                        </p>
-                    </div>
-                </div>
+                {% include "partials/cards/step.html" with step="2" title="Créer votre compte SIA" description="Remplir le formulaire d'inscription avec votre adresse email @utt.fr" %}
             </div>
 
             <!-- Step 3 -->
             <div class="col-md-4 col-lg-4">
-                <div class="card h-100 border-0 shadow-sm text-center">
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <span class="badge bg-primary rounded-circle p-3" style="font-size: 1.5rem;">3</span>
-                        </div>
-                        <h5 class="card-title fw-bold">Validation de l'email</h5>
-                        <p class="card-text text-muted">Vous recevez un email de validation à votre adresse @utt.fr
-                        </p>
-                    </div>
-                </div>
+                {% include "partials/cards/step.html" with step="3" title="Validation de l'email" description="Vous recevez un email de validation à votre adresse @utt.fr" %}
             </div>
 
         </div>
@@ -160,100 +92,37 @@
         <div class="row g-4">
             <!-- Step 1 -->
             <div class="col-md-6 col-lg-3">
-                <div class="card h-100 border-0 shadow-sm text-center">
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <span class="badge bg-primary rounded-circle p-3" style="font-size: 1.5rem;">1</span>
-                        </div>
-                        <h5 class="card-title fw-bold">Appuyer sur le bouton +</h5>
-                        <p class="card-text text-muted">
-                            Il s'agit du bouton <strong>+</strong> vert en bas à gauche
-                        </p>
-                    </div>
-                </div>
+                {% include "partials/cards/step.html" with step="1" title="Appuyer sur le bouton +" description="Il s'agit du bouton + vert en bas à gauche" %}
             </div>
 
             <!-- Step 2 -->
             <div class="col-md-6 col-lg-3">
-                <div class="card h-100 border-0 shadow-sm text-center">
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <span class="badge bg-primary rounded-circle p-3" style="font-size: 1.5rem;">2</span>
-                        </div>
-                        <h5 class="card-title fw-bold">Choisir un groupe</h5>
-                        <p class="card-text text-muted">
-                            Il s'agit du service qui traitera le ticket, en fonction du type de demande
-                        </p>
-                    </div>
-                </div>
+                {% include "partials/cards/step.html" with step="2" title="Choisir un groupe" description="Il s'agit du service qui traitera le ticket en fonction du type de demande" %}
             </div>
 
             <!-- Step 3 -->
             <div class="col-md-6 col-lg-3">
-                <div class="card h-100 border-0 shadow-sm text-center">
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <span class="badge bg-primary rounded-circle p-3" style="font-size: 1.5rem;">3</span>
-                        </div>
-                        <h5 class="card-title fw-bold">Remplir les champs</h5>
-                        <p class="card-text text-muted">Remplir les différents champs requis, en fonction du groupe
-                            sélectionné</p>
-                    </div>
-                </div>
+                {% include "partials/cards/step.html" with step="3" title="Remplir les champs" description="Remplir les différents champs requis en fonction du groupe sélectionné" %}
             </div>
 
             <!-- Step 4 -->
             <div class="col-md-6 col-lg-3">
-                <div class="card h-100 border-0 shadow-sm text-center">
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <span class="badge bg-primary rounded-circle p-3" style="font-size: 1.5rem;">4</span>
-                        </div>
-                        <h5 class="card-title fw-bold">Pièces jointes</h5>
-                        <p class="card-text text-muted">Si nécessaire</p>
-                    </div>
-                </div>
+                {% include "partials/cards/step.html" with step="4" title="Pièces jointes" description="Si nécessaire" %}
             </div>
 
             <!-- Step 5 -->
             <div class="col-md-6 col-lg-3">
-                <div class="card h-100 border-0 shadow-sm text-center">
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <span class="badge bg-primary rounded-circle p-3" style="font-size: 1.5rem;">5</span>
-                        </div>
-                        <h5 class="card-title fw-bold">Enregistrement</h5>
-                        <p class="card-text text-muted">Cliquer sur <strong>Créer</strong></p>
-                    </div>
-                </div>
+                {% include "partials/cards/step.html" with step="5" title="Enregistrement" description="Cliquer sur Créer" %}
             </div>
 
             <!-- Step 6 -->
             <div class="col-md-6 col-lg-3">
-                <div class="card h-100 border-0 shadow-sm text-center">
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <span class="badge bg-primary rounded-circle p-3" style="font-size: 1.5rem;">6</span>
-                        </div>
-                        <h5 class="card-title fw-bold">Mail de confirmation</h5>
-                        <p class="card-text text-muted">Un mail de confirmation vous sera envoyé</p>
-                    </div>
-                </div>
+                {% include "partials/cards/step.html" with step="6" title="Mail de confirmation" description="Un mail de confirmation vous sera envoyé" %}
             </div>
 
             <!-- Step 7 -->
             <div class="col-md-6 col-lg-3">
-                <div class="card h-100 border-0 shadow-sm text-center">
-                    <div class="card-body">
-                        <div class="mb-3">
-                            <span class="badge bg-primary rounded-circle p-3" style="font-size: 1.5rem;">7</span>
-                        </div>
-                        <h5 class="card-title fw-bold">Traitement</h5>
-                        <p class="card-text text-muted">Le ticket est traité par le service concerné, vous recevrez
-                            un
-                            mail de mise à jour</p>
-                    </div>
-                </div>
+                {% include "partials/cards/step.html" with step="7" title="Traitement" description="Le ticket est traité par le service concerné, vous recevrez un mail de mise à jour" %}
             </div>
         </div>
     </div>

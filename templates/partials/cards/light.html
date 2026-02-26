@@ -1,0 +1,21 @@
+{% extends "partials/cards/base.html" %}
+
+{% block card_classes %}modern-card border-0 mb-5 shadow{% endblock %}
+
+{% block card_title %}
+{% if title %}
+<h4 class="card-title fw-bold mb-3">{{ title }}</h4>
+{% endif %}
+{% endblock %}
+
+{% block card_body %}
+{% if text %}
+<p class="mb-0">{{ text }}</p>
+{% endif %}
+{% endblock %}
+
+{% block card_footer %}
+{% if footer %}
+<p>{{ footer }}</p>
+{% endif %}
+{% endblock %}

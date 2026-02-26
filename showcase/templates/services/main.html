@@ -14,51 +14,47 @@
 
     <!-- Main Services Section -->
     <div class="mb-5">
-        <div class="text-center mb-4">
-            <h2 class="fw-bold">Nos Services Principaux</h2>
-            <div class="mx-auto mt-2"
-                style="width: 60px; height: 4px; background: linear-gradient(to right, #667eea, #764ba2);"></div>
-        </div>
+        {% include "partials/title.html" with title="Nos Services Principaux" %}
 
         <div class="row g-4">
             <!-- Foyer Card -->
             <div class="col-md-6 col-lg-4">
-                {% include "partials/cards/modern.html" with title="Le Foyer" description="Géré par des étudiants bénévoles, un lieu de détente où les cotisants BDE peuvent acheter des collations à prix coûtant, profiter d'animations quotidiennes et participer à des événements organisés en soirée." url="/services/foyer/" %}
+                {% include "services/foyer/preview.html" %}
             </div>
 
             <!-- Prêt de Matériel Card -->
             <div class="col-md-6 col-lg-4">
-                {% include "partials/cards/modern.html" with title="Prêt de Matériel" description="Prêt de matériel aux cotisants sur simple demande de ticket, que ce soit pour un week-end en tente, une raclette entre amis ou un besoin en cours." url="/services/loan/" %}
+                {% include "services/loan/preview.html" %}
             </div>
 
             <!-- Zeshop Card -->
             <div class="col-md-6 col-lg-4">
-                {% include "partials/cards/modern.html" with title="ZeShop" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident hic exercitationem, nemo sunt, explicabo distinctio vero magni delectus necessitatibus alias laudantium cupiditate ipsum voluptatibus dignissimos atque, eos dicta? Quibusdam, sed?" url="/services/zeshop/" %}
+                {% include "services/zeshop/preview.html" %}
             </div>
 
             <!-- Vie de Campus Card -->
             <div class="col-md-6 col-lg-4">
-                {% include "partials/cards/modern.html" with title="Vie de Campus" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident hic exercitationem, nemo sunt, explicabo distinctio vero magni delectus necessitatibus alias laudantium cupiditate ipsum voluptatibus dignissimos atque, eos dicta? Quibusdam, sed?" url="/services/campus/" %}
+                {% include "services/campus/preview.html" %}
             </div>
 
             <!-- Clubs & Associations Card -->
             <div class="col-md-6 col-lg-4">
-                {% include "partials/cards/modern.html" with title="Clubs & Associations" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident hic exercitationem, nemo sunt, explicabo distinctio vero magni delectus necessitatibus alias laudantium cupiditate ipsum voluptatibus dignissimos atque, eos dicta? Quibusdam, sed?" url="/services/clubs/" %}
+                {% include "services/clubs/preview.html" %}
             </div>
 
             <!-- Partenariats Card -->
             <div class="col-md-6 col-lg-4">
-                {% include "partials/cards/modern.html" with title="Partenariats" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident hic exercitationem, nemo sunt, explicabo distinctio vero magni delectus necessitatibus alias laudantium cupiditate ipsum voluptatibus dignissimos atque, eos dicta? Quibusdam, sed?" url="/partners/" %}
+                {% include "partners/preview.html" %}
             </div>
 
             <!-- Trésorerie Card -->
             <div class="col-md-6 col-lg-4">
-                {% include "partials/cards/modern.html" with title="Trésorerie" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident hic exercitationem, nemo sunt, explicabo distinctio vero magni delectus necessitatibus alias laudantium cupiditate ipsum voluptatibus dignissimos atque, eos dicta? Quibusdam, sed?" url="/services/treasury/" %}
+                {% include "services/treasury/preview.html" %}
             </div>
 
             <!-- Communication Card -->
             <div class="col-md-6 col-lg-4">
-                {% include "partials/cards/modern.html" with title="Communication" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident hic exercitationem, nemo sunt, explicabo distinctio vero magni delectus necessitatibus alias laudantium cupiditate ipsum voluptatibus dignissimos atque, eos dicta? Quibusdam, sed?" url="/services/communication/" %}
+                {% include "services/communication/preview.html" %}
             </div>
         </div>
     </div>

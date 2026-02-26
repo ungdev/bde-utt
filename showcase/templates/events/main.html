@@ -14,26 +14,22 @@
 
     <!-- Main Events Section -->
     <div class="mb-5">
-        <div class="text-center mb-4">
-            <h2 class="fw-bold">Nos Événements Phares</h2>
-            <div class="mx-auto mt-2"
-                style="width: 60px; height: 4px; background: linear-gradient(to right, #667eea, #764ba2);"></div>
-        </div>
+        {% include "partials/title.html" with title="Nos évènements phares" %}
 
         <div class="row g-4">
             <!-- Intégration Card -->
             <div class="col-md-6 col-lg-4">
-                {% include "partials/cards/modern.html" with title="Intégration" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident hic exercitationem, nemo sunt, explicabo distinctio vero magni delectus necessitatibus alias laudantium cupiditate ipsum voluptatibus dignissimos atque, eos dicta? Quibusdam, sed?" url="/events/integration/" %}
+                {% include "events/integration/preview.html" %}
             </div>
 
             <!-- R2D Card -->
             <div class="col-md-6 col-lg-4">
-                {% include "partials/cards/modern.html" with title="R2D" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident hic exercitationem, nemo sunt, explicabo distinctio vero magni delectus necessitatibus alias laudantium cupiditate ipsum voluptatibus dignissimos atque, eos dicta? Quibusdam, sed?" url="/events/r2d/" %}
+                {% include "events/r2d/preview.html" %}
             </div>
 
             <!-- SDF Card -->
             <div class="col-md-6 col-lg-4">
-                {% include "partials/cards/modern.html" with title="Soirée des Finaux" description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident hic exercitationem, nemo sunt, explicabo distinctio vero magni delectus necessitatibus alias laudantium cupiditate ipsum voluptatibus dignissimos atque, eos dicta? Quibusdam, sed?" url="/events/sdf/" %}
+                {% include "events/sdf/preview.html" %}
             </div>
         </div>
     </div>
