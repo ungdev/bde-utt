@@ -13,30 +13,16 @@
         Téléphones
     </h6>
     <div class="d-flex flex-column gap-2">
+        {% for phone in bde_phones %}
         <div>
-            <small class="text-muted">Bureau des Etudiants</small>
+            <small class="text-muted">{{ phone.name }}</small>
             <div>
-                <a href="tel:+33325717674" class="text-decoration-none fw-bold">
-                    +33 3 25 71 76 74
+                <a href="tel:{{ phone.phone_number }}" class="text-decoration-none fw-bold">
+                    {{ phone.phone_number }}
                 </a>
             </div>
         </div>
-        <div>
-            <small class="text-muted">Standard Université</small>
-            <div>
-                <a href="tel:+33325717600" class="text-decoration-none fw-bold">
-                    +33 3 25 71 76 00
-                </a>
-            </div>
-        </div>
-        <div>
-            <small class="text-muted">UTT Net Group</small>
-            <div>
-                <a href="tel:+333257178550" class="text-decoration-none fw-bold">
-                    +33 3 25 71 85 50
-                </a>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </div>
 
@@ -45,38 +31,16 @@
         Emails
     </h6>
     <div class="d-flex flex-column gap-2">
+        {% for email in bde_emails %}
         <div>
-            <small class="text-muted">Général</small>
+            <small class="text-muted">{{ email.name }}</small>
             <div>
-                <a href="mailto:bde@utt.fr" class="text-decoration-none fw-bold">
-                    bde@utt.fr
+                <a href="mailto:{{ email.email }}" class="text-decoration-none fw-bold">
+                    {{ email.email }}
                 </a>
             </div>
         </div>
-        <div>
-            <small class="text-muted">Trésorerie</small>
-            <div>
-                <a href="mailto:bde-treso@utt.fr" class="text-decoration-none fw-bold">
-                    bde-treso@utt.fr
-                </a>
-            </div>
-        </div>
-        <div>
-            <small class="text-muted">Clubs & Associations</small>
-            <div>
-                <a href="mailto:bde-clubasso@utt.fr" class="text-decoration-none fw-bold">
-                    bde-clubasso@utt.fr
-                </a>
-            </div>
-        </div>
-        <div>
-            <small class="text-muted">R2D</small>
-            <div>
-                <a href="mailto:bde-r2d@utt.fr" class="text-decoration-none fw-bold">
-                    bde-r2d@utt.fr
-                </a>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 </div>
 {% endblock %}

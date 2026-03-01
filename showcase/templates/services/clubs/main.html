@@ -25,6 +25,14 @@
         <div class="col-lg-8 mx-auto">
             <h2 class="mb-4">Adresses emails utiles</h2>
             <div class="row g-3">
+                {% for contact in useful_contacts %}
+                <div class="col-md-6">
+                    <div class="p-4 bg-light rounded-3">
+                        <h5 class="mb-2">{{ contact.name }}</h5>
+                        <a href="mailto:{{ contact.email }}" class="text-decoration-none">{{ contact.email }}</a>
+                    </div>
+                </div>
+                {% endfor %}
                 <div class="col-md-6">
                     <div class="p-4 bg-light rounded-3">
                         <h5 class="mb-2">Responsable de la Vie Etudiant et de Campus</h5>

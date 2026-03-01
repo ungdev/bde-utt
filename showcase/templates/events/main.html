@@ -35,6 +35,7 @@
     </div>
 
     <!-- Calendar Section -->
+    {% if google_calendar_src %}
     <div class="calendar-gradient p-4 mb-5 shadow-lg" id="calendar">
         <div class="text-center mb-4">
             <h2 class="fw-bold">
@@ -44,11 +45,16 @@
         </div>
         <div class="bg-white rounded-3 overflow-hidden shadow">
             <iframe
-                src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Europe%2FParis&mode=WEEK&showTitle=0&showCalendars=0&showPrint=0&showDate=1&src=Y182MzM0MWQ2YTAyZDdhYzc4MTI3Njc2YWEwODMzNDBhMGNjYzgzMjk0MjEzNmM1NWU0OWIzMGExYmE4N2FlZTU3QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=ZnIuZnJlbmNoI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%237986cb&color=%230b8043"
+                src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Europe%2FParis&mode={{ google_calendar_mode }}&showTitle=0&showCalendars=0&showPrint=0&showDate=1&src={{ google_calendar_src }}&color=%237986cb&color=%230b8043"
                 style="border-width:0;width:100%;height:80vh;" frameborder="0" scrolling="no">
             </iframe>
+            <!-- <iframe
+                src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Europe%2FParis&mode=WEEK&showTitle=0&showCalendars=0&showPrint=0&showDate=1&src=Y182MzM0MWQ2YTAyZDdhYzc4MTI3Njc2YWEwODMzNDBhMGNjYzgzMjk0MjEzNmM1NWU0OWIzMGExYmE4N2FlZTU3QGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&src=ZnIuZnJlbmNoI2hvbGlkYXlAZ3JvdXAudi5jYWxlbmRhci5nb29nbGUuY29t&color=%237986cb&color=%230b8043"
+                style="border-width:0;width:100%;height:80vh;" frameborder="0" scrolling="no">
+            </iframe> -->
         </div>
     </div>
+    {% endif %}
 
     <!-- CTA Section -->
     {% include "partials/cta.html" %}

@@ -28,3 +28,27 @@ class Partner(models.Model):
 
     class Meta:
         ordering = ["order"]
+
+
+class BDEEmail(models.Model):
+    name = models.CharField(max_length=200, unique=True)
+    email = models.EmailField(unique=True)
+
+    def __str__(self):
+        return f"{self.name} - {self.email}"
+
+
+class BDEPhone(models.Model):
+    name = models.CharField(max_length=200, unique=True)
+    phone_number = models.CharField(max_length=20, unique=True)
+
+    def __str__(self):
+        return f"{self.name} - {self.phone_number}"
+
+
+class UsefulContact(models.Model):
+    name = models.CharField(max_length=200, unique=True)
+    email = models.EmailField(unique=True)
+
+    def __str__(self):
+        return self.name

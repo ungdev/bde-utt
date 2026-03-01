@@ -71,6 +71,12 @@ OIDC_RP_SIGN_ALGO=RS256
 OIDC_RP_SCOPES=openid email profile
 ```
 
+## Configuration en DB
+
+Dans la table `Setting`, les paramètres suivants peuvent être renseignés:
+- `google_calendar_src`: lien `src` pour l'iFrame Google Calendar de la page `/events` (affiché si renseigné)
+- `google_calendar_mode`: configuration du mode de l'iFrame Google Calendar de la page `/events` (`WEEK`, `MONTH`...)
+
 ## Démarrage en local (sans Docker)
 
 ### 1) Créer l'environnement Python
