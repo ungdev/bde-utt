@@ -1,0 +1,34 @@
+{% extends "base_with_partners.html" %}
+
+{% block title %}BDE UTT - commissions{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+{% with title="Les commissions" %}
+{% with subtitle="Bénévoles qui œuvrent pour la vie associative" %}
+{% with src="/static/img/membres.jpg" %}
+{% include "partials/heroWithPicture.html" %}
+{% endwith %}{% endwith %}{% endwith %}
+
+<div class="container py-5">
+
+    <!-- Teams Section -->
+    <div class="mb-5">
+        {% include "partials/title.html" with title="Les commissions" %}
+
+        <div class="row g-4">
+            {% for team in teams %}
+            <div class="col-12 col-xl-6">
+                {% include "members/cards/team.html" %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    {% include "partials/cta.html" with title="Envie de rejoindre une commission ?" description="Les commissions évoluent au fil des semestres. Si tu veux t'impliquer dans la vie associative, contacte le BDE pour en savoir plus." %}
+
+</div>
+
+{% endblock %}

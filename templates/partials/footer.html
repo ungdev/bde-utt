@@ -1,48 +1,107 @@
-<footer class="text-center text-lg-start" style="background-color: #1D2C4D;">
-    <div class="container p-4">
-        <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
-                <img src="/static/img/bde.png" alt="Logo BDE UTT" class="mb-3" style="max-width: 120px;">
-                <h5 class="text-uppercase text-light">BDE UTT</h5>
-                <p class="text-light">
-                    © 2025 BDE UTT. Tous droits réservés.
-                </p>
+<footer class="footer-gradient text-white py-5">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Brand Section -->
+            <div class="col-lg-4 col-md-6">
+                <div class="mb-4">
+                    <h5 class="fw-bold mb-3">
+                        BDE UTT
+                    </h5>
+                    <p class="text-white-75 mb-3">
+                        Le Bureau des Étudiants de l'Université de Technologie de Troyes.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <!-- TODO social links -->
+                        <a href="https://www.instagram.com/bdeutt/" class="social-link" aria-label="Instagram"></a>
+                        <a href="https://linktr.ee/combde" class="social-link" aria-label="Linktr.ee"></a>
+                    </div>
+                </div>
             </div>
-            <div class=" col-lg-4 col-md-6 mb-4 mb-md-0">
-                <h5 class="text-uppercase text-light">Contact</h5>
-                <p class="text-light">
-                    Mail:
-                    <a href="mailto:bde@utt.fr">bde@utt.fr</a>
-                    <br>
-                    Tel:
-                    <a href="tel:+33325717674">03 25 71 76 74</a>
-                    <br>
-                    12 rue Marie Curie, 10000 Troyes (bâtiment N)
-                </p>
+
+            <!-- Quick Links -->
+            <div class="col-lg-2 col-md-6">
+                <h6 class="fw-bold mb-3">Navigation</h6>
+                <ul class="list-unstyled footer-links">
+                    <li class="mb-2">
+                        <a href="/" class="text-white-75 text-decoration-none">
+                            Accueil
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="/events" class="text-white-75 text-decoration-none">
+                            Événements
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="/members" class="text-white-75 text-decoration-none">
+                            Membres
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="/partners" class="text-white-75 text-decoration-none">
+                            Partenaires
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
-                <h5 class="text-uppercase text-light">Liens utiles</h5>
-                <ul class="list-unstyled mb-0">
-                    <li>
-                        <a href="/" class="text-light">Accueil</a>
+
+            <!-- Resources -->
+            <div class="col-lg-3 col-md-6">
+                <h6 class="fw-bold mb-3">Ressources</h6>
+                <ul class="list-unstyled footer-links">
+                    <li class="mb-2">
+                        <a href="/legals" class="text-white-75 text-decoration-none">
+                            Mentions légales
+                        </a>
                     </li>
-                    <li>
-                        <a href="/membership" class="text-light">Adhérer</a>
+                    <li class="mb-2">
+                        <a href="/privacy" class="text-white-75 text-decoration-none">
+                            Politique de confidentialité
+                        </a>
                     </li>
-                    <li>
-                        <a href="/contacts" class="text-light">Nous contacter</a>
+                    <li class="mb-2">
+                        <a href="/redirect/admin/" class="text-white-75 text-decoration-none">
+                            Administration
+                        </a>
                     </li>
-                    <li>
-                        <a href="/legal" class="text-light">Mentions légales</a>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div class="col-lg-3 col-md-6">
+                <h6 class="fw-bold mb-3">Contact</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2 text-white-75">
+                        12 Rue Marie Curie, 10000 Troyes
                     </li>
-                    <li>
-                        <a href="/redirect/admin" class="text-light">Espace Admin</a>
+                    <li class="mb-2">
+                        <a href="mailto:bde@utt.fr" class="text-white-75 text-decoration-none">
+                            bde@utt.fr
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="tel:+33325718000" class="text-white-75 text-decoration-none">
+                            +33 3 25 71 80 00
+                        </a>
                     </li>
                 </ul>
             </div>
         </div>
-    </div>
-    <div class="w-100 bg-dark text-center text-light m-0 p-0">
-        <p class="m-0 p-1">Site développé et hébergé par l'association UTT Net Group</p>
+
+        <!-- Footer Bottom -->
+        <hr class="my-4 border-white-25">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                <p class="mb-0 text-white-50 small">
+                    © {{ current_year }} BDE UTT. Tous droits réservés.
+                </p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <p class="mb-0 text-white-50 small">
+                    Développé et hébergé par
+                    <a href="https://ung.utt.fr" class="text-white text-decoration-none fw-bold">UNG</a>
+                </p>
+            </div>
+        </div>
     </div>
 </footer>

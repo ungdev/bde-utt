@@ -1,0 +1,37 @@
+{% extends "base_with_partners.html" %}
+
+{% block title %}BDE UTT - Zeshop{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- Hero Section -->
+    {% with title="Zeshop" %}
+    {% with subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nam, quo facere tempore" %}
+    {% include "partials/hero.html" %}
+    {% endwith %}{% endwith %}
+
+    <!-- Construction Card -->
+    {% include "partials/cards/construction.html" %}
+
+    <p class="text-justify mb-5">
+        Le Zeshop est un service pensé pour les étudiants, qui propose des fournitures à prix coûtant afin de faciliter
+        le quotidien sans alourdir le budget. Vous y trouverez l'essentiel pour les cours : stylos, crayons, classeurs,
+        trieurs, feuilles, cahiers, réglets et d'autres indispensables. L'objectif est simple : permettre à chacun de
+        s'équiper facilement et à moindre coût.
+    </p>
+
+    <p class="text-justify mb-5">
+        Tout se passe directement au rideau : il suffit de venir pendant les horaires d'ouverture pour acheter ce dont
+        vous avez besoin. Les tarifs avantageux sont réservés aux étudiants cotisants, puisque ce service est mis en
+        place par et pour eux. Et si certaines fournitures vous manquent, n'hésitez pas à nous contacter pour nous
+        proposer des idées !
+    </p>
+
+    <!-- CTA Section -->
+    {% include "partials/cta.html" %}
+
+</div>
+
+{% endblock %}

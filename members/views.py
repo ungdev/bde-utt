@@ -1,17 +1,19 @@
 from django.shortcuts import render
-from .models import Team, UserTeam, get_userProfile_from_userTeam
+from django.contrib.auth.models import User
+from .models import Team, UserTeam
 from utils.views import common_data
+from typing import cast
 
 
 def board(request):
-    members = (
+    members_qs = (
         UserTeam.objects.select_related("user")
         .filter(team__name="Bureau")
         .only("user__id", "user__first_name", "user__last_name", "role")
     )
     role_order = UserTeam.ROLES
-    members = sorted(
-        members,
+    members: list[UserTeam] = sorted(
+        members_qs,
         key=lambda m: (
             role_order.index(m.role) if m.role in role_order else len(role_order)
         ),
@@ -25,13 +27,15 @@ def board(request):
 
     return render(
         request,
-        "board.html",
+        "board/main.html",
         {
             **common_data(),
             "members": [
                 {
                     **member.to_template(),
-                    "other_teams": other_teams.filter(user__id=member.user.pk),
+                    "other_teams": other_teams.filter(
+                        user__id=cast(User, member.user).pk
+                    ),
                 }
                 for member in members
             ],
@@ -42,19 +46,25 @@ def board(request):
 def members(request):
 
     teams = Team.objects.exclude(name="Bureau")
-    users_team = UserTeam.objects.exclude(team__name="Bureau").only("user", "role")
+    users_team = UserTeam.objects.exclude(team__name="Bureau").only(
+        "user", "role", "team"
+    )
 
     teams_with_members = [
         {
             **team.to_template(),
-            "members": [ut.to_template() for ut in users_team if ut.team.pk == team.pk],
+            "members": [
+                ut.to_template()
+                for ut in users_team
+                if cast(Team, ut.team).pk == team.pk
+            ],
         }
         for team in teams
     ]
 
     return render(
         request,
-        "members.html",
+        "members/main.html",
         {
             **common_data(),
             "teams": teams_with_members,

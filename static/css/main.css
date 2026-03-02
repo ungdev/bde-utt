@@ -1,0 +1,248 @@
+a {
+    text-decoration: none;
+}
+
+body {
+    position: relative;
+    overflow-x: clip;
+}
+
+body>*:not(.parallax-background) {
+    position: relative;
+    z-index: 1;
+}
+
+nav {
+    z-index: 2 !important;
+}
+
+.parallax-background {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.parallax-logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.085;
+    filter: grayscale(100%) contrast(1.1);
+    transform: translate3d(-200px, -200px, 0);
+    will-change: transform;
+    user-select: none;
+}
+
+@media (max-width: 768px) {
+    .parallax-logo {
+        opacity: 0.06;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .parallax-background {
+        display: none;
+    }
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.width-limited-sm {
+    min-width: 300px;
+    max-width: 500px;
+}
+
+.width-limited-lg {
+    width: max-content;
+    max-width: 100%;
+}
+
+.width-limited-lg p,
+.width-limited-lg .text-container {
+    max-width: 800px;
+    text-align: justify;
+}
+
+.partner-details-card {
+    border-color: #314069;
+}
+
+/* Modern Card Styles */
+.modern-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.modern-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Hero Styles */
+
+.hero-with-picture {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+.text-white-75 {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+@media (max-width: 768px) {
+    .hero-with-picture {
+        min-height: 500px;
+    }
+
+    .hero-with-picture .display-4 {
+        font-size: 1.75rem;
+    }
+}
+
+/* Calendar Styles */
+.calendar-gradient {
+    border-radius: 15px;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+/* CTA Styles */
+.cta {
+    color: white;
+}
+
+/* Partners Styles */
+.partners-section {
+    background: linear-gradient(135deg, #314069 0%, #1e2845 100%);
+}
+
+.partner-card {
+    transition: transform 0.3s ease;
+}
+
+.partner-card:hover {
+    transform: translateY(-5px);
+}
+
+.partner-card .card {
+    transition: box-shadow 0.3s ease;
+}
+
+.partner-card:hover .card {
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3) !important;
+}
+
+.partner-logo-container img {
+    transition: transform 0.3s ease;
+}
+
+.partner-card:hover .partner-logo-container img {
+    transform: scale(1.1);
+}
+
+/* Footer Styles */
+.footer-gradient {
+    background: linear-gradient(135deg, #1e2845 0%, #314069 100%);
+}
+
+.text-white-75 {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.text-white-50 {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.border-white-25 {
+    border-color: rgba(255, 255, 255, 0.25) !important;
+}
+
+.footer-links a {
+    transition: all 0.2s ease;
+}
+
+.footer-links a:hover {
+    color: #fff !important;
+    padding-left: 0.25rem;
+}
+
+.social-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.75);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transform: translateY(-3px);
+}
+
+/* Tickets Styles */
+
+.tickets-card {
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 15px;
+}
+
+.tickets-card .alert {
+    background-color: rgba(13, 110, 253, 0.1);
+    border-left: 4px solid #0d6efd;
+}
+
+/* Common Buttons */
+
+.bg-gradient-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --bs-text-opacity: 1;
+    color: rgba(var(--bs-light-rgb), var(--bs-text-opacity));
+    border: none;
+    background-size: 200% 100%;
+    background-position: left;
+}
+
+.bg-gradient-primary:hover {
+    background-position: right;
+    color: rgba(var(--bs-light-rgb), var(--bs-text-opacity));
+    border: none;
+    box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3) !important;
+}
+
+.bg-gradient-primary.card {
+    transition: background-position 0.6s ease;
+}
+
+.bg-gradient-primary:not(.card) {
+    transition: background-position 0.3s ease;
+}
+
+@media (max-width: 768px) {
+    .tickets-card .text-lg-end {
+        text-align: start !important;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .board-member-card,
+    .partner-details-card {
+        flex-direction: column !important;
+        align-items: center;
+    }
+
+    .board-member-card .card-body,
+    .partner-details-card .card-body {
+        margin-left: 0 !important;
+        margin-top: 1rem;
+    }
+}

@@ -1,0 +1,42 @@
+{% extends "base_with_nav.html" %}
+
+{% block title %}BDE UTT - Partenaires{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- Hero Section -->
+    {% with title="Les Partenaires du BDE" %}
+    {% with subtitle="Découvrez nos partenaires qui soutiennent nos projets et offrent des avantages exclusifs." %}
+    {% include "partials/hero.html" %}
+    {% endwith %}{% endwith %}
+
+    <!-- Why Partnerships Section -->
+    <div class="mb-5">
+        {% include "partials/title.html" with title="Pourquoi des partenariats ?" %}
+
+        {% include "partners/cards/why.html" %}
+    </div>
+
+    <!-- Partners Grid Section -->
+    <div class="mb-5">
+        {% include "partials/title.html" with title="Nos Partenaires" %}
+
+        <div class="row g-4">
+            {% for item in partners_qs %}
+            <div class="col-lg-6">
+                {% include "partners/cards/item.html" %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    {% with title="Intéressé pour devenir partenaire ?" description="Nous cherchons toujours de nouveaux partenaires pour enrichir l'expérience étudiante. N'hésitez pas à nous contacter !" %}
+    {% include "partials/cta.html" %}
+    {% endwith %}
+
+</div>
+
+{% endblock %}

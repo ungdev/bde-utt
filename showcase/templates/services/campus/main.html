@@ -1,0 +1,23 @@
+{% extends "base_with_partners.html" %}
+
+{% block title %}BDE UTT - Campus{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- Hero Section -->
+    {% with title="Campus" %}
+    {% with subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nam, quo facere tempore" %}
+    {% include "partials/hero.html" %}
+    {% endwith %}{% endwith %}
+
+    <!-- Construction Card -->
+    {% include "partials/cards/construction.html" %}
+
+    <!-- CTA Section -->
+    {% include "partials/cta.html" %}
+
+</div>
+
+{% endblock %}

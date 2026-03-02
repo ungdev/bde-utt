@@ -1,5 +1,6 @@
 import os
 from dotenv import load_dotenv
+import secrets
 
 load_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), ".env"))
 
@@ -36,6 +37,23 @@ class EnvConfig:
         return self.get("ALLOWED_HOSTS", "").split(",")
 
     @property
+    def CSRF_TRUSTED_ORIGINS(self) -> list:
+        origins = self.get("CSRF_TRUSTED_ORIGINS", "").split(",")
+        return origins if origins[0] != "" else []
+
+    @property
+    def CSRF_COOKIE_SECURE(self) -> bool:
+        return self.get("CSRF_COOKIE_SECURE", "True") == "True"
+
+    @property
+    def DEV_MODE(self) -> bool:
+        return self.get("DEV_MODE", "False") == "True"
+
+    @property
+    def SESSION_COOKIE_SECURE(self) -> bool:
+        return self.get("SESSION_COOKIE_SECURE", "True") == "True"
+
+    @property
     def ADMIN_URL(self) -> str:
         url = self.get("ADMIN_URL", "admin/")
         if not url.endswith("/"):
@@ -44,15 +62,7 @@ class EnvConfig:
 
     @property
     def SECRET_KEY(self) -> str:
-        return self.get("SECRET_KEY", "")
-
-    @property
-    def SESSION_COOKIE_SECURE(self) -> bool:
-        return self.get("SESSION_COOKIE_SECURE", "True") == "True"
-
-    @property
-    def CSRF_COOKIE_SECURE(self) -> bool:
-        return self.get("CSRF_COOKIE_SECURE", "True") == "True"
+        return self.get("SECRET_KEY", secrets.token_urlsafe(42))
 
     @property
     def DB_NAME(self) -> str:

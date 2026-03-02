@@ -1,0 +1,36 @@
+{% extends "partials/cards/base.html" %}
+
+{% block card_classes %}modern-card h-100 border-0 mb-5 shadow{% endblock %}
+
+{% block card_title %}
+<h4 class="card-title fw-bold mb-3">L'Agenda du Campus</h4>
+{% endblock %}
+
+{% block card_body %}
+<div class="row align-items-center">
+
+    <div class="col-auto">
+        <div class="d-flex flex-column gap-2">
+            <a href="/events#calendar" class="btn btn-light btn-lg bg-gradient-primary px-5 py-3 shadow">
+                Voir l'agenda
+            </a>
+            <a href="#" class="text-secondary small text-center">
+                Copier le lien de l'agenda
+            </a>
+        </div>
+    </div>
+
+    <div class="col">
+        <p class="card-text text-muted text-justify">
+            Restez à jour avec les événements à venir sur le campus de l'UTT.
+            Découvrez les activités, les conférences, les ateliers et bien plus encore
+            organisés par le BDE et nos partenaires. Ne manquez rien de ce qui se passe
+            sur le campus !
+        </p>
+    </div>
+
+</div>
+{% endblock %}
+
+{% block card_footer %}
+{% endblock %}

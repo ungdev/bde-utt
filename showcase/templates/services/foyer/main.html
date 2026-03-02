@@ -1,0 +1,84 @@
+{% extends "base_with_partners.html" %}
+
+{% block title %}BDE UTT - Foyer{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+{% with title="Le Foyer" %}
+{% with subtitle="Lieu convivial animé par des bénévoles, où les cotisants profitent de snacks et boissons, le tout géré par la commission et le Bureau pour les stocks et le planning." %}
+{% with src="/static/img/foyer.png" %}
+{% include "partials/heroWithPicture.html" %}
+{% endwith %}{% endwith %}{% endwith %}
+
+<!-- TODO: Foyer page -->
+<div class="container py-5">
+
+    <!-- Construction Card -->
+    {% include "partials/cards/construction.html" %}
+
+    <!-- About -->
+    <div class="row mb-5">
+        {% include "partials/title.html" with title="Qu'est-ce que le Foyer ?" %}
+        <p class="fs-5 text-justify">
+            Le foyer est un espace convivial où les étudiants peuvent se détendre entre les cours, profiter de
+            canapés et acheter des collations à prix coûtant s'ils sont cotisants BDE. Tenu par des étudiants
+            bénévoles, il est animé chaque jour par des permanenciers qui assurent le bar et peuvent promouvoir
+            leurs clubs ou organiser des activités en soirée comme des afterworks ou barcamps.
+        </p>
+    </div>
+
+    <div class="row mb-5">
+        <div class="col-lg-5 mx-auto">
+            {% include "partials/title.html" with title="Horaires d'ouverture" %}
+            <div class="d-flex justify-content-center align-items-center gap-4">
+                <span class="badge bg-primary fs-3 ">9h30</span>
+                <span class="text-muted">—</span>
+                <span class="badge bg-primary fs-3 ">18h00</span>
+            </div>
+            <p class="text-center mt-3 fs-5 text-justify">
+                Et plus tard lors des nombreux évènements associatifs: Afterworks, Barcamps, Club Bière, Karaoké, etc.
+            </p>
+        </div>
+        <div class="col-lg-1 d-flex justify-content-center">
+            <div style="border-left: 1px solid #dee2e6; height: auto;"></div>
+        </div>
+        <div class="col-lg-5 mx-auto">
+            {% include "partials/title.html" with title="Les viennoiseries" %}
+            <p class="text-center mt-3 fs-5 text-justify">
+                En plus des immuables croissants et pains au chocolat disponibles chaque jour, le foyer propose des
+                viennoiseries spéciales pour égayer vos pauses café: en fonction des jours, vous pourrez trouver
+                Torsade, Chausson aux pommes, Beignet, Pain aux raisins, Suisse...
+            </p>
+        </div>
+    </div>
+
+    <!-- About Card -->
+    {% include "services/foyer/cards/prices.html" %}
+
+    <div class="row mb-5">
+        <div class="col-lg-5 mx-auto">
+            {% include "partials/title.html" with title="La musique" %}
+            <p class="text-center mt-3 fs-5 text-justify">
+                La règle est simple: celui qui tiens la permnanence choisi la musique ! Ambiance conviviale, découvertes
+                musicales. L'occasion d'entendre les albums des groupes de l'UTT !
+            </p>
+        </div>
+        <div class="col-lg-1 d-flex justify-content-center">
+            <div style="border-left: 1px solid #dee2e6; height: auto;"></div>
+        </div>
+        <div class="col-lg-5 mx-auto">
+            {% include "partials/title.html" with title="Le bar" %}
+            <p class="text-center mt-3 fs-5 text-justify">
+                Tenu tout au long des journées par des clubs et associations étudiantes, c'est l'endroit rêvé pour
+                échanger avec eux, discuter de leurs passions, tout en commandant un café, une canette ou un snack !
+            </p>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    {% include "partials/cta.html" %}
+
+</div>
+
+{% endblock %}

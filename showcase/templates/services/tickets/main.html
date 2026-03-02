@@ -1,0 +1,135 @@
+{% extends "base_with_partners.html" %}
+
+{% block title %}BDE UTT - Tickets{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- Hero Section -->
+    {% with title="Plateforme de Tickets" %}
+    {% with subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nam, quo facere tempore" %}
+    {% include "partials/hero.html" %}
+    {% endwith %}{% endwith %}
+
+    <!-- Construction Card -->
+    {% include "partials/cards/construction.html" %}
+
+    <div class="py-5">
+        <h2 class="text-center mb-5 fw-bold">C'est quoi ?</h2>
+
+        <p class="fs-5 text-justify">
+            Afin de centraliser les demandes, nous avons mis en place une plateforme dédiée
+            accessible à l'ensemble des étudiants de l'UTT. Cette plateforme de tickets permet de gérer efficacement les
+            demandes liées à nos services, en assurant un suivi transparent et une communication fluide entre les
+            étudiants et les équipes du BDE. Que ce soit pour demander un prêt de matériel, signaler un problème,
+            proposer un évènement, faire une suggestion ou demander de l'aide, la plateforme de tickets est votre point
+            de contact privilégié pour toutes vos interactions avec le BDE.
+
+            <br><br>
+
+            Techniquement, la plateforme est basée sur Zammad, un logiciel de gestion de tickets open-source et hébergée
+            sur le Système d'Information des Association de l'UTT Net Group. Elle est accessible à l'adresse
+            <a href="https://tickets.uttnetgroup.fr" target="_blank" class="fw-bold">https://tickets.uttnetgroup.fr</a>.
+        </p>
+
+    </div>
+
+    <!-- Platform Opening Steps Section -->
+    <div class="py-5">
+        <h2 class="text-center mb-5 fw-bold">Comment accéder à son compte ?</h2>
+
+        <div class="row g-4">
+            <!-- Step 1 -->
+            <div class="col-md-6 col-lg-3">
+                {% include "partials/cards/step.html" with step="1" cta_label="Accéder à la plateforme" cta_url="https://tickets.uttnetgroup.fr" cta_target="_blank" %}
+            </div>
+
+            <!-- Step 2 -->
+            <div class="col-md-6 col-lg-3">
+                {% include "partials/cards/step.html" with step="2" title="Choix du mode de connexion" description="Sélectionner l'option Connexion avec compte SIA" %}
+            </div>
+
+            <!-- Step 3 -->
+            <div class="col-md-6 col-lg-3">
+                {% include "partials/cards/step.html" with step="3" title="Connexion SIA" description="Entrer vos identifiants SIA" %}
+            </div>
+
+            <!-- Step 4 -->
+            <div class="col-md-6 col-lg-3">
+                {% include "partials/cards/step.html" with step="4" title="Redirection vers la plateforme" description="Vous serez redirigés automatiquement vers la plateforme de tickets" %}
+            </div>
+        </div>
+    </div>
+
+    <!-- SignIn Steps Section -->
+    <div class="py-5">
+        <h2 class="text-center mb-5 fw-bold">Comment créer son compte SIA ?</h2>
+
+        <div class="row g-4">
+            <!-- Step 1 -->
+            <div class="col-md-4 col-lg-4">
+                {% include "partials/cards/step.html" with step="1" cta_label="Accéder au SSO" cta_url="https://links.uttnetgroup.fr/register" cta_target="_blank" %}
+            </div>
+
+            <!-- Step 2 -->
+            <div class="col-md-4 col-lg-4">
+                {% include "partials/cards/step.html" with step="2" title="Créer votre compte SIA" description="Remplir le formulaire d'inscription avec votre adresse email @utt.fr" %}
+            </div>
+
+            <!-- Step 3 -->
+            <div class="col-md-4 col-lg-4">
+                {% include "partials/cards/step.html" with step="3" title="Validation de l'email" description="Vous recevez un email de validation à votre adresse @utt.fr" %}
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Platform Opening Steps Section -->
+    <div class="py-5">
+        <h2 class="text-center mb-5 fw-bold">Comment créer un ticket ?</h2>
+
+        <div class="row g-4">
+            <!-- Step 1 -->
+            <div class="col-md-6 col-lg-3">
+                {% include "partials/cards/step.html" with step="1" title="Appuyer sur le bouton +" description="Il s'agit du bouton + vert en bas à gauche" %}
+            </div>
+
+            <!-- Step 2 -->
+            <div class="col-md-6 col-lg-3">
+                {% include "partials/cards/step.html" with step="2" title="Choisir un groupe" description="Il s'agit du service qui traitera le ticket en fonction du type de demande" %}
+            </div>
+
+            <!-- Step 3 -->
+            <div class="col-md-6 col-lg-3">
+                {% include "partials/cards/step.html" with step="3" title="Remplir les champs" description="Remplir les différents champs requis en fonction du groupe sélectionné" %}
+            </div>
+
+            <!-- Step 4 -->
+            <div class="col-md-6 col-lg-3">
+                {% include "partials/cards/step.html" with step="4" title="Pièces jointes" description="Si nécessaire" %}
+            </div>
+
+            <!-- Step 5 -->
+            <div class="col-md-6 col-lg-3">
+                {% include "partials/cards/step.html" with step="5" title="Enregistrement" description="Cliquer sur Créer" %}
+            </div>
+
+            <!-- Step 6 -->
+            <div class="col-md-6 col-lg-3">
+                {% include "partials/cards/step.html" with step="6" title="Mail de confirmation" description="Un mail de confirmation vous sera envoyé" %}
+            </div>
+
+            <!-- Step 7 -->
+            <div class="col-md-6 col-lg-3">
+                {% include "partials/cards/step.html" with step="7" title="Traitement" description="Le ticket est traité par le service concerné, vous recevrez un mail de mise à jour" %}
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    {% include "partials/cta.html" %}
+
+</div>
+
+{% endblock %}

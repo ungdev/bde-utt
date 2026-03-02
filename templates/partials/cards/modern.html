@@ -1,0 +1,18 @@
+{% extends "partials/cards/base.html" %}
+
+{% block card_classes %}modern-card h-100 border-0 shadow{% endblock %}
+{% block card_body_classes %}d-flex flex-column p-4{% endblock %}
+
+{% block card_title %}
+<h5 class="card-title fw-bold">{{title}}</h5>
+{% endblock %}
+
+{% block card_body %}
+<p class="card-text text-muted flex-grow-1 text-justify">{{description}}</p>
+{% endblock %}
+
+{% block card_footer %}
+<a href="{{url}}" class="btn btn-outline-primary mt-3">
+    Découvrir
+</a>
+{% endblock %}

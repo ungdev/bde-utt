@@ -1,0 +1,39 @@
+{% extends "base_with_partners.html" %}
+
+{% block title %}BDE UTT - Contacts{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- Hero Section -->
+    {% with title="Nous Contacter" %}
+    {% with subtitle="Une question ? Besoin de nous rencontrer ? Nous sommes là pour vous !" %}
+    {% include "partials/hero.html" %}
+    {% endwith %}{% endwith %}
+
+    <!-- Main Contact Section -->
+    <div class="mb-5">
+        {% include "partials/title.html" with title="Nos coordonnées" %}
+
+        <div class="row g-4">
+            <!-- Visit Us Card -->
+            <div class="col-lg-6">
+                {% include "contacts/cards/visit.html" %}
+            </div>
+
+            <!-- Contact Info Card -->
+            <div class="col-lg-6">
+                {% include "contacts/cards/channels.html" with bde_emails=bde_emails bde_phones=bde_phones %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Delivery Info Section -->
+    <div class="mb-5">
+        {% include "contacts/cards/delivery.html" %}
+    </div>
+
+</div>
+
+{% endblock %}

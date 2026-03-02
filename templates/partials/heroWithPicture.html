@@ -1,0 +1,17 @@
+<div class="hero-with-picture position-relative overflow-hidden p-5 mb-5 shadow-lg"
+    style="background-image: url('{{ src }}'); background-size: cover; background-position: center; min-height: 100vh;">
+
+    <!-- Overlay sombre pour la lisibilité du texte -->
+    <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark" style="opacity: 0.5; z-index: 1;"></div>
+
+    <!-- Contenu texte -->
+    <div
+        class="position-absolute top-50 start-50 translate-middle z-2 d-flex flex-column justify-content-center align-items-center">
+        <h1 class="display-2 fw-bold mb-3 text-white">
+            {{ title }}
+        </h1>
+        <p class="lead mb-0 text-white">
+            {{ subtitle }}
+        </p>
+    </div>
+</div>

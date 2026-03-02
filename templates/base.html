@@ -4,20 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
     <title>{% block title %}BDE UTT{% endblock %}</title>
     <link href="/static/css/bootstrap.css" rel="stylesheet">
+    <link href="/static/css/main.css" rel="stylesheet">
     {% block head %}{% endblock %}
 </head>
 
 <body>
+    <div class="parallax-background" aria-hidden="true">
+        <img class="parallax-logo" src="/static/img/bde.png" alt="" data-x="8" data-y="8" data-size="120"
+            data-speed="0.45" data-depth="0.03" data-direction="down" data-drift="24">
+        <img class="parallax-logo" src="/static/img/bde.png" alt="" data-x="40" data-y="48" data-size="75"
+            data-speed="1" data-depth="0.018" data-direction="down" data-drift="15">
+        <img class="parallax-logo" src="/static/img/bde.png" alt="" data-x="72" data-y="88" data-size="95"
+            data-speed="0.7" data-depth="0.022" data-direction="down" data-drift="20">
+    </div>
 
-    {% include "partials/nav.html" %}
+    {% block nav %}{% endblock %}
 
     {% block content %}{% endblock %}
 
-    {% include "partials/partners.html" %}
+    {% block partials %}{% endblock %}
 
     {% include "partials/footer.html" %}
 
     <script src="/static/js/bootstrap.js"></script>
+    <script src="/static/js/parallax.js"></script>
+    {% block script %}{% endblock %}
 </body>

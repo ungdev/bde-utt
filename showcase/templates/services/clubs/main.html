@@ -1,0 +1,70 @@
+{% extends "base_with_partners.html" %}
+
+{% block title %}BDE UTT - Club & Assos{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- Hero Section -->
+    {% with title="Club & Associations" %}
+    {% with subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nam, quo facere tempore" %}
+    {% include "partials/hero.html" %}
+    {% endwith %}{% endwith %}
+
+    <!-- Construction Card -->
+    {% include "partials/cards/construction.html" %}
+
+    {% with title="Plateforme de dépôt d'évènements" %}
+    {% with subject="d'évènement" %}
+    {% include "partials/cards/tickets.html" %}
+    {% endwith %}{% endwith %}
+
+    <!-- Useful Email Addresses Section -->
+    <div class="row mt-5 mb-5">
+        <div class="col-lg-8 mx-auto">
+            <h2 class="mb-4">Adresses emails utiles</h2>
+            <div class="row g-3">
+                {% for contact in useful_contacts %}
+                <div class="col-md-6">
+                    <div class="p-4 bg-light rounded-3">
+                        <h5 class="mb-2">{{ contact.name }}</h5>
+                        <a href="mailto:{{ contact.email }}" class="text-decoration-none">{{ contact.email }}</a>
+                    </div>
+                </div>
+                {% endfor %}
+                <div class="col-md-6">
+                    <div class="p-4 bg-light rounded-3">
+                        <h5 class="mb-2">Responsable de la Vie Etudiant et de Campus</h5>
+                        <a href="mailto:franck.jacquemin@utt.fr"
+                            class="text-decoration-none">franck.jacquemin@utt.fr</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-4 bg-light rounded-3">
+                        <h5 class="mb-2">Direction du Numérique UTT</h5>
+                        <a href="mailto:dnum-support@utt.fr" class="text-decoration-none">dnum-support@utt.fr</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-4 bg-light rounded-3">
+                        <h5 class="mb-2">Service de Santé</h5>
+                        <a href="mailto:infirmerie@utt.fr" class="text-decoration-none">infirmerie@utt.fr</a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="p-4 bg-light rounded-3">
+                        <h5 class="mb-2">Bureau des Etudiants</h5>
+                        <a href="/contacts/" class="text-decoration-none">Accéder à la page de contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    {% include "partials/cta.html" %}
+
+</div>
+
+{% endblock %}

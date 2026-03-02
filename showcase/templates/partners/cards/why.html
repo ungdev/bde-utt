@@ -1,0 +1,32 @@
+{% extends "partials/cards/base.html" %}
+
+{% block card_classes %}modern-card border-0 shadow-lg{% endblock %}
+{% block card_body_classes %}p-5{% endblock %}
+
+{% block card_body %}
+<p class="lead mb-4">
+    Le Bureau Des Étudiants met en place de nombreux partenaires dans deux objectifs principaux :
+</p>
+<div class="row g-4">
+    <div class="col-md-6">
+        <div class="d-flex gap-3">
+            <div>
+                <h5 class="fw-bold mb-2">Avantages & Réductions</h5>
+                <p class="text-muted mb-0">
+                    Obtenir des avantages et réductions exclusives pour les cotisants du BDE
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="d-flex gap-3">
+            <div>
+                <h5 class="fw-bold mb-2">Support Financier</h5>
+                <p class="text-muted mb-0">
+                    Supporter financièrement les actions et événements du BDE
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

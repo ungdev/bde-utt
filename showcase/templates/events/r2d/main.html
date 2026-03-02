@@ -1,0 +1,38 @@
+{% extends "base_with_partners.html" %}
+
+{% block title %}BDE UTT - R2D{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- Hero Section -->
+    {% with title="R2D - Soirée de Remise de Diplôme" %}
+    {% with subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nam, quo facere tempore" %}
+    {% include "partials/hero.html" %}
+    {% endwith %}{% endwith %}
+
+    <!-- Construction Card -->
+    {% include "partials/cards/construction.html" %}
+
+    <p class="text-justify mb-5">
+        La Remise des Diplômés (R2D), organisée par le BDE UTT, est la soirée qui marque la fin du parcours des
+        étudiants à l'UTT. Elle permet aux diplômés de se retrouver une dernière fois dans un cadre différent, plus
+        habillé, pour célébrer la fin de leurs années d'études entourés de leurs amis. C'est un moment à la fois festif
+        et symbolique, qui vient clôturer une étape importante.
+        L'événement est préparé pendant plusieurs mois par une équipe d'étudiants bénévoles. Logistique, sécurité,
+        décoration, restauration, son et lumière ou prévention : tout est organisé en interne, en lien avec
+        l'administration et différents prestataires. Ce travail en amont permet de proposer une soirée structurée et
+        adaptée au nombre important de participants.
+        Le soir venu, les espaces de l'UTT sont aménagés pour accueillir un cocktail, des animations musicales et un
+        temps de fête. La coordination sur place permet de gérer les imprévus et d'accompagner les participants tout au
+        long de la soirée. La R2D reste ainsi un moment simple mais marquant, pensé avant tout pour rassembler une
+        promotion une dernière fois.
+    </p>
+
+    <!-- CTA Section -->
+    {% include "partials/cta.html" %}
+
+</div>
+
+{% endblock %}

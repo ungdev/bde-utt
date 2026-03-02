@@ -1,0 +1,103 @@
+{% extends "base_with_partners.html" %}
+
+{% block title %}BDE UTT - Adhésion{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <!-- Hero Section -->
+    {% with title="Adhésion au BDE UTT" %}
+    {% with subtitle="La cotisation, c'est ta contribution pour faire vivre les événements, les clubs et les services qui rythment l'année à l'UTT." %}
+    {% include "partials/hero.html" %}
+    {% endwith %}{% endwith %}
+
+    <!-- Why Membership Matters -->
+    <div class="mb-5">
+        <div class="text-center mb-4">
+            {% include "partials/title.html" with title="Pourquoi cotiser ?" %}
+            <p class="text-muted mb-0">La cotisation est une participation financière qui te permet de profiter
+                pleinement de la vie étudiante.</p>
+        </div>
+
+        <div class="col-md-6 col-lg-6">
+            {% include "membership/cards/whatfor.html" %}
+        </div>
+
+    </div>
+
+    <!-- Main Advantages -->
+    <div class="text-center mb-4">
+        {% include "partials/title.html" with title="Les avantages de la cotisation" %}
+        <p class="text-muted mb-0">Le principe est simple : ta cotisation permet au BDE de fonctionner, et tu en
+            profites directement toute l'année.</p>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-6 col-lg-4">
+            {% include "partials/cards/light.html" with title="Activité des clubs" text="Tu as accès à l'ensemble des activités organisées par les clubs du BDE." %}
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            {% include "partials/cards/light.html" with title="Réductions étudiantes" text="Tu bénéficies de tarifs réduits sur les soirées, événements et opérations partenaires." %}
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+            {% include "partials/cards/light.html" with title="Services du BDE" text="Tu profites des services du BDE : achats au foyer, prêt de matériel et accès au Zeshop." %}
+        </div>
+    </div>
+
+    <!-- Online Contribution Steps Section -->
+    <div class="row">
+
+        <div class="col-md-6 col-lg-6 mb-5">
+            {% include "partials/title.html" with title="Comment cotiser en ligne ?" %}
+
+            <div class="row g-4">
+                <!-- Step 1 -->
+                <div class="col-md-6 col-lg-6">
+                    {% include "partials/cards/step.html" with step="1" title="Paiement sur le SIEP" description="Sur le siep, dans inscription administrative → paiement des adhésions" cta_label="Accéderer au SIEP" cta_url="https://siep.utt.fr" cta_target="_blank" %}
+                </div>
+
+                <!-- Step 2 -->
+                <div class="col-md-6 col-lg-6">
+                    {% include "partials/cards/step.html" with step="2" title="Mise à jour de ta carte" description="Passe au Rideau chercher ta pastille cotisant du semestre !" %}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 col-lg-6 mb-5">
+            {% include "partials/title.html" with title="Comment cotiser sur place ?" %}
+
+            <div class="row g-4">
+                <!-- Step 1 -->
+                <div class="col-md-6 col-lg-6">
+                    {% include "partials/cards/step.html" with step="1" title="Paiement au Rideau" description="Paiment par carte banquaire." %}
+                </div>
+
+                <!-- Step 2 -->
+                <div class="col-md-6 col-lg-6">
+                    {% include "partials/cards/step.html" with step="2" title="Mise à jour de ta carte" description="Passe au Rideau chercher ta pastille cotisant du semestre !" %}
+                </div>
+            </div>
+        </div>
+
+        <p class="text-center mb-5">
+            <strong>Tu es boursier ?</strong>
+            Penses à apporter une preuve de ton statut pour valider ta réduction.
+        </p>
+
+    </div>
+
+    <!-- Impact Section -->
+    {% include "membership/cards/quote.html" %}
+
+    <!-- CTA Section -->
+    {% with title="Des questions sur la cotisation ?" description="Nous sommes là pour t'aider à comprendre les avantages de ta cotisation. N'hésite pas à nous contacter !" %}
+    {% include "partials/cta.html" %}
+    {% endwith %}
+
+</div>
+
+{% endblock %}

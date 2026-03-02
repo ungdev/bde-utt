@@ -1,4 +1,5 @@
 from showcase.models import Partner
+from datetime import datetime
 import json
 
 
@@ -18,4 +19,5 @@ def common_data():
     return {
         "partners_qs": partners_qs,
         "partners_json": json.dumps(partners_list),
+        "current_year": datetime.now().year,
     }
