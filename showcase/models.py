@@ -5,7 +5,7 @@ from utils.models import picture_upload_to
 
 class Partner(models.Model):
 
-    def _partner_picture_upload_to(instance, filename):
+    def _partner_picture_upload_to(instance, _) -> str:
         return picture_upload_to("partners")
 
     name = models.CharField(max_length=200)

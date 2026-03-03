@@ -17,7 +17,7 @@ class Team(models.Model):
 
 
 class UserProfile(models.Model):
-    def _members_picture_upload_to(instance) -> str:
+    def _members_picture_upload_to(instance, _) -> str:
         return picture_upload_to("members")
 
     user = models.OneToOneField(User, on_delete=models.CASCADE)
