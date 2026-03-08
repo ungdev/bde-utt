@@ -1,15 +1,42 @@
+from __future__ import annotations
+
 from django.db import models
 from django.contrib.auth.models import User
 from django.utils.safestring import mark_safe
 from utils.models import picture_upload_to
-from typing import cast
+from typing import Literal, TypedDict, cast
+
+
+RoleCode = Literal[
+    "PRESIDENT",
+    "VICE_PRESIDENT",
+    "SECRETARY",
+    "TREASURER",
+    "VICE_TREASURER",
+    "MANAGER",
+    "MEMBER",
+]
+
+
+class TeamTemplate(TypedDict):
+    name: str
+    description: str
+
+
+class UserTeamTemplate(TypedDict):
+    first_name: str
+    last_name: str
+    role: RoleCode
+    role_display: str
+    role_suffix: str
+    profile: "UserProfile | None"
 
 
 class Team(models.Model):
     name: models.CharField = models.CharField(max_length=100)
     description: models.TextField = models.TextField(blank=True)
 
-    def to_template(self) -> dict[str, str]:
+    def to_template(self) -> TeamTemplate:
         return {"name": self.name, "description": self.description}
 
     def __str__(self) -> str:
@@ -27,6 +54,7 @@ class UserProfile(models.Model):
     )
 
     description: models.TextField = models.TextField(blank=True)
+    feminine_role: models.BooleanField = models.BooleanField(default=False)
 
     @property
     def picture_url(self) -> str:
@@ -39,11 +67,19 @@ class UserProfile(models.Model):
 
 class UserTeam(models.Model):
 
-    ROLES = [
+    FEMINIZABLE_ROLES: set[RoleCode] = {
+        "PRESIDENT",
+        "VICE_PRESIDENT",
+        "TREASURER",
+        "VICE_TREASURER",
+    }
+
+    ROLES: list[tuple[RoleCode, str]] = [
         ("PRESIDENT", "Président"),
+        ("TREASURER", "Trésorier"),
+        ("VICE_TREASURER", "Vice-Trésorier"),
         ("VICE_PRESIDENT", "Vice-Président"),
         ("SECRETARY", "Secrétaire"),
-        ("TREASURER", "Trésorier"),
         ("MANAGER", "Responsable"),
         ("MEMBER", "Membre"),
     ]
@@ -60,13 +96,28 @@ class UserTeam(models.Model):
     def role_display(self) -> str:
         return dict(self.ROLES).get(self.role, "Unknown")
 
-    def to_template(self) -> dict[str, object | None]:
+    def role_suffix(self, profile: UserProfile | None) -> str:
+        print(f"Feminizable roles: {self.FEMINIZABLE_ROLES}")
+        print(f"Is role feminizable? {self.role in self.FEMINIZABLE_ROLES}")
+        print(
+            f"Is profile feminine? {profile.feminine_role if profile else 'No profile'}"
+        )
+        if profile and profile.feminine_role and self.role in self.FEMINIZABLE_ROLES:
+            print("Using feminine role suffix.")
+            return "e"
+        print("Using no role suffix.")
+        return ""
+
+    def to_template(self) -> UserTeamTemplate:
         user = cast(User, self.user)
+        profile = get_userProfile_from_userTeam(self)
         return {
             "first_name": user.first_name,
             "last_name": user.last_name,
+            "role": self.role,
             "role_display": self.role_display,
-            "profile": get_userProfile_from_userTeam(self),
+            "role_suffix": self.role_suffix(profile),
+            "profile": profile,
         }
 
     def __str__(self) -> str:

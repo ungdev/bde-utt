@@ -1,8 +1,12 @@
 from django.shortcuts import render
 from django.contrib.auth.models import User
-from .models import Team, UserTeam
+from .models import RoleCode, Team, TeamTemplate, UserTeam, UserTeamTemplate
 from utils.views import common_data
-from typing import cast
+from typing import TypedDict, cast
+
+
+class TeamWithMembersTemplate(TeamTemplate):
+    members: list[UserTeamTemplate]
 
 
 def board(request):
@@ -11,11 +15,12 @@ def board(request):
         .filter(team__name="Bureau")
         .only("user__id", "user__first_name", "user__last_name", "role")
     )
-    role_order = UserTeam.ROLES
+    role_order: list[RoleCode] = [role for role, _ in UserTeam.ROLES]
     members: list[UserTeam] = sorted(
         members_qs,
         key=lambda m: (
-            role_order.index(m.role) if m.role in role_order else len(role_order)
+            role_order.index(m.role) if m.role in role_order else len(role_order),
+            cast(User, m.user).last_name,
         ),
     )
 
@@ -50,17 +55,28 @@ def members(request):
         "user", "role", "team"
     )
 
-    teams_with_members = [
-        {
-            **team.to_template(),
-            "members": [
-                ut.to_template()
-                for ut in users_team
-                if cast(Team, ut.team).pk == team.pk
-            ],
-        }
-        for team in teams
-    ]
+    role_order: list[RoleCode] = [role for role, _ in UserTeam.ROLES]
+
+    teams_with_members: list[TeamWithMembersTemplate] = sorted(
+        [
+            {
+                **team.to_template(),
+                "members": sorted(
+                    [
+                        ut.to_template()
+                        for ut in users_team
+                        if cast(Team, ut.team).pk == team.pk
+                    ],
+                    key=lambda m: (
+                        role_order.index(m["role"]),
+                        m["last_name"].lower(),
+                    ),
+                ),
+            }
+            for team in teams
+        ],
+        key=lambda t: t["name"].lower(),
+    )
 
     return render(
         request,
