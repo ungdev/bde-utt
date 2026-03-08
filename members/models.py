@@ -97,15 +97,8 @@ class UserTeam(models.Model):
         return dict(self.ROLES).get(self.role, "Unknown")
 
     def role_suffix(self, profile: UserProfile | None) -> str:
-        print(f"Feminizable roles: {self.FEMINIZABLE_ROLES}")
-        print(f"Is role feminizable? {self.role in self.FEMINIZABLE_ROLES}")
-        print(
-            f"Is profile feminine? {profile.feminine_role if profile else 'No profile'}"
-        )
         if profile and profile.feminine_role and self.role in self.FEMINIZABLE_ROLES:
-            print("Using feminine role suffix.")
             return "e"
-        print("Using no role suffix.")
         return ""
 
     def to_template(self) -> UserTeamTemplate:
