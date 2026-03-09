@@ -16,7 +16,7 @@
     {% include "partials/cards/construction.html" %}
 
     <div class="py-5">
-        <h2 class="text-center mb-5 fw-bold">C'est quoi ?</h2>
+        {% include "partials/title.html" with title="C'est quoi ?" %}
 
         <p class="fs-5 text-justify">
             Afin de centraliser les demandes, nous avons mis en place une plateforme dédiée
@@ -29,7 +29,7 @@
             <br><br>
 
             Techniquement, la plateforme est basée sur Zammad, un logiciel de gestion de tickets open-source et hébergée
-            sur le Système d'Information des Association de l'UTT Net Group. Elle est accessible à l'adresse
+            sur le Système d'Information des Associations de l'UTT Net Group. Elle est accessible à l'adresse
             <a href="https://tickets.uttnetgroup.fr" target="_blank" class="fw-bold">https://tickets.uttnetgroup.fr</a>.
         </p>
 
@@ -39,33 +39,41 @@
     <!-- Description types de tickets -->
 
     <div class="py-5">
-        <h2 class="text-center mb-5 fw-bold">Quels types de tickets ?</h2>
+        {% include "partials/title.html" with title="Quels types de tickets ?" %}
 
-        <p class="fs-5 text-justify">
+        <div class="fs-5 text-justify">
+            <dl>
+                <dt>Tickets Notification d'évènements</dt>
+                <dd>
+                    <b>Obligatoire</b> pour tous les évènements organisés par les clubs et associations, permet également de réserver des salles / des amphis.<br>
+                    Délais : Déposer le ticket avant le mercredi précédant la semaine de diffusion.
+                </dd>
 
-            Tickets Notification d'évènements : <b>Obligatoire</b> pour tous les évènements organisés par les clubs et associations, permet également de réserver des salles / des amphis
-            Delais : Déposer le ticket avant le mercredi précédant la semaine de diffusion
+                <dt>Tickets Prêt de matériel</dt>
+                <dd>
+                    Pour emprunter du matériel appartenant au BDE, comme des crêpières, du matériel électronique, etc.<br>
+                    Délais : Déposer le ticket au moins 48h avant.
+                </dd>
 
-            <br>
+                <dt>Tickets Trésorerie</dt>
+                <dd>
+                    Pour toutes demandes relatives à de l'argent, comme une demande de remboursement, une demande de subvention, etc.<br>
+                    Délais : Déposer le ticket au moins 48h avant.
+                </dd>
 
-            Tickets Prêt de matériel : pour emprunter du matériel appartenant au BDE, comme des crèpieres, du matériel électronique, etc.
-            Delais : Déposer le ticket au moins 48h avant
+                <dt>Tickets Communication</dt>
+                <dd>
+                    Pour toutes demandes d'affichage sur les écrans, de passage dans les act'UTT.<br>
+                    Délais : Déposer le ticket avant le mercredi précédant la semaine de diffusion.
+                </dd>
 
-            <br>
-
-            Tickets Trésorerie : pour toutes demandes relatives à de l'argent, comme une demande de remboursement, une demande de subvention, etc.
-            Delais : Déposer le ticket au moins 48h avant
-
-            <br>
-
-            Tickets Communication : Pour toutes demandes d'affichage sur les écrans, de passage dans les act'UTT
-            Delais : Déposer le ticket avant le mercredi précédant la semaine de diffusion
-
-            <br>
-
-            Tickets Faders son et Lumières : pour toutes demande relatives à la sonorisation et l'éclairage d'évènements
-            Delais : Déposer le ticket au moins 1 semaine avant
-        </p>
+                <dt>Tickets Faders son et Lumières</dt>
+                <dd>
+                    Pour toute demande relative à la sonorisation et l'éclairage d'évènements.<br>
+                    Délais : Déposer le ticket au moins 1 semaine avant.
+                </dd>
+            </dl>
+        </div>
 
     </div>
 
