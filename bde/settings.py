@@ -14,6 +14,10 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 SESSION_COOKIE_SECURE = env.SESSION_COOKIE_SECURE
 CSRF_COOKIE_SECURE = env.CSRF_COOKIE_SECURE
 
+DEFAULT_SEO_TITLE = "BDE UTT"
+DEFAULT_SEO_DESCRIPTION = "Le site du Bureau des Etudiants de l'UTT : evenements, services, partenariats et vie associative."
+DEFAULT_SEO_IMAGE = "/static/img/bde.png"
+
 if env.CSRF_TRUSTED_ORIGINS:
     CSRF_TRUSTED_ORIGINS = env.CSRF_TRUSTED_ORIGINS
 
@@ -24,6 +28,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sitemaps",
     "mozilla_django_oidc",
     "core",
     "members",

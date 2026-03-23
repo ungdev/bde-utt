@@ -5,7 +5,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
-    <title>{% block title %}BDE UTT{% endblock %}</title>
+    <title>{% if seo_title %}{{ seo_title }}{% else %}{% block title %}BDE UTT{% endblock %}{% endif %}</title>
+    <meta name="description" content="{{ seo_description }}">
+    <meta name="robots" content="index, follow">
+    {% if seo_canonical_url %}
+    <link rel="canonical" href="{{ seo_canonical_url }}">
+    {% endif %}
+
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:site_name" content="BDE UTT">
+    <meta property="og:type" content="{{ seo_og_type }}">
+    <meta property="og:title" content="{{ seo_og_title }}">
+    <meta property="og:description" content="{{ seo_og_description }}">
+    {% if seo_og_url %}
+    <meta property="og:url" content="{{ seo_og_url }}">
+    {% endif %}
+    {% if seo_og_image %}
+    <meta property="og:image" content="{{ seo_og_image }}">
+    {% endif %}
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ seo_og_title }}">
+    <meta name="twitter:description" content="{{ seo_og_description }}">
+    {% if seo_og_image %}
+    <meta name="twitter:image" content="{{ seo_og_image }}">
+    {% endif %}
+
     <link href="/static/css/bootstrap.css" rel="stylesheet">
     <link href="/static/css/main.css" rel="stylesheet">
     {% block head %}{% endblock %}

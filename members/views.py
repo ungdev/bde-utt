@@ -34,7 +34,13 @@ def board(request):
         request,
         "board/main.html",
         {
-            **common_data(),
+            **common_data(
+                request,
+                seo={
+                    "title": "BDE UTT | Bureau",
+                    "description": "Decouvrez les membres du bureau du BDE UTT et leurs roles.",
+                },
+            ),
             "members": [
                 {
                     **member.to_template(),
@@ -82,7 +88,13 @@ def members(request):
         request,
         "members/main.html",
         {
-            **common_data(),
+            **common_data(
+                request,
+                seo={
+                    "title": "BDE UTT | Commissions",
+                    "description": "Retrouvez les commissions du BDE UTT et les membres qui les composent.",
+                },
+            ),
             "teams": teams_with_members,
         },
     )

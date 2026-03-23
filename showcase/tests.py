@@ -89,6 +89,14 @@ class ShowcaseViewsTest(TestCase):
         self.assertIn("partners_qs", response.context)
         self.assertIn("partners_json", response.context)
         self.assertIn("current_year", response.context)
+        self.assertIn("seo_title", response.context)
+        self.assertIn("seo_description", response.context)
+        self.assertIn("seo_canonical_url", response.context)
+        self.assertIn("seo_og_title", response.context)
+        self.assertIn("seo_og_description", response.context)
+        self.assertIn("seo_og_type", response.context)
+        self.assertIn("seo_og_url", response.context)
+        self.assertIn("seo_og_image", response.context)
 
         partners_qs = response.context["partners_qs"]
         self.assertEqual(
@@ -99,6 +107,9 @@ class ShowcaseViewsTest(TestCase):
         self.assertIn("Enabled A", partners_json)
         self.assertIn("Enabled B", partners_json)
         self.assertNotIn("Disabled", partners_json)
+
+        self.assertTrue(response.context["seo_title"])
+        self.assertTrue(response.context["seo_description"])
 
     def test_static_showcase_views_status_template_and_common_data(self):
         routes = [
@@ -138,3 +149,37 @@ class ShowcaseViewsTest(TestCase):
                 self.assertEqual(response.status_code, 200)
                 self.assertTemplateUsed(response, template_name)
                 self._assert_common_data(response)
+
+    def test_dynamic_showcase_views_use_specific_seo_metadata(self):
+        cases = [
+            (
+                "/events/integration/",
+                "BDE UTT | Week-end Integration",
+                "Programme, infos pratiques et conseils pour le week-end d'integration organise par le BDE UTT.",
+            ),
+            (
+                "/events/r2d/",
+                "BDE UTT | R2D",
+                "Decouvrez la R2D, un evenement phare du BDE UTT et de la vie etudiante.",
+            ),
+            (
+                "/services/tickets/",
+                "BDE UTT | Plateforme Tickets",
+                "Utilisez la plateforme tickets de l'UNG pour demander un support rapide.",
+            ),
+            (
+                "/services/clubs/",
+                "BDE UTT | Clubs et Assos",
+                "Retrouvez les informations sur la gestion des clubs et associations de l'UTT ainsi que les contacts utiles proposes par le BDE.",
+            ),
+        ]
+
+        for url, expected_title, expected_description in cases:
+            with self.subTest(url=url):
+                response = self.client.get(url)
+                self.assertEqual(response.status_code, 200)
+                self.assertEqual(response.context["seo_title"], expected_title)
+                self.assertEqual(
+                    response.context["seo_description"],
+                    expected_description,
+                )
