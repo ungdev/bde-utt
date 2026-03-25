@@ -1,0 +1,18 @@
+repos:
+  - repo: local
+    hooks:
+      - id: django-migrations-check
+        name: Check Django migrations
+        entry: .venv/bin/python manage.py makemigrations --check --dry-run
+        language: system
+        pass_filenames: false
+      - id: django-tests
+        name: Run Django tests
+        entry: .venv/bin/python manage.py test --no-input
+        language: system
+        pass_filenames: false
+      - id: lint
+        name: Run linters
+        entry: .venv/bin/python -m mypy --config-file mypy.ini .
+        language: system
+        pass_filenames: false

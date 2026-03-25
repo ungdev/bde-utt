@@ -29,6 +29,15 @@ class CustomOIDCBackend(OIDCAuthenticationBackend):
         logger.warning("OIDC claims 'groups' has unsupported type: %s", type(groups))
         return []
 
+    @staticmethod
+    def _claims_context(claims):
+        return {
+            "sub": claims.get("sub"),
+            "preferred_username": claims.get("preferred_username"),
+            "email": claims.get("email"),
+            "name": claims.get("name"),
+        }
+
     # Synchronize Django access flags and group membership from OIDC claims.
     # Rules:
     # - superuser comes only from OIDC_SUPERUSER_GROUP
