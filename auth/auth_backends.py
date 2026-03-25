@@ -84,9 +84,11 @@ class CustomOIDCBackend(OIDCAuthenticationBackend):
 
     # First login path: create local user, then apply profile and access sync.
     def create_user(self, claims):
-        user = super().create_user(claims)
+        logger.debug("OIDC create_user start: %s", self._claims_context(claims))
+        try:
+            user = super().create_user(claims)
 
-        name = claims.get("name", user.username)
+            name = claims.get("name", user.username)
 
         # Sync identity fields from OIDC claims.
         user.username = claims.get("preferred_username", user.username)
@@ -96,11 +98,23 @@ class CustomOIDCBackend(OIDCAuthenticationBackend):
         self._sync_oidc_access(user, claims)
         user.save()
 
-        return user
+            logger.info("OIDC create_user success for username=%s", user.username)
+            return user
+        except Exception:
+            logger.exception(
+                "OIDC create_user failed: %s", self._claims_context(claims)
+            )
+            raise
 
     # Subsequent logins: refresh profile and access rules from OIDC.
     def update_user(self, user, claims):
-        name = claims.get("name", user.username)
+        logger.debug(
+            "OIDC update_user start for username=%s claims=%s",
+            user.username,
+            self._claims_context(claims),
+        )
+        try:
+            name = claims.get("name", user.username)
 
         # Sync identity fields from OIDC claims.
         user.username = claims.get("preferred_username", user.username)
@@ -110,4 +124,12 @@ class CustomOIDCBackend(OIDCAuthenticationBackend):
         self._sync_oidc_access(user, claims)
         user.save()
 
-        return user
+            logger.info("OIDC update_user success for username=%s", user.username)
+            return user
+        except Exception:
+            logger.exception(
+                "OIDC update_user failed for username=%s claims=%s",
+                user.username,
+                self._claims_context(claims),
+            )
+            raise

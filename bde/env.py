@@ -127,3 +127,15 @@ class EnvConfig:
     @property
     def OIDC_EDITOR_DJANGO_GROUP(self) -> str:
         return self.get("OIDC_EDITOR_DJANGO_GROUP", "")
+      
+    @property
+    def DJANGO_LOG_LEVEL(self) -> str:
+        return self.get("DJANGO_LOG_LEVEL", "INFO")
+
+    @property
+    def OIDC_LOG_LEVEL(self) -> str:
+        return self.get("OIDC_LOG_LEVEL", "DEBUG")
+
+    @property
+    def GUNICORN_LOG_LEVEL(self) -> str:
+        return self.get("GUNICORN_LOG_LEVEL", "debug")
