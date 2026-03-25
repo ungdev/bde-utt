@@ -83,20 +83,17 @@ class CustomOIDCBackend(OIDCAuthenticationBackend):
             user.groups.remove(django_editor_group)
 
     # First login path: create local user, then apply profile and access sync.
-    def create_user(self, claims):
-        logger.debug("OIDC create_user start: %s", self._claims_context(claims))
-        try:
+    try:
             user = super().create_user(claims)
 
             name = claims.get("name", user.username)
 
-        # Sync identity fields from OIDC claims.
-        user.username = claims.get("preferred_username", user.username)
-        user.first_name = name.split(" ")[0] if " " in name else name
-        user.last_name = " ".join(name.split(" ")[1:]) if " " in name else ""
-        user.email = claims.get("email", "")
-        self._sync_oidc_access(user, claims)
-        user.save()
+            user.username = claims.get("preferred_username", user.username)
+            user.first_name = name.split(" ")[0] if " " in name else name
+            user.last_name = " ".join(name.split(" ")[1:]) if " " in name else ""
+            user.email = claims.get("email", "")
+            self._sync_oidc_access(user, claims)
+            user.save()
 
             logger.info("OIDC create_user success for username=%s", user.username)
             return user
@@ -116,13 +113,12 @@ class CustomOIDCBackend(OIDCAuthenticationBackend):
         try:
             name = claims.get("name", user.username)
 
-        # Sync identity fields from OIDC claims.
-        user.username = claims.get("preferred_username", user.username)
-        user.first_name = name.split(" ")[0] if " " in name else name
-        user.last_name = " ".join(name.split(" ")[1:]) if " " in name else ""
-        user.email = claims.get("email", "")
-        self._sync_oidc_access(user, claims)
-        user.save()
+            user.username = claims.get("preferred_username", user.username)
+            user.first_name = name.split(" ")[0] if " " in name else name
+            user.last_name = " ".join(name.split(" ")[1:]) if " " in name else ""
+            user.email = claims.get("email", "")
+            self._sync_oidc_access(user, claims)
+            user.save()
 
             logger.info("OIDC update_user success for username=%s", user.username)
             return user
