@@ -83,7 +83,9 @@ class CustomOIDCBackend(OIDCAuthenticationBackend):
             user.groups.remove(django_editor_group)
 
     # First login path: create local user, then apply profile and access sync.
-    try:
+    def create_user(self, claims):
+        logger.debug("OIDC create_user start: %s", self._claims_context(claims))
+        try:
             user = super().create_user(claims)
 
             name = claims.get("name", user.username)
