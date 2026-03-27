@@ -157,6 +157,16 @@ mypy .
 docker compose logs -f web
 ```
 
+## Pre-commit
+
+```bash
+# depuis un shell avec le venv actif
+pre-commit install
+pre-commit run --all-files
+```
+
+Les hooks locaux utilisent le Python du projet (`.venv/bin/python`) pour les checks Django et `mypy`.
+
 ## Arborescence principale
 
 - `bde/` : configuration Django (settings, urls, env)

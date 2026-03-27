@@ -51,6 +51,15 @@ nav {
     text-align: justify;
 }
 
+.role-suffix {
+    display: inline-block;
+    width: 1ch;
+}
+
+.role-suffix--hidden {
+    visibility: hidden;
+}
+
 .width-limited-sm {
     min-width: 300px;
     max-width: 500px;

@@ -1,10 +1,12 @@
 from django.contrib import admin
+from django.contrib.sitemaps.views import sitemap
 from django.urls import path, include, re_path
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.static import serve
 
 from bde.env import EnvConfig
+from bde.sitemaps import sitemaps
 
 env = EnvConfig()
 ADMIN_URL = env.ADMIN_URL
@@ -21,6 +23,12 @@ urlpatterns = [
         "robots.txt",
         serve,
         {"path": "robots.txt", "document_root": settings.STATIC_ROOT},
+    ),
+    path(
+        "sitemap.xml",
+        sitemap,
+        {"sitemaps": sitemaps},
+        name="django.contrib.sitemaps.views.sitemap",
     ),
     path("sso/", include("mozilla_django_oidc.urls")),
     path(ADMIN_URL, admin.site.urls),

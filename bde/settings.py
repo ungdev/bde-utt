@@ -14,6 +14,10 @@ SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 SESSION_COOKIE_SECURE = env.SESSION_COOKIE_SECURE
 CSRF_COOKIE_SECURE = env.CSRF_COOKIE_SECURE
 
+DEFAULT_SEO_TITLE = "BDE UTT"
+DEFAULT_SEO_DESCRIPTION = "Le site du Bureau des Etudiants de l'UTT : evenements, services, partenariats et vie associative."
+DEFAULT_SEO_IMAGE = "/static/img/bde.png"
+
 if env.CSRF_TRUSTED_ORIGINS:
     CSRF_TRUSTED_ORIGINS = env.CSRF_TRUSTED_ORIGINS
 
@@ -24,6 +28,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "django.contrib.sitemaps",
     "mozilla_django_oidc",
     "core",
     "members",
@@ -59,6 +64,9 @@ OIDC_RP_CLIENT_ID = env.OIDC_RP_CLIENT_ID
 OIDC_RP_CLIENT_SECRET = env.OIDC_RP_CLIENT_SECRET
 OIDC_RP_SIGN_ALGO = env.OIDC_RP_SIGN_ALGO
 OIDC_RP_SCOPES = env.OIDC_RP_SCOPES
+OIDC_SUPERUSER_GROUP = env.OIDC_SUPERUSER_GROUP
+OIDC_EDITOR_GROUP = env.OIDC_EDITOR_GROUP
+OIDC_EDITOR_DJANGO_GROUP = env.OIDC_EDITOR_DJANGO_GROUP
 
 ROOT_URLCONF = "bde.urls"
 
@@ -130,6 +138,46 @@ MEDIA_URL = "/uploads/"
 MEDIA_ROOT = BASE_DIR / "uploads"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {"format": "%(asctime)s %(levelname)s %(name)s %(message)s"},
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "verbose",
+        },
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": env.DJANGO_LOG_LEVEL,
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": env.DJANGO_LOG_LEVEL,
+            "propagate": False,
+        },
+        "django.request": {
+            "handlers": ["console"],
+            "level": "ERROR",
+            "propagate": False,
+        },
+        "mozilla_django_oidc": {
+            "handlers": ["console"],
+            "level": env.OIDC_LOG_LEVEL,
+            "propagate": False,
+        },
+        "auth.auth_backends": {
+            "handlers": ["console"],
+            "level": env.OIDC_LOG_LEVEL,
+            "propagate": False,
+        },
+    },
+}
 
 # Django Browser Reload (for development only)
 if DEBUG:

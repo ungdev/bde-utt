@@ -9,7 +9,8 @@
         alt="{{member.first_name}} {{member.last_name}}" style="width: 72px; height: 72px; object-fit: cover;">
     <div class="d-flex flex-column">
         <h5 class="card-title fw-bold m-0">{{member.first_name}} {{member.last_name}}</h5>
-        <p class="m-0 text-secondary">{{member.role_display}}</p>
+        <p class="m-0 text-secondary">{{ member.role_display }}<span
+                class="role-suffix{% if not member.role_suffix %} role-suffix--hidden{% endif %}">e</span></p>
     </div>
 </div>
 
