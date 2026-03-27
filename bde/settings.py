@@ -59,6 +59,9 @@ OIDC_RP_CLIENT_ID = env.OIDC_RP_CLIENT_ID
 OIDC_RP_CLIENT_SECRET = env.OIDC_RP_CLIENT_SECRET
 OIDC_RP_SIGN_ALGO = env.OIDC_RP_SIGN_ALGO
 OIDC_RP_SCOPES = env.OIDC_RP_SCOPES
+OIDC_SUPERUSER_GROUP = env.OIDC_SUPERUSER_GROUP
+OIDC_EDITOR_GROUP = env.OIDC_EDITOR_GROUP
+OIDC_EDITOR_DJANGO_GROUP = env.OIDC_EDITOR_DJANGO_GROUP
 
 ROOT_URLCONF = "bde.urls"
 
@@ -130,6 +133,46 @@ MEDIA_URL = "/uploads/"
 MEDIA_ROOT = BASE_DIR / "uploads"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+LOGGING = {
+    "version": 1,
+    "disable_existing_loggers": False,
+    "formatters": {
+        "verbose": {"format": "%(asctime)s %(levelname)s %(name)s %(message)s"},
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "verbose",
+        },
+    },
+    "root": {
+        "handlers": ["console"],
+        "level": env.DJANGO_LOG_LEVEL,
+    },
+    "loggers": {
+        "django": {
+            "handlers": ["console"],
+            "level": env.DJANGO_LOG_LEVEL,
+            "propagate": False,
+        },
+        "django.request": {
+            "handlers": ["console"],
+            "level": "ERROR",
+            "propagate": False,
+        },
+        "mozilla_django_oidc": {
+            "handlers": ["console"],
+            "level": env.OIDC_LOG_LEVEL,
+            "propagate": False,
+        },
+        "auth.auth_backends": {
+            "handlers": ["console"],
+            "level": env.OIDC_LOG_LEVEL,
+            "propagate": False,
+        },
+    },
+}
 
 # Django Browser Reload (for development only)
 if DEBUG:
