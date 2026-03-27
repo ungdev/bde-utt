@@ -45,6 +45,10 @@ class MembersBoardViewsTest(TestCase):
         response = self.client.get("/members/board/")
         self.assertIn("partners_qs", response.context)
         self.assertIn("partners_json", response.context)
+        self.assertIn("seo_title", response.context)
+        self.assertIn("seo_description", response.context)
+        self.assertIn("seo_canonical_url", response.context)
+        self.assertIn("seo_og_image", response.context)
 
     def test_members_context(self):
         response = self.client.get("/members/board/")
@@ -117,6 +121,10 @@ class MembersMembersViewTest(TestCase):
         response = self.client.get("/members/")
         self.assertIn("partners_qs", response.context)
         self.assertIn("partners_json", response.context)
+        self.assertIn("seo_title", response.context)
+        self.assertIn("seo_description", response.context)
+        self.assertIn("seo_canonical_url", response.context)
+        self.assertIn("seo_og_image", response.context)
 
     def test_teams_context(self):
         response = self.client.get("/members/")

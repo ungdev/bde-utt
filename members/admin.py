@@ -14,4 +14,4 @@ class UserTeamAdmin(admin.ModelAdmin):
 
 @admin.register(UserProfile)
 class UserProfileAdmin(admin.ModelAdmin):
-    list_display = ("user", "picture", "description")
+    list_display = ("user", "picture", "feminine_role", "description")

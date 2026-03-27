@@ -49,12 +49,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Check for missing migrations
-        run: python manage.py makemigrations --check --dry-run
-
       - name: Wait for MariaDB
         run: |
-          for i in {1..30}; do
+          for i in {1..60}; do
             if mysqladmin ping -h127.0.0.1 -utestuser -ptestpass --silent; then
               echo "MariaDB is up!"
               exit 0
@@ -73,6 +70,15 @@ jobs:
           echo "DB_HOST=127.0.0.1" >> $GITHUB_ENV
           echo "DB_PORT=3306" >> $GITHUB_ENV
           echo "SECRET_KEY=testsecrret" >> $GITHUB_ENV
+
+      - name: Check for missing migrations
+        env:
+          DJANGO_DB_NAME: ${{ env.DB_NAME }}
+          DJANGO_DB_USER: ${{ env.DB_USER }}
+          DJANGO_DB_PASSWORD: ${{ env.DB_PASSWORD }}
+          DJANGO_DB_HOST: ${{ env.DB_HOST }}
+          DJANGO_DB_PORT: ${{ env.DB_PORT }}
+        run: python manage.py makemigrations --check --dry-run
 
       - name: Run Django tests
         env:
