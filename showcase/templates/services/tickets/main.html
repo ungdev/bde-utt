@@ -12,11 +12,8 @@
     {% include "partials/hero.html" %}
     {% endwith %}{% endwith %}
 
-    <!-- Construction Card -->
-    {% include "partials/cards/construction.html" %}
-
     <div class="py-5">
-        <h2 class="text-center mb-5 fw-bold">C'est quoi ?</h2>
+        {% include "partials/title.html" with title="C'est quoi ?" %}
 
         <p class="fs-5 text-justify">
             Afin de centraliser les demandes, nous avons mis en place une plateforme dédiée
@@ -26,13 +23,70 @@
             proposer un évènement, faire une suggestion ou demander de l'aide, la plateforme de tickets est votre point
             de contact privilégié pour toutes vos interactions avec le BDE.
 
-            <br><br><br>
+            <br><br>
 
             Techniquement, la plateforme est basée sur Zammad, un logiciel de gestion de tickets open-source et hébergée
-            sur le Système d'Information des Association de l'UTT Net Group. Elle est accessible à l'adresse
+            sur le Système d'Information des Associations de l'UTT Net Group. Elle est accessible à l'adresse
             <a href="https://tickets.uttnetgroup.fr" target="_blank" class="fw-bold">https://tickets.uttnetgroup.fr</a>.
         </p>
 
+    </div>
+
+    <!-- Description types de tickets -->
+    <div class="py-5">
+        {% include "partials/title.html" with title="Quels types de tickets ?" %}
+
+        <div class="container my-4">
+            <div class="list-group">
+
+                <div class="list-group-item p-3 mb-3 shadow rounded">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <h5 class="mb-1">
+                            🎫 Tickets Notification d'évènements
+                            <span class="badge border border-danger text-danger bg-transparent">Obligatoire</span>
+                        </h5>
+                    </div>
+                    <p class="mb-2">
+                        Pour tous les évènements organisés par les clubs et associations.
+                        Permet également de réserver des salles / amphis.
+                    </p>
+                    <small class="text-muted">⏱ Délais : <b>avant le mercredi de la semaine précédante</b></small>
+                </div>
+
+                <div class="list-group-item p-3 mb-3 shadow rounded">
+                    <h5 class="mb-1">⛺ Tickets Prêt de matériel</h5>
+                    <p class="mb-2">
+                        Pour emprunter du matériel du BDE (crêpières, tente, matériel électrique, etc.).
+                    </p>
+                    <small class="text-muted">⏱ Délais : <b>au moins 48h avant</b></small>
+                </div>
+
+                <div class="list-group-item p-3 mb-3 shadow rounded">
+                    <h5 class="mb-1">💰 Tickets Trésorerie</h5>
+                    <p class="mb-2">
+                        Demandes financières : remboursement, subvention, TPE, etc.
+                    </p>
+                    <small class="text-muted">⏱ Délais : <b>au moins 48h avant</b></small>
+                </div>
+
+                <div class="list-group-item p-3 mb-3 shadow rounded">
+                    <h5 class="mb-1">📢 Tickets Communication</h5>
+                    <p class="mb-2">
+                        Affichage sur écrans, diffusion dans les act'UTT.
+                    </p>
+                    <small class="text-muted">⏱ Délais : <b>avant le mercredi précédant la diffusion</b></small>
+                </div>
+
+                <div class="list-group-item p-3 shadow rounded">
+                    <h5 class="mb-1">🎚️ Tickets Faders Son & Lumières</h5>
+                    <p class="mb-2">
+                        Sonorisation et éclairage des évènements.
+                    </p>
+                    <small class="text-muted">⏱ Délais : <b>au moins 1 semaine avant</b></small>
+                </div>
+
+            </div>
+        </div>
     </div>
 
     <!-- Platform Opening Steps Section -->
