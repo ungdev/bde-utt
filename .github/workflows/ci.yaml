@@ -1,9 +1,9 @@
 name: CI
 on:
   push:
-    branches: [master, dev]
+    branches: [master, dev, test/new-github-runners]
   pull_request:
-    branches: [master, dev]
+    branches: [master, dev, test/new-github-runners]
   workflow_dispatch:
 
 jobs:
