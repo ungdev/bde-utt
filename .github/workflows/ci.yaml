@@ -4,10 +4,11 @@ on:
     branches: [master, dev]
   pull_request:
     branches: [master, dev]
+  workflow_dispatch:
 
 jobs:
   lint:
-    runs-on: self-hosted
+    runs-on: sia-autoscale-runners
     steps:
       - uses: actions/checkout@v4
 
@@ -25,7 +26,7 @@ jobs:
         run: mypy --config-file mypy.ini .
 
   tests:
-    runs-on: self-hosted
+    runs-on: sia-autoscale-runners
     services:
       mariadb:
         image: mariadb:11
@@ -84,7 +85,7 @@ jobs:
         run: python manage.py test --no-input
 
   build:
-    runs-on: self-hosted
+    runs-on: sia-autoscale-runners
     needs:
       - lint
       - tests
@@ -106,7 +107,7 @@ jobs:
 
   deploy:
     if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev'
-    runs-on: self-hosted
+    runs-on: sia-autoscale-runners
     needs:
       - build
     steps:
