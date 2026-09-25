@@ -4,6 +4,8 @@ import json
 from typing import Any
 from django.http import HttpRequest
 from bde.settings import DEFAULT_SEO_TITLE, DEFAULT_SEO_DESCRIPTION, DEFAULT_SEO_IMAGE
+from .page import get_page_infos, get_pages_infos
+from .textareas import get_textareas
 
 
 def _absolute_url(request: HttpRequest | None, path: str) -> str:
@@ -12,19 +14,19 @@ def _absolute_url(request: HttpRequest | None, path: str) -> str:
     return request.build_absolute_uri(path)
 
 
-def build_seo_data(
+def build_page_data(
     request: HttpRequest | None = None,
     seo: dict[str, Any] | None = None,
 ) -> dict[str, str]:
     seo = seo or {}
 
-    title = str(seo.get("title") or DEFAULT_SEO_TITLE)
-    description = str(seo.get("description") or DEFAULT_SEO_DESCRIPTION)
-    canonical_url = str(seo.get("canonical_url") or _absolute_url(request, ""))
-    og_title = str(seo.get("og_title") or title)
-    og_description = str(seo.get("og_description") or description)
-    og_type = str(seo.get("og_type") or "website")
-    og_image = str(seo.get("og_image") or _absolute_url(request, DEFAULT_SEO_IMAGE))
+    title = str(seo.get("seo_title") or DEFAULT_SEO_TITLE)
+    description = str(seo.get("seo_description") or DEFAULT_SEO_DESCRIPTION)
+    canonical_url = str(seo.get("seo_canonical_url") or _absolute_url(request, ""))
+    og_title = str(seo.get("seo_og_title") or title)
+    og_description = str(seo.get("seo_og_description") or description)
+    og_type = str(seo.get("seo_og_type") or "website")
+    og_image = str(seo.get("seo_og_image") or _absolute_url(request, DEFAULT_SEO_IMAGE))
 
     return {
         "seo_title": title,
@@ -35,6 +37,8 @@ def build_seo_data(
         "seo_og_type": og_type,
         "seo_og_url": canonical_url,
         "seo_og_image": og_image,
+        "under_construction": seo.get("under_construction", False),
+        "page": seo.get("page", None),
     }
 
 
@@ -42,6 +46,11 @@ def common_data(
     request: HttpRequest | None = None,
     seo: dict[str, Any] | None = None,
 ):
+
+    page_path = "home" if request and request.path == "/" else request.path.strip("/") if request else ""
+    page_seo = get_page_infos(page_path)
+    page_seo.update(seo or {})
+    page_textareas = get_textareas(page_path) if request else {}
 
     partners_qs = Partner.objects.filter(enable=True).order_by("order")
     partners_list = [
@@ -58,5 +67,7 @@ def common_data(
         "partners_qs": partners_qs,
         "partners_json": json.dumps(partners_list),
         "current_year": datetime.now().year,
-        **build_seo_data(request, seo),
+        **build_page_data(request, page_seo),
+        "content": page_textareas,
+        "pages": get_pages_infos(),
     }

@@ -7,10 +7,15 @@
 <div class="container py-5">
 
     <!-- Hero Section -->
-    {% with title="Les Partenaires du BDE" %}
-    {% with subtitle="Découvrez nos partenaires qui soutiennent nos projets et offrent des avantages exclusifs." %}
+    {% with title=page.title %}
+    {% with subtitle=page.description %}
     {% include "partials/hero.html" %}
     {% endwith %}{% endwith %}
+
+    <!-- Construction Card -->
+    {% if under_construction %}
+    {% include "partials/cards/construction.html" %}
+    {% endif %}
 
     <!-- Why Partnerships Section -->
     <div class="mb-5">

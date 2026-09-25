@@ -14,7 +14,9 @@
 <div class="container py-5">
 
     <!-- Construction Card -->
+    {% if under_construction %}
     {% include "partials/cards/construction.html" %}
+    {% endif %}
 
     <!-- About -->
     <div class="row mb-5">

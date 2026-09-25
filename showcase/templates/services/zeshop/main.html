@@ -13,7 +13,9 @@
     {% endwith %}{% endwith %}
 
     <!-- Construction Card -->
+    {% if under_construction %}
     {% include "partials/cards/construction.html" %}
+    {% endif %}
 
     <p class="text-justify mb-5">
         Le Zeshop est un service pensé pour les étudiants, qui propose des fournitures à prix coûtant afin de faciliter

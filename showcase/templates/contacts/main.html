@@ -12,6 +12,11 @@
     {% include "partials/hero.html" %}
     {% endwith %}{% endwith %}
 
+    <!-- Construction Card -->
+    {% if under_construction %}
+    {% include "partials/cards/construction.html" %}
+    {% endif %}
+
     <!-- Main Contact Section -->
     <div class="mb-5">
         {% include "partials/title.html" with title="Nos coordonnées" %}

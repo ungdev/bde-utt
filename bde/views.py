@@ -22,13 +22,7 @@ def legals(request):
         request,
         "legals.html",
         {
-            **common_data(
-                request,
-                seo={
-                    "title": "BDE UTT | Mentions legales",
-                    "description": "Mentions legales du site du Bureau des Etudiants de l'UTT.",
-                },
-            )
+            **common_data(request)
         },
     )
 
@@ -38,12 +32,6 @@ def privacy(request):
         request,
         "privacy.html",
         {
-            **common_data(
-                request,
-                seo={
-                    "title": "BDE UTT | Politique de confidentialite",
-                    "description": "Politique de confidentialite et traitement des donnees personnelles du site BDE UTT.",
-                },
-            )
+            **common_data(request)
         },
     )

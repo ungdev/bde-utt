@@ -5,13 +5,18 @@
 {% block content %}
 
 <!-- Hero Section -->
-{% with title="Le Bureau" %}
-{% with subtitle="Elus en assemblée générale" %}
+{% with title=page.title %}
+{% with subtitle=page.description %}
 {% with src="/static/img/membres.jpg" %}
 {% include "partials/heroWithPicture.html" %}
 {% endwith %}{% endwith %}{% endwith %}
 
 <div class="container py-5">
+
+    <!-- Construction Card -->
+    {% if under_construction %}
+    {% include "partials/cards/construction.html" %}
+    {% endif %}
 
     <!-- Board Section -->
     <div class="mb-5">

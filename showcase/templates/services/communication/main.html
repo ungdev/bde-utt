@@ -13,7 +13,9 @@
     {% endwith %}{% endwith %}
 
     <!-- Construction Card -->
+    {% if under_construction %}
     {% include "partials/cards/construction.html" %}
+    {% endif %}
 
     <!-- CTA Section -->
     {% include "partials/cta.html" %}
