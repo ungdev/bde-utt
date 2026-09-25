@@ -13,7 +13,9 @@
     {% endwith %}{% endwith %}
 
     <!-- Construction Card -->
+    {% if under_construction %}
     {% include "partials/cards/construction.html" %}
+    {% endif %}
 
     <p class="text-justify mb-5">
         La Remise des Diplômés (R2D), organisée par le BDE UTT, est la soirée qui marque la fin du parcours des

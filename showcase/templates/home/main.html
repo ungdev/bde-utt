@@ -4,8 +4,8 @@
 
 {% block content %}
 
-{% with title="Bienvenue au BDE" %}
-{% with subtitle="Bureau Des Etudiants de l'Université de Technologie de Troyes" %}
+{% with title=page.title %}
+{% with subtitle=page.description %}
 {% with src="/static/img/membres.jpg" %}
 {% include "partials/heroWithPicture.html" %}
 {% endwith %}{% endwith %}{% endwith %}

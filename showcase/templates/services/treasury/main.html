@@ -4,17 +4,24 @@
 
 {% block content %}
 
-<div class="mt-5 pt-3">
-    <div class="text-center mt-5 my-4">
-        <h3>Trésorerie</h3>
-    </div>
+<div class="container py-5">
 
-    <div class="d-flex flex-column align-items-center row-gap-4 p-4 m-auto width-limited-lg">
-        {% with title="Plateforme de contact Trésorerie" %}
-        {% with subject="relatives à la trésorerie" %}
-        {% include "partials/cards/tickets.html" %}
-        {% endwith %}{% endwith %}
-    </div>
+    <!-- Hero Section -->
+    {% with title="Trésorerie" %}
+    {% with subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nam, quo facere tempore" %}
+    {% include "partials/hero.html" %}
+    {% endwith %}{% endwith %}
+
+    <!-- Construction Card -->
+    {% if under_construction %}
+    {% include "partials/cards/construction.html" %}
+    {% endif %}
+
+    <!-- Tickets Section -->
+    {% with title="Plateforme de contact Trésorerie" %}
+    {% with subject="relatives à la trésorerie" %}
+    {% include "partials/cards/tickets.html" %}
+    {% endwith %}{% endwith %}
 </div>
 
 {% endblock %}

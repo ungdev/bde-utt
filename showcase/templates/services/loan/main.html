@@ -12,7 +12,9 @@
     {% endwith %}{% endwith %}
 
     <!-- Construction Card -->
+    {% if under_construction %}
     {% include "partials/cards/construction.html" %}
+    {% endif %}
 
     <p class="text-justify mb-5">
         Le BDE UTT possède du matériel utilisé lors d'évènements ponctuels ou prêté à des associations (UTT ou

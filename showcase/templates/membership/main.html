@@ -12,6 +12,11 @@
     {% include "partials/hero.html" %}
     {% endwith %}{% endwith %}
 
+    <!-- Construction Card -->
+    {% if under_construction %}
+    {% include "partials/cards/construction.html" %}
+    {% endif %}
+
     <!-- Why Membership Matters -->
     <div class="mb-5">
         <div class="text-center mb-4">

@@ -7,27 +7,21 @@
 <div class="container py-5">
 
     <!-- Hero Section -->
-    {% with title="Plateforme de Tickets" %}
-    {% with subtitle="Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam nam, quo facere tempore" %}
+    {% with title=page.title %}
+    {% with subtitle=page.description %}
     {% include "partials/hero.html" %}
     {% endwith %}{% endwith %}
+
+    <!-- Construction Card -->
+    {% if under_construction %}
+    {% include "partials/cards/construction.html" %}
+    {% endif %}
 
     <div class="py-5">
         {% include "partials/title.html" with title="C'est quoi ?" %}
 
         <p class="fs-5 text-justify">
-            Afin de centraliser les demandes, nous avons mis en place une plateforme dédiée
-            accessible à l'ensemble des étudiants de l'UTT. Cette plateforme de tickets permet de gérer efficacement les
-            demandes liées à nos services, en assurant un suivi transparent et une communication fluide entre les
-            étudiants et les équipes du BDE. Que ce soit pour demander un prêt de matériel, signaler un problème,
-            proposer un évènement, faire une suggestion ou demander de l'aide, la plateforme de tickets est votre point
-            de contact privilégié pour toutes vos interactions avec le BDE.
-
-            <br><br>
-
-            Techniquement, la plateforme est basée sur Zammad, un logiciel de gestion de tickets open-source et hébergée
-            sur le Système d'Information des Associations de l'UTT Net Group. Elle est accessible à l'adresse
-            <a href="https://tickets.uttnetgroup.fr" target="_blank" class="fw-bold">https://tickets.uttnetgroup.fr</a>.
+            {{ content.cest_quoi|safe }}
         </p>
 
     </div>
@@ -42,47 +36,62 @@
                 <div class="list-group-item p-3 mb-3 shadow rounded">
                     <div class="d-flex justify-content-between align-items-start">
                         <h5 class="mb-1">
-                            🎫 Tickets Notification d'évènements
+                            {{ content.ticket_category_title_1|safe }}
                             <span class="badge border border-danger text-danger bg-transparent">Obligatoire</span>
                         </h5>
                     </div>
                     <p class="mb-2">
-                        Pour tous les évènements organisés par les clubs et associations.
-                        Permet également de réserver des salles / amphis.
+                        {{ content.ticket_category_description_1|safe }}
                     </p>
-                    <small class="text-muted">⏱ Délais : <b>avant le mercredi de la semaine précédante</b></small>
+                    <small class="text-muted">⏱ Délais : <b>{{ content.ticket_category_deadline_1|safe }}</b></small>
                 </div>
 
                 <div class="list-group-item p-3 mb-3 shadow rounded">
-                    <h5 class="mb-1">⛺ Tickets Prêt de matériel</h5>
+                    <div class="d-flex justify-content-between align-items-start">
+                        <h5 class="mb-1">
+                            {{ content.ticket_category_title_2|safe }}
+                        </h5>
+                    </div>
                     <p class="mb-2">
-                        Pour emprunter du matériel du BDE (crêpières, tente, matériel électrique, etc.).
+                        {{ content.ticket_category_description_2|safe }}
                     </p>
-                    <small class="text-muted">⏱ Délais : <b>au moins 48h avant</b></small>
+                    <small class="text-muted">⏱ Délais : <b>{{ content.ticket_category_deadline_2|safe }}</b></small>
                 </div>
 
                 <div class="list-group-item p-3 mb-3 shadow rounded">
-                    <h5 class="mb-1">💰 Tickets Trésorerie</h5>
+                    <div class="d-flex justify-content-between align-items-start">
+                        <h5 class="mb-1">
+                            {{ content.ticket_category_title_3|safe }}
+                        </h5>
+                    </div>
                     <p class="mb-2">
-                        Demandes financières : remboursement, subvention, TPE, etc.
+                        {{ content.ticket_category_description_3|safe }}
                     </p>
-                    <small class="text-muted">⏱ Délais : <b>au moins 48h avant</b></small>
+                    <small class="text-muted">⏱ Délais : <b>{{ content.ticket_category_deadline_3|safe }}</b></small>
                 </div>
 
                 <div class="list-group-item p-3 mb-3 shadow rounded">
-                    <h5 class="mb-1">📢 Tickets Communication</h5>
+                    <div class="d-flex justify-content-between align-items-start">
+                        <h5 class="mb-1">
+                            {{ content.ticket_category_title_4|safe }}
+                        </h5>
+                    </div>
                     <p class="mb-2">
-                        Affichage sur écrans, diffusion dans les act'UTT.
+                        {{ content.ticket_category_description_4|safe }}
                     </p>
-                    <small class="text-muted">⏱ Délais : <b>avant le mercredi précédant la diffusion</b></small>
+                    <small class="text-muted">⏱ Délais : <b>{{ content.ticket_category_deadline_4|safe }}</b></small>
                 </div>
 
-                <div class="list-group-item p-3 shadow rounded">
-                    <h5 class="mb-1">🎚️ Tickets Faders Son & Lumières</h5>
+                <div class="list-group-item p-3 mb-3 shadow rounded">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <h5 class="mb-1">
+                            {{ content.ticket_category_title_5|safe }}
+                        </h5>
+                    </div>
                     <p class="mb-2">
-                        Sonorisation et éclairage des évènements.
+                        {{ content.ticket_category_description_5|safe }}
                     </p>
-                    <small class="text-muted">⏱ Délais : <b>au moins 1 semaine avant</b></small>
+                    <small class="text-muted">⏱ Délais : <b>{{ content.ticket_category_deadline_5|safe }}</b></small>
                 </div>
 
             </div>

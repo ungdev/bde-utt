@@ -13,7 +13,9 @@
     {% endwith %}{% endwith %}
 
     <!-- Construction Card -->
+    {% if under_construction %}
     {% include "partials/cards/construction.html" %}
+    {% endif %}
 
     {% with title="Plateforme de dépôt d'évènements" %}
     {% with subject="d'évènement" %}
