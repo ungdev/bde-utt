@@ -1,13 +1,14 @@
 name: CI
 on:
   push:
-    branches: [master, dev]
+    branches: [master, dev, test/new-github-runners]
   pull_request:
-    branches: [master, dev]
+    branches: [master, dev, test/new-github-runners]
+  workflow_dispatch:
 
 jobs:
   lint:
-    runs-on: self-hosted
+    runs-on: sia-autoscale-runners
     steps:
       - uses: actions/checkout@v4
 
@@ -25,7 +26,7 @@ jobs:
         run: mypy --config-file mypy.ini .
 
   tests:
-    runs-on: self-hosted
+    runs-on: sia-autoscale-runners
     services:
       mariadb:
         image: mariadb:11
@@ -43,6 +44,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
+      - name: Install MySQL system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pkg-config default-libmysqlclient-dev build-essential
 
       - name: Install dependencies
         run: |
@@ -90,7 +96,7 @@ jobs:
         run: python manage.py test --no-input
 
   build:
-    runs-on: self-hosted
+    runs-on: sia-autoscale-runners
     needs:
       - lint
       - tests
@@ -112,7 +118,7 @@ jobs:
 
   deploy:
     if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev'
-    runs-on: self-hosted
+    runs-on: sia-autoscale-runners
     needs:
       - build
     steps:
